@@ -215,8 +215,8 @@ html, body {
 /* Responsive design */
 @media (max-width: 768px) {
     .central-oval {
-        width: 400px;
-        height: 300px;
+        width: 350px;
+        height: 280px;
     }
     
     .nav-button {
@@ -232,12 +232,39 @@ html, body {
         width: 40px;
         height: 40px;
     }
+    
+    /* Adjust orbit radius for smaller oval */
+    .nav-button.portfolio {
+        animation: orbit-mobile 15s linear infinite;
+        transform: translate(-50%, -50%) rotate(0deg) translateX(120px) rotate(0deg);
+    }
+
+    .nav-button.about {
+        animation: orbit-mobile 15s linear infinite;
+        animation-delay: -5s;
+        transform: translate(-50%, -50%) rotate(120deg) translateX(120px) rotate(-120deg);
+    }
+
+    .nav-button.links {
+        animation: orbit-mobile 15s linear infinite;
+        animation-delay: -10s;
+        transform: translate(-50%, -50%) rotate(240deg) translateX(120px) rotate(-240deg);
+    }
+    
+    @keyframes orbit-mobile {
+        from {
+            transform: translate(-50%, -50%) rotate(0deg) translateX(120px) rotate(0deg);
+        }
+        to {
+            transform: translate(-50%, -50%) rotate(360deg) translateX(120px) rotate(-360deg);
+        }
+    }
 }
 
 @media (max-width: 480px) {
     .central-oval {
-        width: 300px;
-        height: 250px;
+        width: 280px;
+        height: 220px;
     }
     
     .nav-button {
@@ -253,12 +280,32 @@ html, body {
         font-size: 8px;
     }
     
-    /* Stack navigation buttons vertically on mobile */
-    .nav-button.blogs { top: -40px; right: 20px; }
-    .nav-button.essays { top: -10px; right: -60px; }
-    .nav-button.portfolio { bottom: -10px; right: -60px; }
-    .nav-button.design { bottom: -40px; right: 20px; }
-    .nav-button.about { bottom: -40px; left: 20px; }
+    /* Even smaller orbit radius for very small screens */
+    .nav-button.portfolio {
+        animation: orbit-small 15s linear infinite;
+        transform: translate(-50%, -50%) rotate(0deg) translateX(90px) rotate(0deg);
+    }
+
+    .nav-button.about {
+        animation: orbit-small 15s linear infinite;
+        animation-delay: -5s;
+        transform: translate(-50%, -50%) rotate(120deg) translateX(90px) rotate(-120deg);
+    }
+
+    .nav-button.links {
+        animation: orbit-small 15s linear infinite;
+        animation-delay: -10s;
+        transform: translate(-50%, -50%) rotate(240deg) translateX(90px) rotate(-240deg);
+    }
+    
+    @keyframes orbit-small {
+        from {
+            transform: translate(-50%, -50%) rotate(0deg) translateX(90px) rotate(0deg);
+        }
+        to {
+            transform: translate(-50%, -50%) rotate(360deg) translateX(90px) rotate(-360deg);
+        }
+    }
 }
 
 /* Animation for central oval */
