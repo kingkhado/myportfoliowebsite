@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="describe" content="Home">
+    <meta name="author" content="Makhado Khasahne">
+    <meta name="Description" content="index.html">
+    <meta name="keywords" content="Makhado, MJ, Khashane, portfolio, Homepage">
+    
+    <!-- New Ollieloko-inspired styling -->
+    <link rel="stylesheet" href="./Styles/ollieloko-style.css">
+    <link rel="stylesheet" href="./Styles/loading-screen.css">
+    
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Website",
+            "url": "https://wits-digital-arts-interactive-media.github.io/WSOA3028A_2549471",
+            "headline": "Makhado Khashane Portfolio",
+            "author": {
+                "@type": "Person",
+                "name": "Makhado Khashane"
+            }
+        }
+    </script>
+    
+    <title>MAKHADO KHASHANE</title>
+</head>
+<body>
+    <!-- Blue Progress Scroll Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+    
+    <!-- Decorative flower elements -->
+    <div class="flower-decoration flower-1"></div>
+    <div class="flower-decoration flower-2"></div>
+    <div class="flower-decoration flower-3"></div>
+    <div class="flower-decoration flower-4"></div>
+    <div class="flower-decoration flower-5"></div>
+    <div class="flower-decoration flower-6"></div>
+
+    <!-- Site header -->
+    <header class="site-header">
+        <h1 class="site-title">MAKHADO KHASHANE</h1>
+        <p class="site-subtitle">Digital creator, designer, and storyteller exploring the intersection of technology and creativity</p>
+    </header>
+
+    <!-- Main container with central design -->
+    <div class="main-container">
+        <div class="central-oval">
+            <!-- Colorful illustration background -->
+            <div class="illustration-collage"></div>
+            
+            <!-- Navigation buttons positioned around the oval -->
+            <div class="nav-buttons">
+                <a href="./portfolio/portfolio.html" class="nav-button portfolio">PORTFOLIO</a>
+                <a href="./about/about.html" class="nav-button about">ABOUT</a>
+                <a href="./links.html" class="nav-button links">LINKS</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 MAKHADO KHASHANE. All rights reserved.</p>
+        <p style="color: #e74c3c; font-weight: bold; margin-top: 10px;">JESUS LOVES YOU ❤️</p>
+    </footer>
+
+    <!-- Loading screen -->
+    <script src="./Scripts/loading-screen.js"></script>
+    
+    <!-- Scroll to top functionality -->
+    <script src="./Scripts/scrollToTop.js"></script>
+    
+    <!-- Updated JavaScript for new navigation -->
+    <script>
+        // Add hover effects and smooth transitions
+        document.addEventListener('DOMContentLoaded', function() {
+            const navButtons = document.querySelectorAll('.nav-button');
+            const centralOval = document.querySelector('.central-oval');
+            
+            navButtons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    centralOval.style.transform = 'scale(1.05)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    centralOval.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Add click animation
+            navButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'ripple 0.6s linear';
+                    ripple.style.left = '50%';
+                    ripple.style.top = '50%';
+                    ripple.style.width = '20px';
+                    ripple.style.height = '20px';
+                    ripple.style.marginLeft = '-10px';
+                    ripple.style.marginTop = '-10px';
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        });
+        
+        // Add ripple animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Update scroll progress bar
+        function updateScrollProgress() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            document.getElementById('scroll-progress').style.width = scrollPercent + '%';
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', updateScrollProgress);
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', updateScrollProgress);
+    </script>
+</body>
+</html>
