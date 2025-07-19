@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    background-color: #ffcc00; /* Orange background */
+    font-family: 'Press Start 2P', cursive; /* Pixel font */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #add8e6; /* Light blue header */
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px solid #333; /* Dark border */
+}
+
+header h1 {
+    font-size: 2em; /* Larger font size for header */
+    color: #333; /* Darker text color */
+    text-shadow: 2px 2px #ff6600; /* Text shadow for emphasis */
+}
+
+.navBar {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #add8e6; /* Light blue navbar background */
+    border: 2px solid #333; /* Dark border */
+    border-radius: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 1.2em;
+    transition: transform 0.3s, color 0.3s;
+}
+
+nav ul li:hover {
+    transform: scale(1.1);
+    color: #ff6600; /* Dark orange on hover */
+}
+
+nav ul li a {
+    color: #333; /* Dark text color */
+    text-decoration: none;
+}
+
+nav ul li a:visited {
+    color: #333; /* Dark text color */
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+main article {
+    background-color: #add8e6; /* Light blue article background */
+    border: 5px solid #333; /* Dark border */
+    border-radius: 15px;
+    margin: 20px auto 40px; /* Adjusted margin-bottom */
+    padding: 20px;
+    max-width: 1200px; /* Widened text box */
+    box-shadow: 5px 5px #333; /* Dark shadow */
+    text-align: left;
+}
+
+main article header h2 {
+    font-size: 1.5em; /* Larger font size for headings */
+    color: #333; /* Darker text color */
+    margin-bottom: 20px;
+}
+
+main article p {
+    font-size: 1em; /* Default font size for paragraphs */
+    color: #333; /* Darker text color */
+    line-height: 1.6;
+}
+
+main article ol {
+    padding-left: 40px; /* Add padding for ordered list */
+}
+
+main article ol li {
+    margin-bottom: 20px; /* More space between list items */
+}
+
+main article ol li strong {
+    display: block; /* Make strong text block-level for spacing */
+    margin-bottom: 5px;
+}
+
+footer {
+    background-color: #333; /* Dark footer background */
+    color: #add8e6; /* Light text color */
+    text-align: center;
+    padding: 10px;
+    border-top: 5px solid #ff6600; /* Dark border top */
+    position: relative;
+}
+
+.scroll-to-top {
+    position: relative;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #add8e6; /* Light blue button background */
+    color: #333; /* Dark text color */
+    border: 2px solid #333; /* Dark border */
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: 'Press Start 2P', cursive; /* Pixel font for button */
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    margin-top: 20px;
+}
+
+.scroll-to-top:hover {
+    transform: scale(1.1);
+    background-color: #ff6600; /* Dark orange on hover */
+}
+
+a {
+    display: block;
+    margin: 20px auto; /* Center align link with spacing */
+    padding: 10px 20px;
+    background-color: #add8e6; /* Light blue link background */
+    color: #333; /* Dark text color */
+    border: 2px solid #333; /* Dark border */
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive; /* Pixel font for link */
+    font-size: 0.8em; /* Adjusted font size */
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+a:hover {
+    transform: scale(1.1);
+    background-color: #ff6600; /* Dark orange on hover */
+}
+
+button {
+    background-color: #ff6600; /* Dark orange button color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1.2em; /* Larger font size for button text */
+    font-family: 'Press Start 2P', cursive; /* Pixel font for button */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 20px auto; /* Center align button with spacing */
+}
+
+button:hover {
+    background-color: #ffcc00; /* Light orange on hover */
+}
+
+img {
+    margin: 10px; /* Adjust the value as needed for the desired spacing */
+}
+
+a {
+    display: block;
+    margin: 20px auto; /* Center align link with spacing */
+    padding: 10px 20px;
+    background-color: #ff6600; /* Dark orange link color */
+    color: #fff; /* White text color */
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.2em; /* Larger font size for link text */
+    font-family: 'Press Start 2P', cursive; /* Pixel font for link */
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    background-color: #ffcc00; /* Light orange on hover */
+}
+
+.description {
+    background-color: #F50000;
+    padding: 20px;
+    border-radius: 20px;
+    border: 8px solid black; /* Added black border */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+

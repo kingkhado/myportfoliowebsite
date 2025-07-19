@@ -1,0 +1,8 @@
+.cursor-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #000;
+    /* Ill add more styles to customize the icon */
+  }

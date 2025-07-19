@@ -1,0 +1,121 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #98b8ba 0%, #74a5a8 100%);
+    background-size: 400% 400%;
+    animation: backgroundAnimation 20s ease infinite;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Press Start 2P', cursive; /* Pixelated font */
+}
+
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.cartoonBoxContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    height: auto;
+    position: relative;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin-top: 90px;
+    background: url('path-to-pixelated-background.png'); /* Pixelated background pattern */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cartoonBox {
+    background: linear-gradient(135deg, #ffeb3b 0%, #ffcc00 100%);
+    padding: 20px;
+    flex: 1 1 calc(33.333% - 40px);
+    box-sizing: border-box;
+    border: 5px solid #000;
+    box-shadow: 5px 5px 0 #000;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+    image-rendering: pixelated; /* Pixelated rendering */
+}
+
+.cartoonBox::before, .cartoonBox::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    z-index: 1;
+    animation: shine 2s infinite linear;
+    image-rendering: pixelated; /* Pixelated rendering */
+}
+
+.cartoonBox::before {
+    top: -100%;
+    left: 0;
+    transform: skewX(-45deg);
+}
+
+.cartoonBox::after {
+    bottom: -100%;
+    right: 0;
+    transform: skewX(45deg);
+}
+
+@keyframes shine {
+    0% { transform: translateY(0) skewX(-45deg); }
+    100% { transform: translateY(200%) skewX(-45deg); }
+}
+
+.cartoonBox:hover {
+    transform: scale(1.1) rotateY(15deg);
+    box-shadow: 15px 15px 0 #000;
+    background: linear-gradient(135deg, #ffcc00 0%, #ffeb3b 100%);
+}
+
+.cartoonText {
+    font-family: 'Press Start 2P', cursive; /* Pixelated font */
+    color: #000;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    font-size: 1.5em;
+    text-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
+}
+
+@keyframes borderAnim {
+    0% { border-color: #000; }
+    50% { border-color: #ff0000; }
+    100% { border-color: #000; }
+}
+
+.cartoonBox {
+    animation: borderAnim 3s infinite;
+}
+
+@media (max-width: 480px) {
+    .cartoonBoxContainer {
+        flex-direction: column;
+        gap: 20px;
+        height: auto;
+        padding: 20px;
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+        max-width: 1200px;
+        box-sizing: border-box;
+        margin-top: 0px;
+    }
+}
+
+/* Add Google Font link for 'Press Start 2P'  */
+/* <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> */

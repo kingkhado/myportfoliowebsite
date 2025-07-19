@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); 
+
+/* Base Styles */
+body, html {
+    font-family: 'Press Start 2P', cursive; /* Pixelated font */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive Design */
+
+/* Large Screens: 1500x800 */
+@media (max-width: 1500px) {
+    main article {
+        max-width: 1000px;
+    }
+}
+
+/* Medium Screens: 1024x642 */
+@media (max-width: 1024px) {
+    html {
+        font-size: small;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .navBar {
+        padding: 5px;
+    }
+
+    nav ul li {
+        font-size: 1em;
+    }
+
+    main article {
+        max-width: 800px;
+    }
+
+    .scroll-to-top {
+        padding: 5px 10px;
+    }
+
+    a {
+        padding: 5px 10px;
+        font-size: 0.7em;
+    }
+
+    button {
+        padding: 5px 10px;
+        font-size: 1em;
+    }
+
+    .cartoonBoxContainer {
+        flex-direction: column;
+    }
+
+    .cartoonBox {
+        margin-bottom: 20px;
+    }
+}
+
+/* Small Screens: up to 700px */
+@media (max-width: 700px) {
+    html {
+        font-size: smaller;
+    }
+
+    header h1 {
+        font-size: 1.2em;
+    }
+
+    .navBar {
+        padding: 5px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    main article {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .scroll-to-top {
+        padding: 5px 10px;
+    }
+
+    a {
+        padding: 5px 10px;
+        font-size: 0.6em;
+    }
+
+    button {
+        padding: 5px 10px;
+        font-size: 0.8em;
+    }
+
+    .cartoonBoxContainer {
+        flex-direction: column;
+    }
+
+    .cartoonBox {
+        margin-bottom: 20px;
+    }
+}
+
+/* Extra Small Screens: up to 480px */
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1em;
+    }
+
+    .navBar {
+        padding: 5px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    main article {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .scroll-to-top {
+        padding: 5px 10px;
+    }
+
+    a {
+        padding: 5px 10px;
+        font-size: 0.5em;
+    }
+
+    button {
+        padding: 5px 10px;
+        font-size: 0.8em;
+    }
+
+    .cartoonBoxContainer {
+        flex-direction: column;
+    }
+
+    .cartoonBox {
+        margin-bottom: 20px;
+    }
+}

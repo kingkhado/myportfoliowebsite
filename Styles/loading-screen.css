@@ -1,0 +1,182 @@
+/* Loading Screen Styles */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #000 0%, #1a1a2e 50%, #16213e 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Loading Animation - Using Custom GIF */
+.loading-animation {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(74, 144, 226, 0.5);
+    animation: gifGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes gifGlow {
+    0% { 
+        box-shadow: 0 0 30px rgba(74, 144, 226, 0.5);
+        transform: scale(1);
+    }
+    100% { 
+        box-shadow: 0 0 50px rgba(74, 144, 226, 0.8);
+        transform: scale(1.05);
+    }
+}
+
+/* Loading Text */
+.loading-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 18px;
+    color: #4a90e2;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.loading-subtext {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: #6bb6ff;
+    text-align: center;
+    animation: fadeInOut 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* Progress Bar */
+.loading-progress {
+    width: 300px;
+    height: 8px;
+    background: #1a1a2e;
+    border: 2px solid #4a90e2;
+    border-radius: 4px;
+    margin-top: 30px;
+    overflow: hidden;
+    position: relative;
+}
+
+.loading-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #4a90e2, #6bb6ff, #2c5aa0);
+    width: 0%;
+    animation: loadingProgress 3s ease-in-out infinite;
+    border-radius: 2px;
+}
+
+@keyframes loadingProgress {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+}
+
+/* Pixel Art Decorations */
+.pixel-decoration {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #4a90e2;
+    opacity: 0.3;
+}
+
+.pixel-decoration:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation: float 4s ease-in-out infinite;
+}
+
+.pixel-decoration:nth-child(2) {
+    top: 30%;
+    right: 15%;
+    animation: float 4s ease-in-out infinite 1s;
+}
+
+.pixel-decoration:nth-child(3) {
+    bottom: 25%;
+    left: 20%;
+    animation: float 4s ease-in-out infinite 2s;
+}
+
+.pixel-decoration:nth-child(4) {
+    bottom: 35%;
+    right: 10%;
+    animation: float 4s ease-in-out infinite 3s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .loading-text {
+        font-size: 14px;
+    }
+    
+    .loading-subtext {
+        font-size: 8px;
+    }
+    
+    .loading-animation {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .loading-progress {
+        width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .loading-text {
+        font-size: 12px;
+    }
+    
+    .loading-subtext {
+        font-size: 7px;
+    }
+    
+    .loading-animation {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .loading-progress {
+        width: 200px;
+    }
+}

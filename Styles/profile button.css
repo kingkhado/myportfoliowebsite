@@ -1,0 +1,60 @@
+/* Container to center the buttons */
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Center horizontally towards right */
+    align-items: center; /* Center vertically, optional */
+    height: 100vh; /* Adjust height as needed */
+}
+
+/* Original button styling */
+button {
+    background-color: #ff6600;
+    color: #fff;
+    border: 2px solid #000;
+    padding: 10px 20px; /* Default padding */
+    font-size: 1.2em;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 25%; /* Make button full width */
+    box-sizing: border-box;
+    border: 5px solid #000; /* Black border for cartoon outline */
+    box-shadow: 5px 5px 0 #000; /* Shadow effect for a cartoon look */
+    margin: 10px; /* Optional margin */
+}
+
+button:hover {
+    background-color: #ffcc00;
+    border-color: #000;
+}
+
+/* Styling for the arrow buttons */
+.arrow-button {
+    width: 80px; /* Set width of button */
+    height: 80px; /* Set height of button */
+    padding: 0; /* Remove padding */
+    border: 2px solid #000; /* Border style */
+    background-color: #ff6600; /* Button background color */
+    overflow: hidden; /* Hide overflow */
+    position: relative; /* Position relative for absolute positioning */
+    cursor: pointer; /* Pointer cursor */
+    margin: 10px; /* Optional margin */
+    display: inline-block; /* Display buttons alongside each other */
+    transform: translateX(50%); /* Move towards center right */
+}
+
+.arrow-button:hover {
+    background-color: #ffcc00; /* Hover background color */
+    border-color: #000; /* Hover border color */
+}
+
+.arrow-button .arrow-icon {
+    width: 100%; /* Set width of icon to fill button */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute; /* Position absolute for overlaying */
+    top: 50%; /* Align icon vertically */
+    left: 50%; /* Align icon horizontally */
+    transform: translate(-50%, -50%); /* Center icon */
+    border: 5px solid #000; /* Black border for cartoon outline */
+    box-shadow: 5px 5px 0 #000; /* Shadow effect for a cartoon look */
+}

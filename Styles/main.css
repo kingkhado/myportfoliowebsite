@@ -1,0 +1,135 @@
+#bodyText {
+    overflow: hidden;
+    font-family: 'Press Start 2P', cursive; /* Pixelated font */
+}
+
+#startupPage{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh; 
+    background-color: rgb(228, 228, 228);
+    text-align: center;
+    z-index: 1;
+}
+
+#startupPage{
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+
+
+
+#startupText{
+    letter-spacing: 2px;  
+    white-space: nowrap;
+    overflow: hidden;   
+    animation:  
+        typing 2s steps(41, end),
+        cursor .5s step-end infinite alternate;
+    font-size: 1.5em; 
+    max-width: fit-content;
+    border-right: 5px solid black;
+}
+
+@keyframes cursor {
+    50% { border-color: transparent; }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+
+#mainHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    position: sticky;
+    background-color: white;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.navBar {
+    margin-left: auto;
+}
+
+#mainHeader nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#mainHeader nav ul li {
+    display: block;
+    border-radius: 1;
+    margin-right: 20px;
+}
+
+#mainHeader nav ul li:last-child {
+    margin-right: 0;
+}
+
+#mainHeader nav ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+#mainHeader nav ul li:hover {
+    text-decoration: underline;
+}
+
+#mainHeader nav ul li a:visited {
+    color: black;
+}
+
+@media (max-width: 480px) {
+    #mainHeader {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .name {
+        text-align: center;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    .navBar {
+        width: 100%;
+    }
+
+    #mainHeader nav ul {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+
+    #mainHeader nav ul li {
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+
+    #mainHeader nav ul li:last-child {
+        margin-right: 0;
+    }
+    
+    #startupText{
+        overflow-wrap: break-word;
+        border-right: none;
+        white-space: normal;
+        overflow: visible; 
+    }
+}

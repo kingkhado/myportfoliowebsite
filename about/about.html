@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="describe" content="Aboutpage">
+   <meta name="author" content="Makhado Khasahne">
+   <meta name="Description" content="About">
+   <meta name="keywords" content="Makhado, MJ, Khashane, portfolio, About">
+
+   <title>About Me - MAKHADO KHASHANE</title>
+   
+   <link rel="stylesheet" href="../Styles/ollieloko-style.css">
+   <link rel="stylesheet" href="../Styles/links-style.css">
+   <link rel="stylesheet" href="../Styles/loading-screen.css">
+   
+   <!-- Loading screen -->
+   <script src="../Scripts/loading-screen.js"></script>
+   
+   <!-- Scroll to top functionality -->
+   <script src="../Scripts/scrollToTop.js"></script>
+
+</head>
+<body>
+   <!-- Blue Progress Scroll Bar -->
+   <div class="scroll-progress" id="scroll-progress"></div>
+   
+   <!-- Decorative flower elements -->
+   <div class="flower-decoration flower-1"></div>
+   <div class="flower-decoration flower-2"></div>
+   <div class="flower-decoration flower-3"></div>
+   <div class="flower-decoration flower-4"></div>
+   <div class="flower-decoration flower-5"></div>
+   <div class="flower-decoration flower-6"></div>
+
+   <!-- Back to home button -->
+   <a href="../index.html" class="back-home">← HOME</a>
+
+   <header class="links-header" style="margin-top: 80px;">
+      <h1>MAKHADO KHASHANE</h1>
+      <p>About Me</p>
+   </header>
+
+   <div class="links-container">
+      <main style="max-width: 900px; margin: 0 auto; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 60vh;">
+         <div class="about-layout" style="display: flex; align-items: center; gap: 30px; background: rgba(0,0,0,0.8); padding: 30px; border-radius: 15px; border: 2px solid #4a90e2; box-shadow: 0 0 20px rgba(74, 144, 226, 0.2); width: 100%; max-width: 800px;">
+            <!-- Left side - Text content -->
+            <div class="about-text" style="flex: 1; color: white; max-width: 400px;">
+               <div style="background: #4a90e2; color: white; padding: 12px 20px; border-radius: 8px; margin-bottom: 20px; text-align: left;">
+                  <h2 style="margin: 0; font-size: 20px; font-weight: bold;">MAKHADO KHASHANE</h2>
+               </div>
+               
+               <div style="font-size: 14px; line-height: 1.6; margin-bottom: 20px; text-align: left;">
+                  <p style="margin-bottom: 15px;">22 years old, living in South Africa. I make art, animations, film, and websites! I do everything w YAH, from painting and digital art, to animating and producing content, to building interactive web experiences.</p>
+                  
+                  <p style="margin-bottom: 15px;">I gave my life to Jesus in 2024 and I'm on a mission to use art to spread the word. My creative work spans painting, animation, graphic design, video production, and web development - all with the purpose of sharing hope and inspiration.</p>
+               </div>
+               
+               <div style="background: #4a90e2; color: white; padding: 10px 15px; border-radius: 8px; text-align: left;">
+                  <p style="margin: 0; font-size: 14px;">email me at<br><strong style="font-size: 16px;">makhadokhashane@gmail.com</strong></p>
+               </div>
+            </div>
+            
+            <!-- Right side - Image -->
+            <div class="about-image" style="flex: 0 0 300px;">
+               <img src="../THE COOLEST IMAGES/me fr/new me.jpg" alt="Makhado Khashane" style="width: 100%; height: auto; border-radius: 10px; border: 2px solid #4a90e2;">
+            </div>
+         </div>
+         
+         <!-- Responsive layout -->
+         <style>
+            @media (max-width: 768px) {
+               .about-layout {
+                  flex-direction: column !important;
+                  text-align: center !important;
+                  gap: 20px !important;
+                  padding: 20px !important;
+               }
+               .about-text {
+                  max-width: 100% !important;
+               }
+               .about-image {
+                  flex: none !important;
+                  max-width: 250px !important;
+                  margin: 0 auto !important;
+               }
+            }
+         </style>
+      </main>
+
+        <footer class="links-footer">
+            <p>&copy; 2024 MAKHADO KHASHANE. All rights reserved.</p>
+            <p style="color: #e74c3c; font-weight: bold; margin-top: 10px;">JESUS LOVES YOU ❤️</p>
+        </footer>
+   </div>
+
+   <!-- Scroll Progress Script -->
+   <script>
+       // Update scroll progress bar
+       function updateScrollProgress() {
+           const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+           const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+           const scrollPercent = (scrollTop / scrollHeight) * 100;
+           document.getElementById('scroll-progress').style.width = scrollPercent + '%';
+       }
+
+       // Add scroll event listener
+       window.addEventListener('scroll', updateScrollProgress);
+       
+       // Initialize on page load
+       document.addEventListener('DOMContentLoaded', updateScrollProgress);
+   </script>
+</body>
+</html>

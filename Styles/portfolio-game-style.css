@@ -1,0 +1,511 @@
+/* Portfolio Game-Style Layout CSS */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Portfolio Container */
+.portfolio-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Header with Game-Style Navigation */
+.portfolio-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding: 20px 0;
+    border-bottom: 2px solid #333;
+}
+
+.logo-section {
+    flex: 0 0 auto;
+}
+
+.logo-circle {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #4a90e2, #2c5aa0);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    border: 3px solid #fff;
+}
+
+/* Category Switcher - Game Style */
+.category-switcher {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-arrow {
+    background: linear-gradient(45deg, #4a90e2, #2c5aa0);
+    border: 3px solid #fff;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-arrow:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
+}
+
+.category-buttons {
+    display: flex;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 15px;
+    border: 2px solid #333;
+}
+
+.category-btn {
+    background: transparent;
+    border: 2px solid #666;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.category-btn:hover {
+    border-color: #4a90e2;
+    color: #4a90e2;
+    transform: translateY(-2px);
+}
+
+.category-btn.active {
+    background: linear-gradient(45deg, #4a90e2, #2c5aa0);
+    border-color: #fff;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+}
+
+.tagline {
+    flex: 0 0 auto;
+    text-align: right;
+    max-width: 300px;
+}
+
+.tagline p {
+    font-size: 8px;
+    color: #999;
+    line-height: 1.4;
+}
+
+/* Main Content Layout */
+.portfolio-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    min-height: 600px;
+}
+
+/* Left Side - Main Display */
+.main-display {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #333;
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+#selected-item-display {
+    width: 100%;
+    height: 400px;
+    background: #111;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border: 2px solid #333;
+    position: relative;
+    overflow: hidden;
+}
+
+.default-content {
+    text-align: center;
+    color: #666;
+}
+
+.default-content h2 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #999;
+}
+
+.default-content p {
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+#main-video, #main-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.item-info {
+    padding: 20px 0;
+}
+
+.item-info h3 {
+    font-size: 14px;
+    color: #4a90e2;
+    margin-bottom: 10px;
+}
+
+.item-info p {
+    font-size: 9px;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 8px;
+}
+
+#item-meta {
+    color: #4a90e2;
+    font-size: 8px;
+}
+
+/* Right Side - Items List */
+.items-list {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #333;
+    border-radius: 20px;
+    padding: 20px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.category-list {
+    display: none;
+}
+
+.category-list.active {
+    display: block;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #333;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.list-item:hover {
+    background: rgba(74, 144, 226, 0.1);
+    border-color: #4a90e2;
+    transform: translateX(5px);
+}
+
+.list-item.selected {
+    background: linear-gradient(45deg, rgba(74, 144, 226, 0.2), rgba(44, 90, 160, 0.2));
+    border-color: #4a90e2;
+    transform: translateX(5px);
+}
+
+.item-name {
+    font-size: 9px;
+    color: #fff;
+    flex: 1;
+}
+
+.item-year {
+    font-size: 8px;
+    color: #999;
+    margin-left: 10px;
+}
+
+/* Custom Scrollbar */
+.items-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.items-list::-webkit-scrollbar-track {
+    background: #111;
+    border-radius: 4px;
+}
+
+.items-list::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #4a90e2, #2c5aa0);
+    border-radius: 4px;
+}
+
+.items-list::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #2c5aa0, #4a90e2);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .portfolio-content {
+        grid-template-columns: 1.5fr 1fr;
+        gap: 30px;
+    }
+    
+    .category-btn {
+        padding: 10px 15px;
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 900px) {
+    .portfolio-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .category-switcher {
+        order: 2;
+    }
+    
+    .tagline {
+        order: 3;
+        max-width: none;
+        text-align: center;
+    }
+    
+    .portfolio-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .items-list {
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 600px) {
+    .category-buttons {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .category-btn {
+        padding: 8px 12px;
+        font-size: 8px;
+    }
+    
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    #selected-item-display {
+        height: 300px;
+    }
+    
+    .item-info h3 {
+        font-size: 12px;
+    }
+    
+    .item-info p {
+        font-size: 8px;
+    }
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(74, 144, 226, 0.3);
+    border-radius: 50%;
+    border-top-color: #4a90e2;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Hover Effects for Media */
+#main-video:hover, #main-image:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+/* Focus States for Accessibility */
+.category-btn:focus,
+.nav-arrow:focus,
+.list-item:focus {
+    outline: 2px solid #4a90e2;
+    outline-offset: 2px;
+}
+
+/* Blue Progress Scroll Bar for entire page */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #4a90e2, #2c5aa0);
+    border-radius: 6px;
+    border: 2px solid #111;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #2c5aa0, #1a4480);
+}
+
+::-webkit-scrollbar-corner {
+    background: #111;
+}
+
+/* Firefox scrollbar styling */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #4a90e2 #111;
+}
+
+/* Progress indicator at top of page */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, #4a90e2, #2c5aa0);
+    z-index: 9999;
+    transition: width 0.1s ease;
+    box-shadow: 0 2px 10px rgba(74, 144, 226, 0.5);
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #4a90e2, #2c5aa0);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    background: linear-gradient(45deg, #2c5aa0, #1a4480);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.5);
+}
+
+.scroll-to-top::before {
+    content: '↑';
+    display: block;
+    line-height: 1;
+}
+
+/* PDF Display Support */
+#main-pdf {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 15px;
+    display: none;
+}
+
+.pdf-message {
+    text-align: center;
+    color: #4a90e2;
+    padding: 40px 20px;
+}
+
+.pdf-message h3 {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.pdf-message p {
+    font-size: 10px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.pdf-message a {
+    color: #4a90e2;
+    text-decoration: underline;
+    font-size: 9px;
+}
+
+.pdf-message a:hover {
+    color: #2c5aa0;
+}
+
+/* Responsive scroll button */
+@media (max-width: 768px) {
+    .scroll-to-top {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+        bottom: 20px;
+        right: 20px;
+    }
+}

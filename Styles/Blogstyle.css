@@ -1,0 +1,136 @@
+/* cartoonPixelStyle.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    background-color: #add8e6;
+    font-family: 'Press Start 2P', cursive;
+}
+
+header {
+    background-color: #ffcc00;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px solid #333;
+}
+
+header h1 {
+    font-size: 2em;
+    color: #333;
+    text-shadow: 2px 2px #ff6600;
+}
+
+.navBar {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ffcc00;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 1.2em;
+    transition: transform 0.3s, color 0.3s;
+}
+
+nav ul li:hover {
+    transform: scale(1.1);
+    color: #ff6600;
+}
+
+nav ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+nav ul li a:visited {
+    color: #333;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+main h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#blogSelection ul {
+    list-style: none;
+    padding: 0;
+}
+
+#blogSelection ul li {
+    background-color: #ffcc00;
+    border: 5px solid #333;
+    border-radius: 15px;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 500px; /* Adjust as needed */
+    transition: transform 0.3s, background-color 0.3s;
+    display: block; /* Ensure they stack vertically */
+}
+
+#blogSelection ul li:hover {
+    transform: scale(1.05);
+    background-color: #ff6600;
+}
+
+#blogSelection ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+footer {
+    background-color: #333;
+    color: #ffcc00;
+    text-align: center;
+    padding: 10px;
+    border-top: 5px solid #ff6600;
+}
+
+button {
+    background-color: #ffcc00;
+    color: #333;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: #ff6600;
+}
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffcc00;
+    color: #333;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.scroll-to-top:hover {
+    transform: scale(1.1);
+    background-color: #ff6600;
+}

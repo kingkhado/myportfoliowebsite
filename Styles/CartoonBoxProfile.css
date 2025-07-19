@@ -1,0 +1,68 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #98b8ba; /* Light peach background for a cartoonish feel */
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.cartoonBoxContainer {
+    display: flex;
+    gap: 20px;
+    height: auto;
+    position: relative;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin-top: 90px;
+}
+
+.cartoonBox {
+    border-radius: 15px;
+    background-color: #ffeb3b; /* Bright yellow background */
+    padding: 20px;
+    flex: 1;
+    box-sizing: border-box;
+    border: 5px solid #000; /* Black border for cartoon outline */
+    box-shadow: 5px 5px 0 #000; /* Shadow effect for a cartoon look */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cartoonBox img,
+.cartoonBox gif {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px; /* Center the image and add spacing below */
+    max-height: 200px; /* Limit the maximum height */
+    object-fit: contain; /* Maintain aspect ratio */
+}
+
+.cartoonBox:hover {
+    transform: scale(1.1);
+    box-shadow: 10px 10px 0 #000; /* Enhanced shadow on hover */
+}
+
+.cartoonText {
+    font-family: 'Press Start 2P', cursive; /* Pixelated font */
+    color: #000;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .cartoonBoxContainer {
+        flex-direction: column;
+        gap: 20px;
+        height: auto;
+        padding: 20px;
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+        max-width: 1200px;
+        box-sizing: border-box;
+        margin-top: 0px;
+    }
+}

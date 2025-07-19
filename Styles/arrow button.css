@@ -1,0 +1,28 @@
+/* CSS for Arrow Buttons */
+.arrow-button {
+    width: 80px; /* Set width of button */
+    height: 80px; /* Set height of button */
+    padding: 0; /* Remove padding */
+    border: 2px solid #000; /* Border style */
+    background-color: #ff6600; /* Button background color */
+    overflow: hidden; /* Hide overflow */
+    position: relative; /* Position relative for absolute positioning */
+    cursor: pointer; /* Pointer cursor */
+}
+
+.arrow-button:hover {
+    background-color: #ffcc00; /* Hover background color */
+    border-color: #000; /* Hover border color */
+}
+
+.arrow-button .arrow-icon {
+    border: 2px solid #000;
+    width: 100%; /* Set width of icon to fill button */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute; /* Position absolute for overlaying */
+    top: 50%; /* Align icon vertically */
+    left: 50%; /* Align icon horizontally */
+    transform: translate(-50%, -50%); /* Center icon */
+    border: 5px solid #000; /* Black border for cartoon outline */
+  box-shadow: 5px 5px 0 #000; /* Shadow effect for a cartoon look */
+}
