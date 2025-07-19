@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="describe" content="Portfolio">
+    <meta name="author" content="Makhado Khasahne">
+    <meta name="Description" content="Portfolio">
+    <meta name="keywords" content="Makhado, MJ, Khashane, portfolio, Portfolio Work">
+    
+    <title>Portfolio - MAKHADO KHASHANE</title>
+    
+    <link rel="stylesheet" href="../Styles/ollieloko-style.css">
+    <link rel="stylesheet" href="../Styles/portfolio-game-style.css">
+    
+    <!-- Scroll to top functionality -->
+    <script src="../Scripts/scrollToTop.js"></script>
+    <script src="../Scripts/portfolio-switcher.js"></script>
+</head>
+<body>
+    <!-- Decorative flower elements -->
+    <div class="flower-decoration flower-1"></div>
+    <div class="flower-decoration flower-2"></div>
+    <div class="flower-decoration flower-3"></div>
+    <div class="flower-decoration flower-4"></div>
+    <div class="flower-decoration flower-5"></div>
+    <div class="flower-decoration flower-6"></div>
+
+    <!-- Back to home button -->
+    <a href="../index.html" class="back-home">← HOME</a>
+
+    <!-- Main Portfolio Container -->
+    <div class="portfolio-container">
+        <!-- Top Navigation with Game-style Category Switcher -->
+        <header class="portfolio-header">
+            <div class="logo-section">
+                <div class="logo-circle">MK</div>
+            </div>
+            
+            <div class="category-switcher">
+                <button class="nav-arrow left-arrow" onclick="switchCategory(-1)">‹</button>
+                <div class="category-buttons">
+                    <button class="category-btn active" data-category="animations">ANIMATIONS</button>
+                    <button class="category-btn" data-category="graphics">GRAPHICS</button>
+                    <button class="category-btn" data-category="handdrawn">HAND DRAWN</button>
+                    <button class="category-btn" data-category="clothing">RUSHBITE</button>
+                </div>
+                <button class="nav-arrow right-arrow" onclick="switchCategory(1)">›</button>
+            </div>
+            
+            <div class="tagline">
+                <p>art, animation, illustration, design, visuals ... everything by MAKHADO KHASHANE</p>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="portfolio-content">
+            <!-- Left Side - Large Display Area -->
+            <div class="main-display">
+                <div id="selected-item-display">
+                    <!-- Default display for animations -->
+                    <video id="main-video" width="100%" height="100%" controls style="border-radius: 15px; display: none;">
+                        <source src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/OLD BRAND ANIMATIONS/AD animation.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <img id="main-image" src="" alt="Selected artwork" style="width: 100%; height: 100%; object-fit: contain; border-radius: 15px; display: none;">
+                    <div id="default-display" class="default-content">
+                        <h2>Select an item to view</h2>
+                        <p>Choose from the list on the right to see the full artwork</p>
+                    </div>
+                </div>
+                <div class="item-info">
+                    <h3 id="item-title">Welcome to My Portfolio</h3>
+                    <p id="item-description">Select any artwork from the right panel to view it in full detail.</p>
+                    <p id="item-meta"></p>
+                </div>
+            </div>
+
+            <!-- Right Side - Items List -->
+            <div class="items-list">
+                <!-- Animations List -->
+                <div id="animations-list" class="category-list active">
+                    <div class="list-item" data-type="video" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/OLD BRAND ANIMATIONS/AD animation.mp4" data-title="AD Animation" data-desc="Creative advertisement animation showcasing brand identity and visual storytelling." data-year="2023">
+                        <span class="item-name">AD Animation</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="video" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/OLD BRAND ANIMATIONS/AFTERDARK X SOVA RUSHBITE.mp4" data-title="AFTERDARK X SOVA" data-desc="Collaborative animation project blending dark aesthetics with modern design elements." data-year="2023">
+                        <span class="item-name">AFTERDARK X SOVA</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="video" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/OLD BRAND ANIMATIONS/sovawrld_1.mp4" data-title="Sova World" data-desc="Immersive world-building animation exploring futuristic landscapes and characters." data-year="2023">
+                        <span class="item-name">Sova World</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="video" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/OLD BRAND ANIMATIONS/the real jay-1_1_1.mp4" data-title="The Real Jay" data-desc="Character-focused animation showcasing personality and storytelling through motion." data-year="2023">
+                        <span class="item-name">The Real Jay</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="video" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/OLD BRAND ANIMATIONS/unknown p full version final.mp4" data-title="Unknown P - Full Version" data-desc="Complete animation sequence featuring mysterious character development and narrative." data-year="2023">
+                        <span class="item-name">Unknown P - Full Version</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="video" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/OLD BRAND ANIMATIONS/PARALYZED.MOV" data-title="Paralyzed" data-desc="Emotional animation exploring themes of struggle and perseverance through visual metaphor." data-year="2023">
+                        <span class="item-name">Paralyzed</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                </div>
+
+                <!-- Graphics List -->
+                <div id="graphics-list" class="category-list">
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/Biteoff.png" data-title="Biteoff" data-desc="Bold graphic design featuring aggressive typography and striking visual elements." data-year="2023">
+                        <span class="item-name">Biteoff</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/burning bush.png" data-title="Burning Bush" data-desc="Spiritual-themed graphic design with symbolic imagery and powerful visual metaphors." data-year="2023">
+                        <span class="item-name">Burning Bush</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/enraged.png" data-title="Enraged" data-desc="High-energy graphic design capturing intense emotions through dynamic composition." data-year="2023">
+                        <span class="item-name">Enraged</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/flashnotes.png" data-title="Flash Notes" data-desc="Modern graphic design for digital note-taking application with clean aesthetics." data-year="2023">
+                        <span class="item-name">Flash Notes</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/ICCL.png" data-title="ICCL" data-desc="Corporate branding design featuring professional typography and color schemes." data-year="2023">
+                        <span class="item-name">ICCL</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/sir khadie.png" data-title="Sir Khadie" data-desc="Character-based graphic design with pixel art influences and gaming aesthetics." data-year="2023">
+                        <span class="item-name">Sir Khadie</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/venda.png" data-title="Venda" data-desc="Cultural graphic design celebrating South African heritage and traditional elements." data-year="2023">
+                        <span class="item-name">Venda</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/WFET.png" data-title="WFET" data-desc="Technical graphic design with futuristic elements and digital aesthetics." data-year="2023">
+                        <span class="item-name">WFET</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/WILD ODDS.png" data-title="Wild Odds" data-desc="Gaming-inspired graphic design with bold colors and dynamic character elements." data-year="2023">
+                        <span class="item-name">Wild Odds</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/Youtube profile.png" data-title="YouTube Profile" data-desc="Social media branding design for YouTube channel with pixel art character." data-year="2023">
+                        <span class="item-name">YouTube Profile</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                </div>
+
+                <!-- Hand Drawn List -->
+                <div id="handdrawn-list" class="category-list">
+                    <div class="list-item" data-type="image" data-src="../My images/Iteration 2/KHADO WEB IMAGE 1.jpg" data-title="Sketch Collection 1" data-desc="Traditional hand-drawn artwork showcasing character design and creative exploration." data-year="2023">
+                        <span class="item-name">Sketch Collection 1</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="image" data-src="../My images/Iteration 2/KHADO WEB IMAGE 2.jpg" data-title="Sketch Collection 2" data-desc="Detailed pencil drawings exploring various artistic techniques and styles." data-year="2023">
+                        <span class="item-name">Sketch Collection 2</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="image" data-src="../My images/Iteration 2/KHADO WEB IMAGE 3.jpg" data-title="Sketch Collection 3" data-desc="Creative sketches demonstrating artistic development and conceptual thinking." data-year="2023">
+                        <span class="item-name">Sketch Collection 3</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="image" data-src="../My images/Iteration 2/KHADO WEB IMAGE 4.jpg" data-title="Sketch Collection 4" data-desc="Hand-drawn illustrations showcasing storytelling through traditional media." data-year="2023">
+                        <span class="item-name">Sketch Collection 4</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="image" data-src="../My images/Iteration 2/KHADO WEB IMAGE 5.jpg" data-title="Sketch Collection 5" data-desc="Artistic sketches exploring character development and visual narrative." data-year="2023">
+                        <span class="item-name">Sketch Collection 5</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="image" data-src="../My images/Iteration 2/KHADO WEB IMAGE 6.jpg" data-title="Sketch Collection 6" data-desc="Traditional artwork demonstrating technical skill and creative vision." data-year="2023">
+                        <span class="item-name">Sketch Collection 6</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                </div>
+
+                <!-- Clothing Brand List -->
+                <div id="clothing-list" class="category-list">
+                    <div class="list-item" data-type="image" data-src="../My images/Business/billyJEAN JEANS.png" data-title="Billy Jean Jeans Design" data-desc="Streetwear design for RUSHBITE clothing brand featuring modern denim aesthetics." data-year="2023">
+                        <span class="item-name">Billy Jean Jeans Design</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="image" data-src="../My images/Business/bILLY JEAN COLOUR SCHEME.png" data-title="Billy Jean Color Scheme" data-desc="Brand color palette and design system for RUSHBITE clothing line." data-year="2023">
+                        <span class="item-name">Billy Jean Color Scheme</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    <div class="list-item" data-type="image" data-src="../My images/Business/brocken planet logo.png" data-title="Broken Planet Logo" data-desc="Logo design for fashion brand with edgy, contemporary aesthetic." data-year="2023">
+                        <span class="item-name">Broken Planet Logo</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

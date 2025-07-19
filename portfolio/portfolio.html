@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Makhado Khashane's Portfolio - Digital Art, Animations, Graphics, and Creative Works">
+    <meta name="author" content="Makhado Khashane">
+    <meta name="keywords" content="Makhado, Khashane, portfolio, digital art, animation, graphics, design">
+    
+    <title>Portfolio - MAKHADO KHASHANE</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../Styles/portfolio-game-style.css">
+    <link rel="stylesheet" href="../Styles/responsivedesign.css">
+    <link rel="stylesheet" href="../Styles/loading-screen.css">
+    
+    <!-- Scripts -->
+    <script src="../Scripts/loading-screen.js"></script>
+    <script src="../Scripts/portfolio-switcher.js" defer></script>
+    <script src="../Scripts/scrollToTop.js" defer></script>
+</head>
+<body>
+    <!-- Blue Progress Scroll Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+    
+    <!-- Portfolio Container -->
+    <div class="portfolio-container">
+        <!-- Header with Game-Style Navigation -->
+        <header class="portfolio-header">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <div class="logo-circle">MK</div>
+            </div>
+            
+            <!-- Category Switcher -->
+            <div class="category-switcher">
+                <button class="nav-arrow left-arrow" onclick="switchCategory(-1)">‹</button>
+                
+                <div class="category-buttons">
+                    <button class="category-btn active" data-category="before-christ">BEFORE CHRIST</button>
+                    <button class="category-btn" data-category="after-christ">AFTER CHRIST</button>
+                </div>
+                
+                <button class="nav-arrow right-arrow" onclick="switchCategory(1)">›</button>
+            </div>
+            
+            <!-- Tagline -->
+            <div class="tagline">
+                <p>art, animation, illustration, design, visuals ... everything by MAKHADO KHASHANE</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="portfolio-content">
+            <!-- Left Side - Main Display -->
+            <div class="main-display">
+                <div id="selected-item-display">
+                    <div id="default-display" class="default-content">
+                        <h2>Select an item to view</h2>
+                        <p>Choose from the list on the right to see the full artwork</p>
+                    </div>
+                    <video id="main-video" width="100%" height="100%" controls style="border-radius: 15px; display: none;">
+                        <source src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <img id="main-image" src="" alt="Selected artwork" style="width: 100%; height: 100%; object-fit: contain; border-radius: 15px; display: none;">
+                </div>
+                
+                <div class="item-info">
+                    <h3 id="item-title">Welcome to My Portfolio</h3>
+                    <p id="item-description">Select any artwork from the right panel to view it in full detail.</p>
+                    <p id="item-meta"></p>
+                </div>
+            </div>
+
+            <!-- Right Side - Items List -->
+            <div class="items-list">
+                <!-- BEFORE CHRIST Category -->
+                <div id="before-christ-list" class="category-list active">
+                    <!-- Animations -->
+                    <div class="list-item" data-type="video" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/OLD BRAND ANIMATIONS/AD animation.mp4" data-title="AD Animation" data-desc="Creative advertisement animation showcasing brand identity and visual storytelling." data-year="2023">
+                        <span class="item-name">AD Animation</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="video" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/OLD BRAND ANIMATIONS/AFTERDARK X SOVA RUSHBITE.mp4" data-title="AFTERDARK X SOVA" data-desc="Collaborative animation project featuring dark aesthetic and modern design elements." data-year="2023">
+                        <span class="item-name">AFTERDARK X SOVA</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="video" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/OLD BRAND ANIMATIONS/sovawrld_1.mp4" data-title="Sova World" data-desc="Immersive world-building animation exploring digital landscapes and environments." data-year="2023">
+                        <span class="item-name">Sova World</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="video" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/OLD BRAND ANIMATIONS/the real jay-1_1_1.mp4" data-title="The Real Jay" data-desc="Character animation showcasing personality and movement in digital storytelling." data-year="2023">
+                        <span class="item-name">The Real Jay</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="video" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/OLD BRAND ANIMATIONS/unknown p full version final.mp4" data-title="Unknown P - Full Version" data-desc="Complete animation project featuring experimental visual techniques and storytelling." data-year="2023">
+                        <span class="item-name">Unknown P - Full Version</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="video" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/OLD BRAND ANIMATIONS/PARALYZED.MOV" data-title="Paralyzed" data-desc="Emotional animation exploring themes of movement and stillness through visual metaphor." data-year="2023">
+                        <span class="item-name">Paralyzed</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="video" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/OLD BRAND ANIMATIONS/captive mover.mp4" data-title="Captive Mover" data-desc="Dynamic animation exploring concepts of freedom and constraint through motion graphics." data-year="2023">
+                        <span class="item-name">Captive Mover</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="video" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/OLD BRAND ANIMATIONS/NFT BABY BOXERS.mp4" data-title="NFT Baby Boxers" data-desc="Playful animation combining digital art trends with character design and humor." data-year="2023">
+                        <span class="item-name">NFT Baby Boxers</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="video" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/OLD BRAND ANIMATIONS/rushthrift.mp4" data-title="Rush Thrift" data-desc="Brand animation for thrift store concept featuring sustainable fashion messaging." data-year="2023">
+                        <span class="item-name">Rush Thrift</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    
+                    <!-- Graphics -->
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/Biteoff.png" data-title="Biteoff" data-desc="Bold graphic design featuring aggressive typography and striking visual elements." data-year="2023">
+                        <span class="item-name">Biteoff</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/burning bush.png" data-title="Burning Bush" data-desc="Symbolic graphic design exploring spiritual themes through modern visual language." data-year="2023">
+                        <span class="item-name">Burning Bush</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/enraged.png" data-title="Enraged" data-desc="Intense graphic design capturing raw emotion through dynamic composition and color." data-year="2023">
+                        <span class="item-name">Enraged</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/flashnotes.png" data-title="Flash Notes" data-desc="Quick sketch-style graphic design combining spontaneity with refined digital execution." data-year="2023">
+                        <span class="item-name">Flash Notes</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/ICCL.png" data-title="ICCL" data-desc="Corporate identity design featuring clean typography and professional branding elements." data-year="2023">
+                        <span class="item-name">ICCL</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/sir khadie.png" data-title="Sir Khadie" data-desc="Character-based graphic design showcasing personality through visual storytelling." data-year="2023">
+                        <span class="item-name">Sir Khadie</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/venda.png" data-title="Venda" data-desc="Cultural graphic design celebrating South African heritage and traditional aesthetics." data-year="2023">
+                        <span class="item-name">Venda</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/WFET.png" data-title="WFET" data-desc="Technical graphic design combining functionality with aesthetic appeal." data-year="2023">
+                        <span class="item-name">WFET</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/WILD ODDS.png" data-title="Wild Odds" data-desc="Experimental graphic design pushing boundaries of conventional design principles." data-year="2023">
+                        <span class="item-name">Wild Odds</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/AFRICAN HUT.avif" data-title="African Hut" data-desc="Cultural illustration celebrating traditional African architecture and heritage." data-year="2023">
+                        <span class="item-name">African Hut</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/cold low angle of me.avif" data-title="Cold Low Angle" data-desc="Artistic self-portrait exploring perspective and mood through visual composition." data-year="2023">
+                        <span class="item-name">Cold Low Angle</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/icegirl2.png" data-title="Ice Girl 2" data-desc="Character design featuring cool color palette and ethereal aesthetic elements." data-year="2023">
+                        <span class="item-name">Ice Girl 2</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <!-- Paintings -->
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/PAINTING/HALU PAINTING.avif" data-title="Halu Painting" data-desc="Original painting exploring abstract concepts through traditional and digital techniques." data-year="2023">
+                        <span class="item-name">Halu Painting</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <!-- Sketches -->
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/SKETCH/BONDAGE DRAWING.avif" data-title="Bondage Drawing" data-desc="Artistic sketch exploring themes of constraint and freedom through line work." data-year="2023">
+                        <span class="item-name">Bondage Drawing</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/SKETCH/BRAIN MRI.avif" data-title="Brain MRI" data-desc="Medical-inspired artistic interpretation combining science with creative expression." data-year="2023">
+                        <span class="item-name">Brain MRI</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/SKETCH/happy politian i think.avif" data-title="Happy Politician" data-desc="Political commentary through character sketch exploring social themes." data-year="2023">
+                        <span class="item-name">Happy Politician</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <!-- Art Journals -->
+                    <div class="list-item" data-type="pdf" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/ART JOURNALS/326eef_64da600d38ee473c8399ad6bf669c907.pdf" data-title="Art Journal Volume 1" data-desc="Personal art journal documenting creative process and artistic development." data-year="2023">
+                        <span class="item-name">Art Journal Volume 1</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                    
+                    <div class="list-item" data-type="pdf" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/ART JOURNALS/326eef_59407f80808344268448ee400e3c6509.pdf" data-title="Art Journal Volume 2" data-desc="Continuation of artistic journey with sketches, ideas, and creative explorations." data-year="2023">
+                        <span class="item-name">Art Journal Volume 2</span>
+                        <span class="item-year">(2023)</span>
+                    </div>
+                </div>
+
+                <!-- AFTER CHRIST Category -->
+                <div id="after-christ-list" class="category-list">
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/Youtube profile.png" data-title="YouTube Profile" data-desc="Modern profile design for digital platform presence and personal branding." data-year="2024">
+                        <span class="item-name">YouTube Profile</span>
+                        <span class="item-year">(2024)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <div style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
+        <a href="../index.html" style="color: #4a90e2; text-decoration: none; font-family: 'Press Start 2P', cursive; font-size: 12px;">← HOME</a>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 40px 20px; color: #666; font-size: 8px;">
+        <p>&copy; 2024 MAKHADO KHASHANE. All rights reserved.</p>
+        <p style="color: #e74c3c; font-weight: bold; margin-top: 10px;">JESUS LOVES YOU ❤️</p>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        // Update scroll progress bar
+        function updateScrollProgress() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            document.getElementById('scroll-progress').style.width = scrollPercent + '%';
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', updateScrollProgress);
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', updateScrollProgress);
+        
+        // Scroll to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Show/hide scroll to top button
+        function toggleScrollButton() {
+            const scrollBtn = document.getElementById('scrollToTopBtn');
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        }
+        
+        // Add scroll listener for button visibility
+        window.addEventListener('scroll', toggleScrollButton);
+    </script>
+</body>
+</html>
