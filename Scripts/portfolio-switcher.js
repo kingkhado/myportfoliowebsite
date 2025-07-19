@@ -204,6 +204,22 @@ function displayItem(type, src, title, description, year) {
                     </p>
                 </div>
             `;
+        } else if (type === 'youtube') {
+            // Show YouTube video
+            displayContainer.innerHTML = `
+                <div class="youtube-container" style="position: relative; width: 100%; height: 100%; border-radius: 15px; overflow: hidden; border: 2px solid #4a90e2; box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        src="${src}" 
+                        title="${title}" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen
+                        style="border-radius: 13px;">
+                    </iframe>
+                </div>
+            `;
         }
         
         // Add fade-in animation for non-PDF content
