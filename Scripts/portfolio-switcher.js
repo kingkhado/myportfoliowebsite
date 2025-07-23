@@ -193,11 +193,15 @@ function displayItem(type, src, title, description, year) {
             });
             
         } else if (type === 'pdf') {
-            // Show PDF message with download link
+            // Show PDF message with download link and explicit content warning
             displayContainer.innerHTML = `
                 <div class="pdf-message">
                     <h3>📄 PDF Document</h3>
                     <p>This is a PDF art journal that can be viewed or downloaded.</p>
+                    <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 15px; margin: 15px 0; color: #856404;">
+                        <h4 style="margin: 0 0 10px 0; color: #d63031;">⚠️ Content Warning</h4>
+                        <p style="margin: 0; font-size: 10px;">This PDF contains explicit content. Viewer discretion is advised.</p>
+                    </div>
                     <p><a href="${src}" target="_blank">Click here to open PDF in new tab</a></p>
                     <p style="margin-top: 20px; font-size: 8px; color: #666;">
                         Note: PDF will open in a new browser tab for better viewing experience.
