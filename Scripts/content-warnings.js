@@ -8,21 +8,28 @@ class ContentWarningManager {
             
             // Rated R Content
             'AFTERDARK X SOVA RUSHBITE': { rating: 'RATED R', reasons: ['Strong Language', 'Mature Content'] },
+            'AFTERDARK X SOVA': { rating: 'RATED R', reasons: ['Strong Language', 'Mature Content'] },
             'unknown p full version final': { rating: 'RATED R', reasons: ['Strong Language', 'Violence'] },
+            'Unknown P - Full Version': { rating: 'RATED R', reasons: ['Strong Language', 'Violence'] },
             
             // PG13 Content
-            'shower deep thoughtsffla': { rating: 'PG13', reasons: ['Mild Language', 'Suggestive Content'] },
-            'Shower Deep Thoughts': { rating: 'PG13', reasons: ['Mild Language', 'Suggestive Content'] },
             'PARALYZED': { rating: 'PG13', reasons: ['Intense Themes'] },
             'Paralyzed': { rating: 'PG13', reasons: ['Intense Themes'] },
             
             // Language warnings
             'the real jay-1_1_1': { rating: 'L', reasons: ['Strong Language'] },
             'The Real Jay': { rating: 'L', reasons: ['Strong Language'] },
+            'The Real Tray Vision Teaser': { rating: 'L', reasons: ['Strong Language'] },
+            'AFTERDARK BEEF': { rating: 'L', reasons: ['Strong Language'] },
+            'Sequence 02': { rating: 'L', reasons: ['Strong Language'] },
             
-            // Violence warnings
-            'captive mover': { rating: 'V', reasons: ['Violence', 'Intense Action'] },
-            'Captive Mover': { rating: 'V', reasons: ['Violence', 'Intense Action'] }
+            // Nudity warnings
+            'captive mover': { rating: 'N', reasons: ['Nudity', 'Adult Content'] },
+            'Captive Mover': { rating: 'N', reasons: ['Nudity', 'Adult Content'] },
+            
+            // Graphic Design warnings
+            'Ice Girl 2': { rating: 'PG13', reasons: ['Suggestive Content', 'Mild Themes'] },
+            'icegirl2': { rating: 'PG13', reasons: ['Suggestive Content', 'Mild Themes'] }
         };
         
         this.init();
