@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My Old Games - Itch.io - MAKHADO KHASHANE">
+    <meta name="author" content="Makhado Khashane">
+    <meta name="keywords" content="Makhado, MJ, Khashane, games, itch.io, indie games">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../THE COOLEST IMAGES/favico/TAS.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../THE COOLEST IMAGES/favico/TAS.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../THE COOLEST IMAGES/favico/TAS.png">
+    <link rel="shortcut icon" href="../THE COOLEST IMAGES/favico/TAS.png">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../Styles/ollieloko-style.css">
+    <link rel="stylesheet" href="../Styles/itchio-games.css">
+    
+    <!-- Scroll to top functionality -->
+    <script src="../Scripts/scrollToTop.js"></script>
+    
+    <title>My Old Games - Itch.io - MAKHADO KHASHANE</title>
+</head>
+<body>
+    <!-- Blue Progress Scroll Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+    
+    <!-- Decorative flower elements -->
+    <div class="flower-decoration flower-1"></div>
+    <div class="flower-decoration flower-2"></div>
+    <div class="flower-decoration flower-3"></div>
+    <div class="flower-decoration flower-4"></div>
+    <div class="flower-decoration flower-5"></div>
+    <div class="flower-decoration flower-6"></div>
+
+    <!-- Back to home button -->
+    <a href="../links.html" class="back-home">← BACK TO LINKS</a>
+
+    <!-- Main games container -->
+    <div class="itchio-games-container">
+        <header class="games-header">
+            <h1>MY OLD GAMES</h1>
+            <p>Indie games created IN 2023</p>
+            <div class="comic-bubble">
+                <p style="color: #000; font-size: 8px;">Check out these retro games I made! They're available on itch.io 🎮</p>
+            </div>
+        </header>
+
+        <!-- Games displayed immediately -->
+        <div class="games-grid" id="manual-games">
+            <div class="game-card">
+                <div class="game-cover">
+                    <img src="../THE COOLEST IMAGES/ITCH.IO/AFRICAN PIXEL MA.png" alt="African Tribe War Game" class="pixel-border">
+                </div>
+                <div class="game-info">
+                    <h3>AFRICAN TRIBE WAR GAME</h3>
+                    <p>An immersive tribal warfare game exploring ancient African cultures and strategic combat</p>
+                    <a href="https://kingkhado.itch.io/african-tribe-war-game" target="_blank" class="play-button">PLAY GAME</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-cover">
+                    <img src="../THE COOLEST IMAGES/ITCH.IO/Pixel Art Air Hockey Table.png" alt="Ice Hockey Physics Game" class="pixel-border">
+                </div>
+                <div class="game-info">
+                    <h3>ICE HOCKEY PHYSICS GAME</h3>
+                    <p>Realistic physics-based ice hockey game with smooth controls and competitive gameplay</p>
+                    <a href="https://kingkhado.itch.io/ice-hockey-physics-game" target="_blank" class="play-button">PLAY GAME</a>
+                </div>
+            </div>
+
+            <div class="game-card featured">
+                <div class="game-cover">
+                    <img src="../THE COOLEST IMAGES/ITCH.IO/OIP.webp" alt="Visit My Itch.io Profile" class="pixel-border">
+                </div>
+                <div class="game-info">
+                    <h3>VISIT MY ITCH.IO PROFILE</h3>
+                    <p>Explore my complete collection of games and interactive projects</p>
+                    <a href="https://kingkhado.itch.io/" target="_blank" class="play-button">VISIT PROFILE</a>
+                </div>
+            </div>
+        </div>
+
+        <footer class="games-footer" style="text-align: center; padding: 40px 20px; color: #666; font-size: 8px;">
+            <p>&copy; 2025 MAKHADO KHASHANE. All rights reserved.</p>
+            <p style="color: #e74c3c; font-weight: bold; margin-top: 10px;">JESUS LOVES YOU ❤️</p>
+        </footer>
+    </div>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        // Update scroll progress bar
+        function updateScrollProgress() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            document.getElementById('scroll-progress').style.width = scrollPercent + '%';
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', updateScrollProgress);
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', updateScrollProgress);
+    </script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+/* Itch.io Games Styling - Updated to match website theme */
+.itchio-games-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px 40px;
+    font-family: 'Press Start 2P', cursive;
+    min-height: 100vh;
+}
+
+.games-header {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #4a90e2;
+}
+
+.games-header h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 0px #000;
+    color: #4a90e2;
+}
+
+.games-header p {
+    font-size: 12px;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.game-card {
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border: 2px solid #4a90e2;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.game-card:hover::before {
+    left: 100%;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: #2c5aa0;
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+}
+
+.game-cover {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 2px solid #fff;
+}
+
+.game-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover .game-cover img {
+    transform: scale(1.1);
+}
+
+.game-info h3 {
+    color: #4a90e2;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-shadow: none;
+    text-align: center;
+}
+
+.game-info p {
+    color: #ccc;
+    font-size: 10px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.play-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #4a90e2;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid #4a90e2;
+    text-shadow: none;
+}
+
+.play-button:hover {
+    background: #2c5aa0;
+    border-color: #2c5aa0;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+
+.loading, .no-games, .error {
+    text-align: center;
+    padding: 40px;
+    color: #ccc;
+    font-size: 12px;
+}
+
+.loading {
+    color: #4a90e2;
+}
+
+.error {
+    color: #e74c3c;
+}
+
+/* Back button styling - Updated to match links page */
+.back-home {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #4a90e2;
+    color: #fff;
+    padding: 10px 20px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+}
+
+.back-home:hover {
+    background: #2c5aa0;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .games-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .games-header h1 {
+        font-size: 18px;
+    }
+    
+    .game-info h3 {
+        font-size: 12px;
+    }
+    
+    .game-info p {
+        font-size: 7px;
+    }
+    
+    .play-button {
+        font-size: 8px;
+    }
+}
+
+/* Pixel art styling for retro feel */
+.pixel-border {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* Comic book style elements */
+.comic-bubble {
+    position: relative;
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.comic-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #000;
+}
+
+.comic-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 32px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #fff;
+}
