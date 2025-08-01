@@ -3,10 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="describe" content="Home">
-    <meta name="author" content="Makhado Khasahne">
-    <meta name="Description" content="index.html">
-    <meta name="keywords" content="Makhado, MJ, Khashane, portfolio, Homepage">
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Makhado Khashane - Digital Artist, Designer & Creative Kingdom Builder">
+    <meta name="description" content="22-year-old South African digital artist, animator, filmmaker, and web designer. Creating art, animations, and interactive experiences with purpose through Christ.">
+    <meta name="author" content="Makhado Khashane">
+    <meta name="keywords" content="Makhado Khashane, digital artist, South Africa, animator, filmmaker, web designer, Christian artist, creative kingdom builder, portfolio, pixel art, graphic design">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wits-digital-arts-interactive-media.github.io/WSOA3028A_2549471/">
+    <meta property="og:title" content="Makhado Khashane - Digital Artist & Creative Kingdom Builder">
+    <meta property="og:description" content="22-year-old South African digital artist creating art, animations, and interactive experiences with purpose through Christ.">
+    <meta property="og:image" content="./THE COOLEST IMAGES/me fr/new me.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Makhado Khashane Portfolio">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://wits-digital-arts-interactive-media.github.io/WSOA3028A_2549471/">
+    <meta property="twitter:title" content="Makhado Khashane - Digital Artist & Creative Kingdom Builder">
+    <meta property="twitter:description" content="22-year-old South African digital artist creating art, animations, and interactive experiences with purpose through Christ.">
+    <meta property="twitter:image" content="./THE COOLEST IMAGES/me fr/new me.jpg">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="./THE COOLEST IMAGES/LOADING SCREEN/God saved me from a Bad trip_2.gif" as="image">
+    <link rel="preload" href="./THE COOLEST IMAGES/favico/TAS.png" as="image">
+    <link rel="preload" href="./Styles/ollieloko-style.css" as="style">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="./THE COOLEST IMAGES/favico/TAS.png">
@@ -14,68 +42,110 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./THE COOLEST IMAGES/favico/TAS.png">
     <link rel="shortcut icon" href="./THE COOLEST IMAGES/favico/TAS.png">
     
-    <!-- New Ollieloko-inspired styling -->
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="./Styles/ollieloko-style.css">
     <link rel="stylesheet" href="./Styles/loading-screen.css">
     
+    <!-- Structured Data -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "Website",
-            "url": "https://wits-digital-arts-interactive-media.github.io/WSOA3028A_2549471",
-            "headline": "Makhado Khashane Portfolio",
-            "author": {
-                "@type": "Person",
-                "name": "Makhado Khashane"
+            "@type": ["Person", "Artist"],
+            "name": "Makhado Khashane",
+            "alternateName": "MJ Khashane",
+            "description": "Digital artist, animator, filmmaker, and web designer from South Africa",
+            "url": "https://wits-digital-arts-interactive-media.github.io/WSOA3028A_2549471/",
+            "image": "./THE COOLEST IMAGES/me fr/new me.jpg",
+            "sameAs": [
+                "https://itch.io/profile/makhadokhashane"
+            ],
+            "jobTitle": "Digital Artist & Creative Kingdom Builder",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "Independent Artist"
+            },
+            "nationality": "South African",
+            "birthPlace": "South Africa",
+            "knowsAbout": [
+                "Digital Art",
+                "Animation",
+                "Filmmaking",
+                "Web Design",
+                "Graphic Design",
+                "Pixel Art"
+            ],
+            "hasOccupation": {
+                "@type": "Occupation",
+                "name": "Digital Artist",
+                "occupationLocation": {
+                    "@type": "Country",
+                    "name": "South Africa"
+                }
             }
         }
     </script>
     
-    <title>MAKHADO KHASHANE</title>
+    <title>Makhado Khashane - Digital Artist & Creative Kingdom Builder</title>
 </head>
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link" aria-label="Skip to main content">Skip to main content</a>
+    
     <!-- Blue Progress Scroll Bar -->
-    <div class="scroll-progress" id="scroll-progress"></div>
+    <div class="scroll-progress" id="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
     
     <!-- Decorative flower elements -->
-    <div class="flower-decoration flower-1"></div>
-    <div class="flower-decoration flower-2"></div>
-    <div class="flower-decoration flower-3"></div>
-    <div class="flower-decoration flower-4"></div>
-    <div class="flower-decoration flower-5"></div>
-    <div class="flower-decoration flower-6"></div>
+    <div class="flower-decoration flower-1" aria-hidden="true"></div>
+    <div class="flower-decoration flower-2" aria-hidden="true"></div>
+    <div class="flower-decoration flower-3" aria-hidden="true"></div>
+    <div class="flower-decoration flower-4" aria-hidden="true"></div>
+    <div class="flower-decoration flower-5" aria-hidden="true"></div>
+    <div class="flower-decoration flower-6" aria-hidden="true"></div>
 
     <!-- Site header -->
-    <header class="site-header">
-        <h1 class="site-title">MAKHADO KHASHANE</h1>
-        <p class="site-subtitle">Digital creator, designer, and storyteller exploring the intersection of technology and creativity</p>
+    <header class="site-header" role="banner">
+        <h1 class="site-title" id="site-title">MAKHADO KHASHANE</h1>
+        <p class="site-subtitle" role="doc-subtitle">Digital creator, designer, and storyteller exploring the intersection of technology and creativity</p>
     </header>
 
     <!-- Main container with central design -->
-    <div class="main-container">
-        <div class="central-oval">
+    <main class="main-container" id="main-content" role="main" aria-labelledby="site-title">
+        <div class="central-oval" role="region" aria-label="Portfolio navigation hub">
             <!-- Colorful illustration background -->
-            <div class="illustration-collage"></div>
+            <div class="illustration-collage" aria-hidden="true" role="presentation"></div>
             
             <!-- Cartoon image of you in the center -->
             <div class="center-cartoon">
-                <img src="./THE COOLEST IMAGES/favico/TAS.png" alt="Makhado Khashane Cartoon" class="cartoon-image">
+                <img src="./THE COOLEST IMAGES/favico/TAS.png" 
+                     alt="Makhado Khashane's cartoon avatar - a stylized digital representation" 
+                     class="cartoon-image"
+                     loading="eager"
+                     width="200"
+                     height="200">
             </div>
             
             <!-- Navigation buttons positioned around the oval -->
-            <div class="nav-buttons">
-                <a href="./portfolio/portfolio.html" class="nav-button portfolio">PORTFOLIO</a>
-                <a href="./about/about.html" class="nav-button about">ABOUT</a>
-                <a href="./links.html" class="nav-button links">LINKS</a>
-            </div>
+            <nav class="nav-buttons" role="navigation" aria-label="Main site navigation">
+                <a href="./portfolio/portfolio.html" 
+                   class="nav-button portfolio" 
+                   aria-label="View my portfolio - digital art, animations, and creative works"
+                   role="button">PORTFOLIO</a>
+                <a href="./about/about.html" 
+                   class="nav-button about" 
+                   aria-label="Learn about me - my background, journey, and creative process"
+                   role="button">ABOUT</a>
+                <a href="./links.html" 
+                   class="nav-button links" 
+                   aria-label="Find my social media links and external profiles"
+                   role="button">LINKS</a>
+            </nav>
         </div>
-    </div>
-
+    </main>
 
     <!-- Footer -->
-    <footer class="site-footer">
+    <footer class="site-footer" role="contentinfo">
         <p>&copy; 2025 MAKHADO KHASHANE. All rights reserved.</p>
-        <p style="color: #e74c3c; font-weight: bold; margin-top: 10px;">JESUS LOVES YOU ❤️</p>
+        <p style="color: #e74c3c; font-weight: bold; margin-top: 10px;" aria-label="Christian message of love">JESUS LOVES YOU ❤️</p>
     </footer>
 
     <!-- Loading screen -->
@@ -139,12 +209,14 @@
         `;
         document.head.appendChild(style);
         
-        // Update scroll progress bar
+        // Update scroll progress bar with ARIA attributes
         function updateScrollProgress() {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrollPercent = (scrollTop / scrollHeight) * 100;
-            document.getElementById('scroll-progress').style.width = scrollPercent + '%';
+            const progressBar = document.getElementById('scroll-progress');
+            progressBar.style.width = scrollPercent + '%';
+            progressBar.setAttribute('aria-valuenow', Math.round(scrollPercent));
         }
 
         // Add scroll event listener
@@ -152,6 +224,29 @@
         
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', updateScrollProgress);
+        
+        // Add skip-link styles
+        const skipLinkStyle = document.createElement('style');
+        skipLinkStyle.textContent = `
+            .skip-link {
+                position: absolute;
+                top: -40px;
+                left: 6px;
+                background: #4a90e2;
+                color: white;
+                padding: 8px;
+                text-decoration: none;
+                border-radius: 4px;
+                z-index: 10001;
+                font-family: 'Press Start 2P', cursive;
+                font-size: 8px;
+                transition: top 0.3s;
+            }
+            .skip-link:focus {
+                top: 6px;
+            }
+        `;
+        document.head.appendChild(skipLinkStyle);
     </script>
 </body>
 </html>
