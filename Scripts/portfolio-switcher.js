@@ -209,19 +209,20 @@ function displayItem(type, src, title, description, year) {
                 </div>
             `;
         } else if (type === 'youtube') {
-            // Show YouTube video
+            // Show YouTube video with after-christ styling
             displayContainer.innerHTML = `
-                <div class="youtube-container" style="position: relative; width: 100%; height: 100%; border-radius: 15px; overflow: hidden; border: 2px solid #4a90e2; box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);">
+                <div class="youtube-container after-christ-youtube" style="position: relative; width: 100%; height: 100%; border-radius: 15px; overflow: hidden; border: 2px solid #ffd700; box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);">
                     <iframe 
                         width="100%" 
                         height="100%" 
-                        src="${src}" 
+                        src="${src}?autoplay=1&mute=1&loop=1&playlist=${src.split('/').pop()}" 
                         title="${title}" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowfullscreen
                         style="border-radius: 13px;">
                     </iframe>
+                    <div class="youtube-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), transparent);"></div>
                 </div>
             `;
         }
