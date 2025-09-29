@@ -60,11 +60,13 @@ html, body {
 /* Main container */
 .main-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     position: relative;
     z-index: 2;
+    padding: 120px 20px 100px 20px;
 }
 
 /* Central oval design */
@@ -188,7 +190,7 @@ html, body {
 }
 
 .site-title {
-    font-size: 24px;
+    font-size: 36px;
     color: #4a90e2;
     margin-bottom: 10px;
     text-shadow: 2px 2px 0 #000;
@@ -197,19 +199,21 @@ html, body {
 .site-subtitle {
     font-size: 10px;
     color: #ccc;
-    max-width: 400px;
+    max-width: 500px;
     line-height: 1.5;
+    text-align: center;
+    margin: 0 auto 40px auto;
 }
 
 /* Footer */
 .site-footer {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    margin-top: 80px;
+    padding: 20px;
     font-size: 8px;
-    color: #666;
+    color: #667;
     text-align: center;
+    z-index: 10;
 }
 
 /* Responsive design */
@@ -225,7 +229,7 @@ html, body {
     }
     
     .site-title {
-        font-size: 18px;
+        font-size: 28px;
     }
     
     .flower-decoration {
@@ -273,7 +277,7 @@ html, body {
     }
     
     .site-title {
-        font-size: 14px;
+        font-size: 22px;
     }
     
     .site-subtitle {
@@ -349,10 +353,13 @@ html, body {
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
     transition: all 0.3s ease;
-    z-index: 1000;
+    z-index: 1002;
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .scroll-to-top.visible {
@@ -480,5 +487,332 @@ html {
     .cartoon-image {
         width: 60px;
         height: 60px;
+    }
+}
+
+/* Gamepad Navigation System */
+.gamepad-container {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.gamepad-container.show-gamepad {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.gamepad {
+    position: relative;
+    width: 200px;
+    height: 120px;
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    border-radius: 25px;
+    border: 3px solid #4a90e2;
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.5),
+        inset 0 2px 5px rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.gamepad::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 10px;
+    background: linear-gradient(90deg, #4a90e2, #2c5aa0);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(74, 144, 226, 0.3);
+}
+
+.gamepad-button {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.gamepad-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(255, 255, 255, 0.2);
+}
+
+.gamepad-button:active {
+    transform: translateY(0) scale(0.95);
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.3),
+        inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Positions - Diamond Layout */
+#gamepad-y {
+    top: 5px;
+    right: 45px;
+    background: linear-gradient(145deg, #ffd700, #ffb300);
+    color: #000;
+}
+
+#gamepad-x {
+    top: 35px;
+    right: 15px;
+    background: linear-gradient(145deg, #4169e1, #1e3a8a);
+    color: #fff;
+}
+
+#gamepad-a {
+    bottom: 5px;
+    right: 45px;
+    background: linear-gradient(145deg, #32cd32, #228b22);
+    color: #fff;
+}
+
+#gamepad-b {
+    top: 35px;
+    right: 75px;
+    background: linear-gradient(145deg, #dc143c, #8b0000);
+    color: #fff;
+}
+
+/* Responsive Gamepad */
+@media (max-width: 768px) {
+    .gamepad-container {
+        bottom: 20px;
+        left: 20px;
+    }
+    
+    .gamepad {
+        width: 160px;
+        height: 100px;
+        padding: 12px;
+    }
+    
+    .gamepad-button {
+        width: 28px;
+        height: 28px;
+        font-size: 6px;
+    }
+    
+    #gamepad-y {
+        top: 2px;
+        right: 36px;
+    }
+    
+    #gamepad-x {
+        top: 28px;
+        right: 12px;
+    }
+    
+    #gamepad-a {
+        bottom: 2px;
+        right: 36px;
+    }
+    
+    #gamepad-b {
+        top: 28px;
+        right: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gamepad {
+        width: 140px;
+        height: 85px;
+        padding: 10px;
+    }
+    
+    .gamepad-button {
+        width: 24px;
+        height: 24px;
+        font-size: 5px;
+    }
+    
+    #gamepad-y {
+        top: 2px;
+        right: 32px;
+    }
+    
+    #gamepad-x {
+        top: 24px;
+        right: 10px;
+    }
+    
+    #gamepad-a {
+        bottom: 2px;
+        right: 32px;
+    }
+    
+    #gamepad-b {
+        top: 24px;
+        right: 54px;
+    }
+}
+
+/* Gamepad Animation Effects */
+@keyframes buttonPress {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+.gamepad-button.pressed {
+    animation: buttonPress 0.1s ease;
+}
+
+/* Gamepad Glow Effect */
+.gamepad:hover {
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(74, 144, 226, 0.3),
+        inset 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+/* Power LED Indicator */
+.gamepad::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    width: 6px;
+    height: 6px;
+    background: #32cd32;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #32cd32;
+    animation: powerLED 2s ease-in-out infinite;
+}
+
+@keyframes powerLED {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Latest Video Section */
+.latest-video-section {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    width: 100%;
+}
+
+.video-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #4a90e2;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.video-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(74, 144, 226, 0.5);
+}
+
+.latest-video {
+    width: 400px;
+    height: 225px;
+    border-radius: 15px;
+    border: 2px solid #4a90e2;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.video-subtext {
+    font-size: 12px;
+    color: #4a90e2;
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Video Section */
+@media (max-width: 768px) {
+    .site-subtitle {
+        margin: 0 auto 30px auto;
+    }
+    
+    .latest-video-section {
+        margin-top: 50px;
+    }
+    
+    .video-container {
+        padding: 15px;
+        margin: 0 20px;
+    }
+    
+    .latest-video {
+        width: 320px;
+        height: 180px;
+    }
+    
+    .video-subtext {
+        font-size: 10px;
+        margin-top: 10px;
+    }
+    
+    .site-footer {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-subtitle {
+        margin: 0 auto 25px auto;
+    }
+    
+    .latest-video-section {
+        margin-top: 40px;
+    }
+    
+    .video-container {
+        padding: 12px;
+        margin: 0 15px;
+    }
+    
+    .latest-video {
+        width: 280px;
+        height: 157px;
+    }
+    
+    .video-subtext {
+        font-size: 8px;
+        margin-top: 8px;
+    }
+    
+    .site-footer {
+        margin-top: 50px;
     }
 }

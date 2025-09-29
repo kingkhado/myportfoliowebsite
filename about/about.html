@@ -249,19 +249,105 @@
         .contact-section p {
             font-size: 8px;
             color: #4a90e2;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
-        .contact-section a {
-            color: #60a5fa;
-            text-decoration: none;
-            font-size: 10px;
+        /* Contact Form Styling */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .form-group label {
+            font-size: 7px;
+            color: #4a90e2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             font-weight: bold;
         }
         
-        .contact-section a:hover {
-            color: #93c5fd;
-            text-shadow: 0 0 10px #93c5fd;
+        .form-group input,
+        .form-group textarea {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #4a90e2;
+            border-radius: 8px;
+            padding: 8px 12px;
+            color: #fff;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #60a5fa;
+            box-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
+            background: rgba(74, 144, 226, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+            line-height: 1.4;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(45deg, #4a90e2, #2c5aa0);
+            border: 2px solid #fff;
+            border-radius: 8px;
+            color: #fff;
+            padding: 12px 20px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+        }
+        
+        .form-status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 7px;
+            text-align: center;
+            display: none;
+        }
+        
+        .form-status.success {
+            background: rgba(34, 197, 94, 0.2);
+            border: 2px solid #22c55e;
+            color: #22c55e;
+            display: block;
+        }
+        
+        .form-status.error {
+            background: rgba(239, 68, 68, 0.2);
+            border: 2px solid #ef4444;
+            color: #ef4444;
+            display: block;
         }
         
         /* Back button matching your theme */
@@ -313,6 +399,17 @@
             .about-text p {
                 font-size: 9px;
             }
+            
+            .form-group input,
+            .form-group textarea {
+                font-size: 7px;
+                padding: 6px 10px;
+            }
+            
+            .submit-btn {
+                font-size: 7px;
+                padding: 10px 16px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -339,6 +436,17 @@
             
             .about-text p {
                 font-size: 8px;
+            }
+            
+            .form-group input,
+            .form-group textarea {
+                font-size: 6px;
+                padding: 5px 8px;
+            }
+            
+            .submit-btn {
+                font-size: 6px;
+                padding: 8px 12px;
             }
             
             .back-home {
@@ -395,11 +503,35 @@
                 
                 <p>I gave my life to Jesus in 2024 and I'm on a mission to use art and tech to spread the gospel.</p>
                 
-                <div class="contact-section" role="region" aria-label="Contact information">
-                    <p>email me at</p>
-                    <a href="mailto:makhadokhashane18@gmail.com" 
-                       aria-label="Send email to Makhado Khashane at makhadokhashane18@gmail.com"
-                       role="link">makhadokhashane18@gmail.com</a>
+                <div class="contact-section" role="region" aria-label="Contact form">
+                    <p>get in touch</p>
+                    <form class="contact-form" id="contactForm" aria-label="Contact submission form">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required aria-required="true">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required aria-required="true">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject:</label>
+                            <input type="text" id="subject" name="subject" required aria-required="true">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="4" required aria-required="true"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn" aria-label="Send message">
+                            SEND MESSAGE
+                        </button>
+                    </form>
+                    
+                    <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
                 </div>
             </div>
         </section>
@@ -409,6 +541,16 @@
             <p style="color: #e74c3c; font-weight: bold; font-size: 8px;" aria-label="Christian message of love">JESUS LOVES YOU ❤️</p>
         </footer>
     </main>
+
+    <!-- Gamepad Navigation -->
+    <div class="gamepad-container show-gamepad">
+        <div class="gamepad">
+            <button class="gamepad-button" id="gamepad-a" onclick="navigateTo('portfolio')">A<br>Portfolio</button>
+            <button class="gamepad-button" id="gamepad-b" onclick="navigateTo('about')">B<br>About</button>
+            <button class="gamepad-button" id="gamepad-x" onclick="navigateTo('games')">X<br>Games</button>
+            <button class="gamepad-button" id="gamepad-y" onclick="navigateTo('links')">Y<br>Links</button>
+        </div>
+    </div>
 
     <!-- Scroll Progress Script -->
     <script>
@@ -428,6 +570,25 @@
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', updateScrollProgress);
         
+        // Gamepad Navigation Functions
+        function navigateTo(page) {
+            const basePath = window.location.pathname.includes('about') ? '../' : '';
+            switch(page) {
+                case 'portfolio':
+                    window.location.href = basePath + 'portfolio/portfolio.html';
+                    break;
+                case 'about':
+                    window.location.href = basePath + 'about/about.html';
+                    break;
+                case 'games':
+                    window.location.href = basePath + 'games/itchio-games.html';
+                    break;
+                case 'links':
+                    window.location.href = basePath + 'links.html';
+                    break;
+            }
+        }
+
         // Add skip-link styles
         const skipLinkStyle = document.createElement('style');
         skipLinkStyle.textContent = `
@@ -450,6 +611,72 @@
             }
         `;
         document.head.appendChild(skipLinkStyle);
+        
+        // Contact Form Handling with Formspree
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formStatus = document.getElementById('form-status');
+            const submitBtn = document.querySelector('.submit-btn');
+            
+            // Show loading state
+            submitBtn.textContent = 'SENDING...';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Submit to Formspree
+            fetch('https://formspree.io/f/xdkwepep', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                // Reset button
+                submitBtn.textContent = 'SEND MESSAGE';
+                submitBtn.disabled = false;
+                
+                if (response.ok) {
+                    // Show success message
+                    formStatus.className = 'form-status success';
+                    formStatus.textContent = 'MESSAGE SENT SUCCESSFULLY! I\'LL GET BACK TO YOU SOON.';
+                    
+                    // Reset form
+                    this.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 5000);
+                } else {
+                    // Show error message
+                    formStatus.className = 'form-status error';
+                    formStatus.textContent = 'OOPS! SOMETHING WENT WRONG. PLEASE TRY AGAIN.';
+                    
+                    // Hide error message after 5 seconds
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 5000);
+                }
+            })
+            .catch(error => {
+                // Reset button
+                submitBtn.textContent = 'SEND MESSAGE';
+                submitBtn.disabled = false;
+                
+                // Show error message
+                formStatus.className = 'form-status error';
+                formStatus.textContent = 'NETWORK ERROR. PLEASE CHECK YOUR CONNECTION AND TRY AGAIN.';
+                
+                // Hide error message after 5 seconds
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 5000);
+            });
+        });
     </script>
 </body>
 </html>

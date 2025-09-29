@@ -140,6 +140,21 @@
                    role="button">LINKS</a>
             </nav>
         </div>
+
+        <!-- Latest Animation Video Section -->
+        <div class="latest-video-section" role="region" aria-label="Latest animation video">
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/LEMjHJ8L5WU" 
+                    title="Latest Animation by Makhado Khashane"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen
+                    class="latest-video">
+                </iframe>
+                <p class="video-subtext">watch now</p>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -147,6 +162,19 @@
         <p>&copy; 2025 MAKHADO KHASHANE. All rights reserved.</p>
         <p style="color: #e74c3c; font-weight: bold; margin-top: 10px;" aria-label="Christian message of love">JESUS LOVES YOU ❤️</p>
     </footer>
+
+    <!-- Gamepad Navigation -->
+    <div class="gamepad-container show-gamepad">
+        <div class="gamepad">
+            <button class="gamepad-button" id="gamepad-a" onclick="navigateTo('portfolio')">A<br>Portfolio</button>
+            <button class="gamepad-button" id="gamepad-b" onclick="navigateTo('about')">B<br>About</button>
+            <button class="gamepad-button" id="gamepad-x" onclick="navigateTo('games')">X<br>Games</button>
+            <button class="gamepad-button" id="gamepad-y" onclick="navigateTo('links')">Y<br>Links</button>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
 
     <!-- Loading screen -->
     <script src="./Scripts/loading-screen.js"></script>
@@ -225,6 +253,75 @@
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', updateScrollProgress);
         
+        // Gamepad Navigation Functions
+        function navigateTo(page) {
+            switch(page) {
+                case 'portfolio':
+                    window.location.href = './portfolio/portfolio.html';
+                    break;
+                case 'about':
+                    window.location.href = './about/about.html';
+                    break;
+                case 'games':
+                    window.location.href = './games/itchio-games.html';
+                    break;
+                case 'links':
+                    window.location.href = './links.html';
+                    break;
+            }
+        }
+
+        // Keyboard Navigation Support
+        document.addEventListener('keydown', function(e) {
+            switch(e.key.toLowerCase()) {
+                case 'a':
+                    navigateTo('portfolio');
+                    break;
+                case 'b':
+                    navigateTo('about');
+                    break;
+                case 'x':
+                    navigateTo('games');
+                    break;
+                case 'y':
+                    navigateTo('links');
+                    break;
+            }
+        });
+
+        // Add button press animation
+        document.querySelectorAll('.gamepad-button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.add('pressed');
+                setTimeout(() => {
+                    this.classList.remove('pressed');
+                }, 100);
+            });
+        });
+
+        // Scroll to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Show/hide scroll to top button
+        function toggleScrollButton() {
+            const scrollBtn = document.getElementById('scrollToTopBtn');
+            if (scrollBtn) {
+                if (window.pageYOffset > 300) {
+                    scrollBtn.classList.add('visible');
+                } else {
+                    scrollBtn.classList.remove('visible');
+                }
+            }
+        }
+        
+        // Add scroll listener for button visibility
+        window.addEventListener('scroll', toggleScrollButton);
+
         // Add skip-link styles
         const skipLinkStyle = document.createElement('style');
         skipLinkStyle.textContent = `
