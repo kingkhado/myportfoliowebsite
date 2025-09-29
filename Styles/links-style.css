@@ -184,43 +184,11 @@
 
 .link-card.donation:hover {
     border-color: #ffd700;
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
-    background: linear-gradient(135deg, #1a1a1a, #2a2a2a, rgba(255, 215, 0, 0.1));
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
 }
 
 .link-card.donation .link-content h3 {
     color: #ffd700;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-}
-
-.link-card.donation .link-icon {
-    animation: donationPulse 2s ease-in-out infinite;
-}
-
-@keyframes donationPulse {
-    0%, 100% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.3));
-    }
-    50% {
-        transform: scale(1.1);
-        filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
-    }
-}
-
-.link-card.donation::after {
-    content: '🙏';
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    font-size: 20px;
-    animation: float 3s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
 }
 
 .links-footer {
