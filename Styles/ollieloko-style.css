@@ -535,22 +535,25 @@ html {
     right: -15px;
     width: 35px;
     height: 35px;
-    background: linear-gradient(145deg, #4a90e2, #2c5aa0);
-    border: 3px solid #fff;
+    background: linear-gradient(145deg, #4a90e2, #2c5aa0) !important;
+    border: 3px solid #fff !important;
     border-radius: 50%;
-    color: #fff;
+    color: #fff !important;
     font-size: 22px;
     font-weight: bold;
-    cursor: pointer;
-    z-index: 10005;
-    display: flex;
+    cursor: pointer !important;
+    z-index: 10005 !important;
+    display: flex !important;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(74, 144, 226, 0.8);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(74, 144, 226, 0.8) !important;
     transition: all 0.3s ease;
     line-height: 1;
     padding: 0;
     font-family: Arial, sans-serif;
+    pointer-events: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .gamepad-minimize-btn:hover {

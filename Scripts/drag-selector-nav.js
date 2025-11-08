@@ -499,19 +499,16 @@ style.textContent = `
         transform: scale(0.95);
     }
     
-    /* Mobile fallback - show instruction */
+    /* HIDE ON MOBILE - Use normal navigation instead */
     @media (max-width: 768px) {
-        .nav-selector-box::after {
-            content: 'Drag me!';
-            position: absolute;
-            bottom: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 8px;
-            white-space: nowrap;
-            color: #4a90e2;
-            font-family: 'Press Start 2P', cursive;
-            animation: pulse 2s ease-in-out infinite;
+        .nav-selector-box {
+            display: none !important;
+        }
+        
+        /* Re-enable click navigation on mobile */
+        .top-nav-link {
+            pointer-events: auto !important;
+            cursor: pointer !important;
         }
     }
     
