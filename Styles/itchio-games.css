@@ -14,14 +14,14 @@
 }
 
 .games-header h1 {
-    font-size: 32px;
+    font-size: 42px; /* Increased from 32px */
     margin-bottom: 15px;
     text-shadow: 2px 2px 0px #000;
     color: #4a90e2;
 }
 
 .games-header p {
-    font-size: 12px;
+    font-size: 16px; /* Increased from 12px */
     color: #ccc;
     line-height: 1.6;
     margin-bottom: 20px;
@@ -88,7 +88,7 @@
 
 .game-info h3 {
     color: #4a90e2;
-    font-size: 16px;
+    font-size: 18px; /* Increased from 16px */
     margin-bottom: 10px;
     text-shadow: none;
     text-align: center;
@@ -96,8 +96,8 @@
 
 .game-info p {
     color: #ccc;
-    font-size: 10px;
-    line-height: 1.4;
+    font-size: 12px; /* Increased from 10px */
+    line-height: 1.5;
     margin-bottom: 15px;
     text-align: center;
 }
@@ -111,7 +111,7 @@
     text-decoration: none;
     text-align: center;
     border-radius: 8px;
-    font-size: 10px;
+    font-size: 12px; /* Increased from 10px */
     font-weight: bold;
     transition: all 0.3s ease;
     border: 2px solid #4a90e2;
@@ -129,7 +129,7 @@
     text-align: center;
     padding: 40px;
     color: #ccc;
-    font-size: 12px;
+    font-size: 14px; /* Increased from 12px */
 }
 
 .loading {
@@ -149,7 +149,7 @@
     color: #fff;
     padding: 10px 20px;
     font-family: 'Press Start 2P', cursive;
-    font-size: 12px;
+    font-size: 14px; /* Increased from 12px */
     text-decoration: none;
     border-radius: 25px;
     transition: all 0.3s ease;
@@ -171,19 +171,27 @@
     }
     
     .games-header h1 {
-        font-size: 18px;
+        font-size: 28px; /* Increased from 18px */
+    }
+    
+    .games-header p {
+        font-size: 14px;
     }
     
     .game-info h3 {
-        font-size: 12px;
+        font-size: 14px; /* Increased from 12px */
     }
     
     .game-info p {
-        font-size: 7px;
+        font-size: 10px; /* Increased from 7px */
     }
     
     .play-button {
-        font-size: 8px;
+        font-size: 10px; /* Increased from 8px */
+    }
+    
+    .back-home {
+        font-size: 12px;
     }
 }
 

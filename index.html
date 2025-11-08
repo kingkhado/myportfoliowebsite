@@ -44,6 +44,8 @@
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./Styles/ollieloko-style.css">
+    <link rel="stylesheet" href="./Styles/top-navigation.css">
+    <link rel="stylesheet" href="./Styles/testimony-mode.css">
     <link rel="stylesheet" href="./Styles/loading-screen.css">
     
     <!-- Structured Data -->
@@ -88,11 +90,47 @@
     <title>Makhado Khashane - Digital Artist & Creative Kingdom Builder</title>
 </head>
 <body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav" role="navigation" aria-label="Main navigation">
+        <div class="top-nav-container">
+            <a href="./index.html" class="top-nav-logo">MK</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">MENU ☰</button>
+            <ul class="top-nav-menu">
+                <li class="top-nav-item"><a href="./index.html" class="top-nav-link">HOME</a></li>
+                <li class="top-nav-item"><a href="./portfolio/portfolio.html" class="top-nav-link">PORTFOLIO</a></li>
+                <li class="top-nav-item"><a href="./about/about.html" class="top-nav-link">ABOUT</a></li>
+                <li class="top-nav-item"><a href="./games/itchio-games.html" class="top-nav-link">GAMES</a></li>
+                <li class="top-nav-item"><a href="./links.html" class="top-nav-link">LINKS</a></li>
+            </ul>
+        </div>
+    </nav>
+    
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link" aria-label="Skip to main content">Skip to main content</a>
     
     <!-- Blue Progress Scroll Bar -->
     <div class="scroll-progress" id="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    
+    <!-- Testimony Mode Container -->
+    <div id="testimony-container" class="testimony-container">
+        <button id="exit-testimony-btn" class="exit-testimony-btn" aria-label="Exit testimony mode">✕</button>
+        <div class="testimony-header">
+            <h1>My Testimony:<br>From Darkness to Light</h1>
+            <p>Scroll down to experience my journey...</p>
+        </div>
+        <div class="testimony-story">
+            <div class="story-item"><div class="story-icon">😈</div><div class="story-text"><p>I had a bad trip one day... saw demons and devils.</p></div></div>
+            <div class="story-item"><div class="story-icon">✝️</div><div class="story-text"><p>I prayed so hard... then I saw Jesus.</p></div></div>
+            <div class="story-item"><div class="story-icon">🌅</div><div class="story-text"><p>Woke up the next day thinking it was just a bad trip.</p></div></div>
+            <div class="story-item"><div class="story-icon">😈</div><div class="story-text"><p>Continued living an evil lifestyle.</p></div></div>
+            <div class="story-item"><div class="story-icon">🚗</div><div class="story-text"><p>Drove back home one day from a life of sin.</p></div></div>
+            <div class="story-item"><div class="story-icon">🎥</div><div class="story-text"><p>Watched a testimony video — everything sounded just like me.</p></div></div>
+            <div class="story-item"><div class="story-icon">🙌</div><div class="story-text"><p>Gave my life to Christ.</p></div></div>
+            <div class="story-item"><div class="story-icon">👁️</div><div class="story-text"><p>Started being aware of the spiritual realm.</p></div></div>
+            <div class="story-item"><div class="story-icon">⚔️</div><div class="story-text"><p>After transitioning to Christ's Kingdom, I realized I made myself a target to the kingdom of darkness — spiritual warfare began.</p></div></div>
+        </div>
+        <div class="salvation-finale"><div class="glowing-cross">✝️</div><div class="salvation-message"><p>But greater is He that is in me,<br>than he that is in the world.</p><p style="margin-top: 20px; font-size: 18px;">— 1 John 4:4</p></div></div>
+    </div>
     
     <!-- Decorative flower elements -->
     <div class="flower-decoration flower-1" aria-hidden="true"></div>
@@ -106,6 +144,22 @@
     <header class="site-header" role="banner">
         <h1 class="site-title" id="site-title">MAKHADO KHASHANE</h1>
         <p class="site-subtitle" role="doc-subtitle">Digital creator, designer, and storyteller exploring the intersection of technology and creativity</p>
+        
+        <!-- Testimony Toggle Button with Slider -->
+        <div class="testimony-toggle-container">
+            <span class="testimony-icon">✝️</span>
+            <div class="testimony-info">
+                <span class="testimony-text">MY TESTIMONY</span>
+                <span class="testimony-subtext">From Darkness to Light</span>
+            </div>
+            <label class="testimony-switch">
+                <input type="checkbox" id="testimony-mode-btn" aria-label="Toggle testimony mode">
+                <span class="testimony-slider">
+                    <span class="slider-text off">OFF</span>
+                    <span class="slider-text on">ON</span>
+                </span>
+            </label>
+        </div>
     </header>
 
     <!-- Main container with central design -->
@@ -141,18 +195,52 @@
             </nav>
         </div>
 
-        <!-- Latest Animation Video Section -->
-        <div class="latest-video-section" role="region" aria-label="Latest animation video">
+        <!-- Latest Animation Video Section with Autoplay -->
+        <div class="latest-video-section" role="region" aria-label="Featured animation videos">
             <div class="video-container">
                 <iframe 
-                    src="https://www.youtube.com/embed/LEMjHJ8L5WU" 
+                    id="mainVideo"
+                    src="https://www.youtube.com/embed/LEMjHJ8L5WU?autoplay=1&mute=1&loop=1&playlist=LEMjHJ8L5WU" 
                     title="Latest Animation by Makhado Khashane"
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                     allowfullscreen
                     class="latest-video">
                 </iframe>
-                <p class="video-subtext">watch now</p>
+                <div class="video-controls">
+                    <button id="muteToggle" class="video-control-btn" aria-label="Toggle mute">
+                        🔊 Sound
+                    </button>
+                    <p class="video-title">God saved me from a BAD trip!</p>
+                </div>
+            </div>
+            
+            <!-- Video Playlist -->
+            <div class="video-playlist">
+                <h3 class="playlist-title">Featured Videos</h3>
+                <div class="playlist-items">
+                    <div class="playlist-item active" data-video-id="LEMjHJ8L5WU" data-title="God saved me from a BAD trip!">
+                        <img src="https://img.youtube.com/vi/LEMjHJ8L5WU/mqdefault.jpg" alt="God saved me from a BAD trip thumbnail">
+                        <div class="playlist-item-info">
+                            <p class="playlist-item-title">God saved me from a BAD trip!</p>
+                            <p class="playlist-item-year">2025</p>
+                        </div>
+                    </div>
+                    <div class="playlist-item" data-video-id="oH_Wo6JFbnE" data-title="There's Power in the Name of Jesus">
+                        <img src="https://img.youtube.com/vi/oH_Wo6JFbnE/mqdefault.jpg" alt="Power in the Name of Jesus thumbnail">
+                        <div class="playlist-item-info">
+                            <p class="playlist-item-title">Power in the Name of Jesus</p>
+                            <p class="playlist-item-year">2025</p>
+                        </div>
+                    </div>
+                    <div class="playlist-item" data-video-id="t_PLrynPFWQ" data-title="Relaxing Christian Instrumentals">
+                        <img src="https://img.youtube.com/vi/t_PLrynPFWQ/mqdefault.jpg" alt="Christian Instrumentals thumbnail">
+                        <div class="playlist-item-info">
+                            <p class="playlist-item-title">Relaxing Christian Instrumentals</p>
+                            <p class="playlist-item-year">2025</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -178,6 +266,12 @@
 
     <!-- Loading screen -->
     <script src="./Scripts/loading-screen.js"></script>
+    
+    <!-- Top navigation functionality -->
+    <script src="./Scripts/top-navigation.js"></script>
+    
+    <!-- Testimony mode functionality -->
+    <script src="./Scripts/testimony-mode.js"></script>
     
     <!-- Scroll to top functionality -->
     <script src="./Scripts/scrollToTop.js"></script>
@@ -322,6 +416,53 @@
         // Add scroll listener for button visibility
         window.addEventListener('scroll', toggleScrollButton);
 
+        // Video Playlist Functionality
+        let isMuted = true;
+        const mainVideo = document.getElementById('mainVideo');
+        const muteToggle = document.getElementById('muteToggle');
+        const playlistItems = document.querySelectorAll('.playlist-item');
+        const videoTitle = document.querySelector('.video-title');
+        
+        // Mute/Unmute toggle
+        muteToggle.addEventListener('click', function() {
+            isMuted = !isMuted;
+            const currentSrc = mainVideo.src;
+            const videoId = currentSrc.match(/embed\/([^?]+)/)[1];
+            
+            if (isMuted) {
+                mainVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}`;
+                muteToggle.textContent = '🔊 Sound';
+                muteToggle.setAttribute('aria-label', 'Unmute video');
+            } else {
+                mainVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&loop=1&playlist=${videoId}`;
+                muteToggle.textContent = '🔇 Mute';
+                muteToggle.setAttribute('aria-label', 'Mute video');
+            }
+        });
+        
+        // Playlist item click
+        playlistItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from all items
+                playlistItems.forEach(i => i.classList.remove('active'));
+                
+                // Add active class to clicked item
+                this.classList.add('active');
+                
+                // Get video ID and title
+                const videoId = this.getAttribute('data-video-id');
+                const title = this.getAttribute('data-title');
+                
+                // Update video
+                const muteParam = isMuted ? 'mute=1' : 'mute=0';
+                mainVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&${muteParam}&loop=1&playlist=${videoId}`;
+                videoTitle.textContent = title;
+                
+                // Scroll to video
+                mainVideo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        });
+        
         // Add skip-link styles
         const skipLinkStyle = document.createElement('style');
         skipLinkStyle.textContent = `

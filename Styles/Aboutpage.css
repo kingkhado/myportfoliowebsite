@@ -1,30 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
-    background-color: #ffcc00; /* Orange background */
-    font-family: 'Press Start 2P', cursive; /* Pixel font */
+    background-color: #000; /* Black background - consistent with site */
+    font-family: 'Press Start 2P', cursive;
     margin: 0;
     padding: 0;
+    color: #fff;
 }
 
 header {
-    background-color: #add8e6; /* Light blue header */
+    background-color: rgba(74, 144, 226, 0.1); /* Blue tint - consistent with site */
     padding: 20px;
     text-align: center;
-    border-bottom: 5px solid #333; /* Dark border */
+    border-bottom: 3px solid #4a90e2; /* Blue border - consistent with site */
 }
 
 header h1 {
-    font-size: 2em; /* Larger font size for header */
-    color: #333; /* Darker text color */
-    text-shadow: 2px 2px #ff6600; /* Text shadow for emphasis */
+    font-size: 2em;
+    color: #4a90e2; /* Blue text - consistent with site */
+    text-shadow: 2px 2px 0 #000;
 }
 
 .navBar {
     margin-top: 10px;
     padding: 10px;
-    background-color: #add8e6; /* Light blue navbar background */
-    border: 2px solid #333; /* Dark border */
+    background-color: rgba(74, 144, 226, 0.1);
+    border: 2px solid #4a90e2;
     border-radius: 10px;
 }
 
@@ -42,16 +43,16 @@ nav ul li {
 
 nav ul li:hover {
     transform: scale(1.1);
-    color: #ff6600; /* Dark orange on hover */
+    color: #4a90e2;
 }
 
 nav ul li a {
-    color: #333; /* Dark text color */
+    color: #fff;
     text-decoration: none;
 }
 
 nav ul li a:visited {
-    color: #333; /* Dark text color */
+    color: #fff;
 }
 
 main {
@@ -60,134 +61,138 @@ main {
 }
 
 main article {
-    background-color: #add8e6; /* Light blue article background */
-    border: 5px solid #333; /* Dark border */
+    background-color: rgba(255, 255, 255, 0.05); /* Dark transparent - consistent with site */
+    border: 3px solid #4a90e2; /* Blue border - consistent with site */
     border-radius: 15px;
-    margin: 20px auto 40px; /* Adjusted margin-bottom */
+    margin: 20px auto 40px;
     padding: 20px;
-    max-width: 1200px; /* Widened text box */
-    box-shadow: 5px 5px #333; /* Dark shadow */
+    max-width: 1200px;
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3); /* Blue glow - consistent with site */
     text-align: left;
 }
 
 main article header h2 {
-    font-size: 1.5em; /* Larger font size for headings */
-    color: #333; /* Darker text color */
+    font-size: 1.5em;
+    color: #4a90e2; /* Blue headings - consistent with site */
     margin-bottom: 20px;
 }
 
 main article p {
-    font-size: 1em; /* Default font size for paragraphs */
-    color: #333; /* Darker text color */
+    font-size: 1em;
+    color: #ccc; /* Light gray text - consistent with site */
     line-height: 1.6;
 }
 
 main article ol {
-    padding-left: 40px; /* Add padding for ordered list */
+    padding-left: 40px;
+    color: #ccc;
 }
 
 main article ol li {
-    margin-bottom: 20px; /* More space between list items */
+    margin-bottom: 20px;
 }
 
 main article ol li strong {
-    display: block; /* Make strong text block-level for spacing */
+    display: block;
     margin-bottom: 5px;
+    color: #4a90e2;
 }
 
 footer {
-    background-color: #333; /* Dark footer background */
-    color: #add8e6; /* Light text color */
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ccc;
     text-align: center;
-    padding: 10px;
-    border-top: 5px solid #ff6600; /* Dark border top */
+    padding: 20px;
+    border-top: 3px solid #4a90e2;
     position: relative;
+    margin-top: 40px;
 }
 
 .scroll-to-top {
-    position: relative;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #add8e6; /* Light blue button background */
-    color: #333; /* Dark text color */
-    border: 2px solid #333; /* Dark border */
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-family: 'Press Start 2P', cursive; /* Pixel font for button */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(45deg, #4a90e2, #2c5aa0);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
     cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s;
-    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .scroll-to-top:hover {
-    transform: scale(1.1);
-    background-color: #ff6600; /* Dark orange on hover */
+    background: linear-gradient(45deg, #2c5aa0, #1a4480);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.5);
 }
 
 a {
-    display: block;
-    margin: 20px auto; /* Center align link with spacing */
+    display: inline-block;
+    margin: 10px;
     padding: 10px 20px;
-    background-color: #add8e6; /* Light blue link background */
-    color: #333; /* Dark text color */
-    border: 2px solid #333; /* Dark border */
+    background: linear-gradient(45deg, #4a90e2, #2c5aa0);
+    color: #fff;
+    border: 2px solid #fff;
     border-radius: 10px;
     text-decoration: none;
-    font-family: 'Press Start 2P', cursive; /* Pixel font for link */
-    font-size: 0.8em; /* Adjusted font size */
-    transition: transform 0.3s, background-color 0.3s;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
 }
 
 a:hover {
-    transform: scale(1.1);
-    background-color: #ff6600; /* Dark orange on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(74, 144, 226, 0.5);
+    background: linear-gradient(45deg, #3b82f6, #1e40af);
 }
 
 button {
-    background-color: #ff6600; /* Dark orange button color */
-    color: #fff; /* White text color */
-    border: none;
+    background: linear-gradient(45deg, #4a90e2, #2c5aa0);
+    color: #fff;
+    border: 2px solid #fff;
     border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 1.2em; /* Larger font size for button text */
-    font-family: 'Press Start 2P', cursive; /* Pixel font for button */
+    padding: 12px 24px;
+    font-size: 1em;
+    font-family: 'Press Start 2P', cursive;
     cursor: pointer;
-    transition: background-color 0.3s;
-    display: block;
-    margin: 20px auto; /* Center align button with spacing */
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin: 20px auto;
 }
 
 button:hover {
-    background-color: #ffcc00; /* Light orange on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(74, 144, 226, 0.5);
+    background: linear-gradient(45deg, #3b82f6, #1e40af);
 }
 
 img {
-    margin: 10px; /* Adjust the value as needed for the desired spacing */
-}
-
-a {
-    display: block;
-    margin: 20px auto; /* Center align link with spacing */
-    padding: 10px 20px;
-    background-color: #ff6600; /* Dark orange link color */
-    color: #fff; /* White text color */
-    text-decoration: none;
+    margin: 10px;
+    border: 2px solid #4a90e2;
     border-radius: 10px;
-    font-size: 1.2em; /* Larger font size for link text */
-    font-family: 'Press Start 2P', cursive; /* Pixel font for link */
-    transition: background-color 0.3s;
-}
-
-a:hover {
-    background-color: #ffcc00; /* Light orange on hover */
 }
 
 .description {
-    background-color: #F50000;
+    background-color: rgba(229, 62, 62, 0.2);
     padding: 20px;
     border-radius: 20px;
-    border: 8px solid black; /* Added black border */
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border: 3px solid #e53e3e;
+    box-shadow: 0 4px 15px rgba(229, 62, 62, 0.3);
+    color: #fff;
 }
 

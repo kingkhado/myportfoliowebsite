@@ -12,6 +12,7 @@ html, body {
     color: #fff;
     overflow-x: hidden;
     min-height: 100vh;
+    font-size: 16px; /* Increased from implicit 10px */
 }
 
 /* Decorative flower elements */
@@ -66,7 +67,7 @@ html, body {
     min-height: 100vh;
     position: relative;
     z-index: 2;
-    padding: 120px 20px 100px 20px;
+    padding: 140px 20px 100px 20px;
 }
 
 /* Central oval design */
@@ -111,9 +112,9 @@ html, body {
     background: #4a90e2;
     color: #fff;
     border: none;
-    padding: 15px 25px;
+    padding: 18px 30px; /* Increased padding */
     font-family: 'Press Start 2P', cursive;
-    font-size: 16px;
+    font-size: 18px; /* Increased from 16px */
     cursor: pointer;
     border-radius: 25px;
     transition: all 0.3s ease;
@@ -181,28 +182,32 @@ html, body {
 
 /* Header */
 .site-header {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     text-align: center;
     z-index: 5;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    padding-top: 20px;
 }
 
 .site-title {
-    font-size: 36px;
+    font-size: 48px; /* Increased from 36px */
     color: #4a90e2;
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* Increased from 10px to prevent clash */
     text-shadow: 2px 2px 0 #000;
+    white-space: nowrap; /* Keep name on one line */
 }
 
 .site-subtitle {
-    font-size: 10px;
+    font-size: 11px; /* Reduced from 14px to fit on one line */
     color: #ccc;
-    max-width: 500px;
-    line-height: 1.5;
+    max-width: 900px; /* Increased to accommodate full text */
+    line-height: 1.8;
     text-align: center;
-    margin: 0 auto 40px auto;
+    margin: 0 auto 60px auto; /* Increased bottom margin to prevent clash with oval */
+    padding: 0 20px;
+    white-space: nowrap; /* Keep subtitle on one line */
 }
 
 /* Footer */
@@ -210,7 +215,7 @@ html, body {
     position: relative;
     margin-top: 80px;
     padding: 20px;
-    font-size: 8px;
+    font-size: 12px; /* Increased from 8px */
     color: #667;
     text-align: center;
     z-index: 10;
@@ -230,6 +235,15 @@ html, body {
     
     .site-title {
         font-size: 28px;
+        white-space: normal; /* Allow wrapping on mobile if needed */
+        margin-bottom: 15px;
+    }
+    
+    .site-subtitle {
+        font-size: 9px; /* Smaller on tablet to fit */
+        line-height: 1.6;
+        white-space: normal; /* Allow wrapping on smaller screens */
+        margin-bottom: 50px;
     }
     
     .flower-decoration {
@@ -277,11 +291,16 @@ html, body {
     }
     
     .site-title {
-        font-size: 22px;
+        font-size: 20px; /* Slightly smaller to fit better */
+        margin-bottom: 12px;
     }
     
     .site-subtitle {
-        font-size: 8px;
+        font-size: 7px; /* Smaller on mobile */
+        line-height: 1.5;
+        padding: 0 10px;
+        white-space: normal; /* Allow wrapping on mobile */
+        margin-bottom: 40px;
     }
     
     /* Even smaller orbit radius for very small screens */
@@ -490,7 +509,7 @@ html {
     }
 }
 
-/* Gamepad Navigation System */
+/* Gamepad Navigation System - ENLARGED FOR VISIBILITY */
 .gamepad-container {
     position: fixed;
     bottom: 30px;
@@ -500,6 +519,7 @@ html {
     visibility: hidden;
     transform: translateY(20px);
     transition: all 0.3s ease;
+    animation: pulseGlow 2s ease-in-out infinite; /* Draw attention */
 }
 
 .gamepad-container.show-gamepad {
@@ -508,43 +528,53 @@ html {
     transform: translateY(0);
 }
 
+@keyframes pulseGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 10px rgba(74, 144, 226, 0.5));
+    }
+    50% {
+        filter: drop-shadow(0 0 20px rgba(74, 144, 226, 0.8));
+    }
+}
+
 .gamepad {
     position: relative;
-    width: 200px;
-    height: 120px;
+    width: 300px; /* Increased from 200px - 50% larger */
+    height: 180px; /* Increased from 120px - 50% larger */
     background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
-    border-radius: 25px;
-    border: 3px solid #4a90e2;
+    border-radius: 30px;
+    border: 4px solid #4a90e2; /* Thicker border */
     box-shadow: 
-        0 8px 25px rgba(0, 0, 0, 0.5),
+        0 12px 35px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(74, 144, 226, 0.4),
         inset 0 2px 5px rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px;
+    padding: 20px;
 }
 
 .gamepad::before {
     content: '';
     position: absolute;
-    top: -5px;
+    top: -8px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 10px;
+    width: 90px; /* Increased from 60px */
+    height: 14px; /* Increased from 10px */
     background: linear-gradient(90deg, #4a90e2, #2c5aa0);
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(74, 144, 226, 0.3);
+    border-radius: 7px;
+    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.5);
 }
 
 .gamepad-button {
     position: absolute;
-    width: 35px;
-    height: 35px;
-    border: 2px solid #333;
+    width: 60px; /* Increased from 35px - 71% larger! */
+    height: 60px; /* Increased from 35px - 71% larger! */
+    border: 3px solid #333; /* Thicker border */
     border-radius: 50%;
     font-family: 'Press Start 2P', cursive;
-    font-size: 8px;
+    font-size: 12px; /* Increased from 8px - 50% larger */
     font-weight: bold;
     color: #fff;
     cursor: pointer;
@@ -553,17 +583,18 @@ html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    line-height: 1;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    line-height: 1.2;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.9);
     box-shadow: 
-        0 4px 8px rgba(0, 0, 0, 0.3),
-        inset 0 2px 4px rgba(255, 255, 255, 0.1);
+        0 6px 12px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(255, 255, 255, 0.15);
 }
 
 .gamepad-button:hover {
-    transform: translateY(-2px) scale(1.05);
+    transform: translateY(-3px) scale(1.08);
     box-shadow: 
-        0 6px 12px rgba(0, 0, 0, 0.4),
+        0 8px 16px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(255, 255, 255, 0.3),
         inset 0 2px 4px rgba(255, 255, 255, 0.2);
 }
 
@@ -574,36 +605,37 @@ html {
         inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Button Positions - Diamond Layout */
+/* Button Positions - Diamond Layout - ADJUSTED FOR LARGER SIZE */
 #gamepad-y {
-    top: 5px;
-    right: 45px;
+    top: 10px;
+    right: 70px;
     background: linear-gradient(145deg, #ffd700, #ffb300);
-    color: #fff;
+    color: #fff; /* White text for better visibility */
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.9); /* Dark shadow for contrast */
 }
 
 #gamepad-x {
-    top: 35px;
-    right: 15px;
+    top: 60px;
+    right: 20px;
     background: linear-gradient(145deg, #4169e1, #1e3a8a);
     color: #fff;
 }
 
 #gamepad-a {
-    bottom: 5px;
-    right: 45px;
+    bottom: 10px;
+    right: 70px;
     background: linear-gradient(145deg, #32cd32, #228b22);
     color: #fff;
 }
 
 #gamepad-b {
-    top: 35px;
-    right: 75px;
+    top: 60px;
+    right: 120px;
     background: linear-gradient(145deg, #dc143c, #8b0000);
     color: #fff;
 }
 
-/* Responsive Gamepad */
+/* Responsive Gamepad - STILL LARGER ON MOBILE */
 @media (max-width: 768px) {
     .gamepad-container {
         bottom: 20px;
@@ -611,69 +643,69 @@ html {
     }
     
     .gamepad {
-        width: 160px;
-        height: 100px;
-        padding: 12px;
+        width: 240px; /* Increased from 160px */
+        height: 150px; /* Increased from 100px */
+        padding: 15px;
     }
     
     .gamepad-button {
-        width: 28px;
-        height: 28px;
-        font-size: 6px;
+        width: 48px; /* Increased from 28px */
+        height: 48px; /* Increased from 28px */
+        font-size: 10px; /* Increased from 6px */
     }
     
     #gamepad-y {
-        top: 2px;
-        right: 36px;
+        top: 5px;
+        right: 55px;
     }
     
     #gamepad-x {
-        top: 28px;
-        right: 12px;
+        top: 50px;
+        right: 15px;
     }
     
     #gamepad-a {
-        bottom: 2px;
-        right: 36px;
+        bottom: 5px;
+        right: 55px;
     }
     
     #gamepad-b {
-        top: 28px;
-        right: 60px;
+        top: 50px;
+        right: 95px;
     }
 }
 
 @media (max-width: 480px) {
     .gamepad {
-        width: 140px;
-        height: 85px;
-        padding: 10px;
+        width: 200px; /* Increased from 140px */
+        height: 125px; /* Increased from 85px */
+        padding: 12px;
     }
     
     .gamepad-button {
-        width: 24px;
-        height: 24px;
-        font-size: 5px;
+        width: 40px; /* Increased from 24px */
+        height: 40px; /* Increased from 24px */
+        font-size: 8px; /* Increased from 5px */
     }
     
     #gamepad-y {
-        top: 2px;
-        right: 32px;
+        top: 5px;
+        right: 45px;
     }
     
     #gamepad-x {
-        top: 24px;
-        right: 10px;
+        top: 42px;
+        right: 12px;
     }
     
     #gamepad-a {
-        bottom: 2px;
-        right: 32px;
+        bottom: 5px;
+        right: 45px;
     }
     
     #gamepad-b {
-        top: 24px;
-        right: 54px;
+        top: 42px;
+        right: 78px;
     }
 }
 
@@ -715,14 +747,19 @@ html {
     50% { opacity: 0.3; }
 }
 
-/* Latest Video Section */
+/* Latest Video Section with Playlist */
 .latest-video-section {
     margin-top: 60px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 30px;
     z-index: 3;
     width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .video-container {
@@ -734,6 +771,7 @@ html {
     box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 .video-container:hover {
@@ -742,78 +780,236 @@ html {
 }
 
 .latest-video {
-    width: 400px;
-    height: 225px;
+    width: 100%;
+    max-width: 640px;
+    height: 360px;
     border-radius: 15px;
     border: 2px solid #4a90e2;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.video-subtext {
+.video-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+.video-control-btn {
+    background: linear-gradient(145deg, #4a90e2, #2c5aa0);
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+}
+
+.video-control-btn:hover {
+    background: linear-gradient(145deg, #3b82f6, #1e40af);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(74, 144, 226, 0.5);
+}
+
+.video-control-btn:active {
+    transform: translateY(0);
+}
+
+.video-title {
     font-size: 12px;
     color: #4a90e2;
-    margin-top: 15px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     font-weight: bold;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    flex: 1;
+    text-align: right;
+}
+
+/* Video Playlist */
+.video-playlist {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #4a90e2;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.playlist-title {
+    font-size: 16px;
+    color: #4a90e2;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.playlist-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.playlist-item {
+    display: flex;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.playlist-item:hover {
+    border-color: #4a90e2;
+    background: rgba(74, 144, 226, 0.1);
+    transform: translateX(5px);
+}
+
+.playlist-item.active {
+    border-color: #4a90e2;
+    background: rgba(74, 144, 226, 0.2);
+    box-shadow: 0 0 15px rgba(74, 144, 226, 0.5);
+}
+
+.playlist-item img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #4a90e2;
+}
+
+.playlist-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.playlist-item-title {
+    font-size: 9px;
+    color: #fff;
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.playlist-item-year {
+    font-size: 7px;
+    color: #4a90e2;
 }
 
 /* Responsive Video Section */
 @media (max-width: 768px) {
+    .site-title {
+        font-size: 36px;
+    }
+    
     .site-subtitle {
+        font-size: 12px;
         margin: 0 auto 30px auto;
     }
     
     .latest-video-section {
         margin-top: 50px;
+        padding: 0 20px;
     }
     
     .video-container {
         padding: 15px;
-        margin: 0 20px;
     }
     
     .latest-video {
-        width: 320px;
-        height: 180px;
+        height: 280px;
     }
     
-    .video-subtext {
+    .video-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .video-title {
+        text-align: center;
         font-size: 10px;
-        margin-top: 10px;
+    }
+    
+    .video-control-btn {
+        font-size: 9px;
+        padding: 8px 15px;
+    }
+    
+    .playlist-items {
+        grid-template-columns: 1fr;
+    }
+    
+    .playlist-title {
+        font-size: 14px;
     }
     
     .site-footer {
         margin-top: 60px;
     }
+    
+    .nav-button {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
 }
 
 @media (max-width: 480px) {
+    .site-title {
+        font-size: 28px;
+    }
+    
     .site-subtitle {
+        font-size: 10px;
         margin: 0 auto 25px auto;
     }
     
     .latest-video-section {
         margin-top: 40px;
+        padding: 0 15px;
     }
     
     .video-container {
         padding: 12px;
-        margin: 0 15px;
     }
     
     .latest-video {
-        width: 280px;
-        height: 157px;
+        height: 220px;
     }
     
-    .video-subtext {
+    .video-title {
         font-size: 8px;
-        margin-top: 8px;
+    }
+    
+    .video-control-btn {
+        font-size: 8px;
+        padding: 6px 12px;
+    }
+    
+    .playlist-item-title {
+        font-size: 8px;
+    }
+    
+    .playlist-item-year {
+        font-size: 6px;
     }
     
     .site-footer {
         margin-top: 50px;
+        font-size: 10px;
+    }
+    
+    .nav-button {
+        font-size: 12px;
+        padding: 10px 16px;
     }
 }

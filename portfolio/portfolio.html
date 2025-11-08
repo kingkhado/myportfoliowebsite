@@ -17,6 +17,7 @@
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../Styles/ollieloko-style.css">
+    <link rel="stylesheet" href="../Styles/top-navigation.css">
     <link rel="stylesheet" href="../Styles/portfolio-game-style.css">
     <link rel="stylesheet" href="../Styles/responsivedesign.css">
     <link rel="stylesheet" href="../Styles/loading-screen.css">
@@ -24,11 +25,27 @@
     
     <!-- Scripts -->
     <script src="../Scripts/loading-screen.js"></script>
+    <script src="../Scripts/top-navigation.js" defer></script>
     <script src="../Scripts/portfolio-switcher.js" defer></script>
     <script src="../Scripts/scrollToTop.js" defer></script>
     <script src="../Scripts/content-warnings.js" defer></script>
 </head>
 <body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav" role="navigation" aria-label="Main navigation">
+        <div class="top-nav-container">
+            <a href="../index.html" class="top-nav-logo">MK</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">MENU ☰</button>
+            <ul class="top-nav-menu">
+                <li class="top-nav-item"><a href="../index.html" class="top-nav-link">HOME</a></li>
+                <li class="top-nav-item"><a href="../portfolio/portfolio.html" class="top-nav-link">PORTFOLIO</a></li>
+                <li class="top-nav-item"><a href="../about/about.html" class="top-nav-link">ABOUT</a></li>
+                <li class="top-nav-item"><a href="../games/itchio-games.html" class="top-nav-link">GAMES</a></li>
+                <li class="top-nav-item"><a href="../links.html" class="top-nav-link">LINKS</a></li>
+            </ul>
+        </div>
+    </nav>
+    
     <!-- Blue Progress Scroll Bar -->
     <div class="scroll-progress" id="scroll-progress"></div>
     
@@ -36,11 +53,6 @@
     <div class="portfolio-container">
         <!-- Header with Game-Style Navigation -->
         <header class="portfolio-header">
-            <!-- Logo Section -->
-            <div class="logo-section">
-                <div class="logo-circle">MK</div>
-            </div>
-            
             <!-- Category Switcher -->
             <div class="category-switcher">
                 <button class="nav-arrow left-arrow" onclick="switchCategory(-1)">‹</button>
@@ -301,10 +313,6 @@
         </div>
     </div>
 
-    <!-- Navigation Links -->
-    <div style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
-        <a href="../index.html" style="color: #4a90e2; text-decoration: none; font-family: 'Press Start 2P', cursive; font-size: 12px;">← HOME</a>
-    </div>
 
     <!-- Footer -->
     <footer style="text-align: center; padding: 40px 20px; color: #666; font-size: 8px;">

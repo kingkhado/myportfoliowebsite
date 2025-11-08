@@ -44,6 +44,7 @@
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./Styles/ollieloko-style.css">
+    <link rel="stylesheet" href="./Styles/top-navigation.css">
     <link rel="stylesheet" href="./Styles/links-style.css">
     <link rel="stylesheet" href="./Styles/loading-screen.css">
 
@@ -79,12 +80,30 @@
     <!-- Loading screen -->
     <script src="./Scripts/loading-screen.js"></script>
     
+    <!-- Top navigation functionality -->
+    <script src="./Scripts/top-navigation.js" defer></script>
+    
     <!-- Scroll to top functionality -->
     <script src="./Scripts/scrollToTop.js"></script>
     
     <title>Links - Makhado Khashane | Social Media & External Profiles</title>
 </head>
 <body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav" role="navigation" aria-label="Main navigation">
+        <div class="top-nav-container">
+            <a href="./index.html" class="top-nav-logo">MK</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">MENU ☰</button>
+            <ul class="top-nav-menu">
+                <li class="top-nav-item"><a href="./index.html" class="top-nav-link">HOME</a></li>
+                <li class="top-nav-item"><a href="./portfolio/portfolio.html" class="top-nav-link">PORTFOLIO</a></li>
+                <li class="top-nav-item"><a href="./about/about.html" class="top-nav-link">ABOUT</a></li>
+                <li class="top-nav-item"><a href="./games/itchio-games.html" class="top-nav-link">GAMES</a></li>
+                <li class="top-nav-item"><a href="./links.html" class="top-nav-link">LINKS</a></li>
+            </ul>
+        </div>
+    </nav>
+    
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link" aria-label="Skip to main content">Skip to main content</a>
     
@@ -98,9 +117,6 @@
     <div class="flower-decoration flower-4" aria-hidden="true"></div>
     <div class="flower-decoration flower-5" aria-hidden="true"></div>
     <div class="flower-decoration flower-6" aria-hidden="true"></div>
-
-    <!-- Back to home button -->
-    <a href="./index.html" class="back-home" aria-label="Return to homepage">← HOME</a>
 
     <!-- Main links container -->
     <main class="links-container" id="main-content" role="main">

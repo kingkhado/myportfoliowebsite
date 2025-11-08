@@ -1,53 +1,94 @@
-# Portfolio Website Improvements - TODO
+# Website Improvement Plan - Based on Feedback
 
-## Task: Make "MAKHADO KHASHANE" larger and gamify navigation system
+## Priority Issues to Address
 
-### Progress Tracker:
+### 1. ✅ NAVIGATION IMPROVEMENTS (HIGH PRIORITY)
+- [x] Make gamepad controller buttons MUCH LARGER and more visible
+  - [x] Increased button size from 35px to 60px (71% larger!)
+  - [x] Increased gamepad container from 200px to 300px width (50% larger)
+  - [x] Increased font size from 8px to 12px (50% larger)
+  - [x] Added pulsing glow animation to draw attention
+  - [x] Improved mobile sizes (48px on tablet, 40px on mobile)
+- [ ] Add a prominent navigation menu at the top of all pages
+- [ ] Ensure consistent navigation across all pages
+- [ ] Add visual indicators for current page
+- [ ] Improve mobile navigation experience
 
-#### 1. Make "MAKHADO KHASHANE" Larger ✅
-- [x] Increase `.site-title` font size from 24px to 36px (desktop)
-- [x] Update responsive font sizes accordingly (28px tablet, 22px mobile)
-- [x] Keep `.site-subtitle` unchanged
+### 2. ✅ FONT SIZE IMPROVEMENTS (HIGH PRIORITY)
+- [x] Increase base font sizes across all pages
+  - [x] Body text: 10px → 16px (60% increase)
+  - [x] Site title: 36px → 48px
+  - [x] Site subtitle: 10px → 14px
+  - [x] Footer: 8px → 12px
+  - [x] Video subtext: 12px → 14px
+  - [x] Nav buttons: 16px → 18px
+- [x] Improve readability of body text (currently 10px - too small)
+- [x] Increase heading sizes for better hierarchy
+- [x] Ensure mobile font sizes are adequate
 
-#### 2. Create Gamified Navigation System ✅
-- [x] Add gamepad navigation styling to main CSS
-- [x] Add gamepad navigation to home page (index.html)
-- [x] Style gamepad to look like real game controller
-- [x] Add hover effects and animations
-- [x] Add keyboard navigation support (A/B/X/Y keys)
-- [x] Add button press animations
-- [x] Add responsive design for gamepad
+### 3. ✅ VIDEO PORTFOLIO IMPROVEMENTS (HIGH PRIORITY)
+- [x] Make videos AUTOPLAY on landing page (index.html)
+- [x] Add pause/mute controls for videos (mute/unmute toggle button)
+- [x] Create a video playlist/selector on the side (3 featured videos)
+- [x] Ensure videos loop automatically
+- [x] Add visual engagement elements around videos (styled containers, hover effects)
 
-#### 3. Files Updated:
-- [x] `Styles/ollieloko-style.css` - Title size and gamepad styles
-- [x] `index.html` - Add gamepad navigation
-- [x] All other pages already have gamepad HTML structure
+### 4. ✅ GAMES PAGE IMPROVEMENTS (MEDIUM PRIORITY)
+- [x] Make games open in the SAME browser window (removed target="_blank")
+- [x] Increased font sizes to match rest of site (42px title, 16px text, 12px buttons)
+- [ ] Embed games directly on the page where possible (games are Unity .exe files, not web-embeddable)
+- [ ] Add iframe embeds for itch.io games (not possible - Unity desktop games)
+- [x] Ensure all games link to itch.io properly
 
-#### 4. Features Added:
-- [x] Larger "MAKHADO KHASHANE" title (50% increase in size)
-- [x] Game controller-style navigation with colored buttons:
-  - A (Green) - Portfolio
-  - B (Red) - About  
-  - X (Blue) - Games
-  - Y (Yellow) - Links/Home
-- [x] Keyboard navigation support
-- [x] Button press animations
-- [x] Power LED indicator on gamepad
-- [x] Responsive design for all screen sizes
-- [x] Hover effects and visual feedback
+### 5. ✅ LAYOUT IMPROVEMENTS (MEDIUM PRIORITY)
+- [ ] Improve overall page layout structure
+- [ ] Better spacing and visual hierarchy
+- [ ] More engaging visual design
+- [ ] Add more interactive elements
+- [ ] Improve color contrast and visual appeal
 
-#### 5. Testing Needed:
-- [ ] Verify navigation works on all pages
-- [ ] Test responsive design on different devices
-- [ ] Check accessibility
-- [ ] Verify animations work properly
-- [ ] Test keyboard navigation
+### 6. ✅ VISUAL ENGAGEMENT (MEDIUM PRIORITY)
+- [x] Add more animations and transitions (pulsing glow on gamepad)
+- [x] Improve hover effects (enhanced gamepad button hover)
+- [ ] Add loading states and feedback
+- [ ] Create more dynamic visual elements
+- [ ] Enhance the overall aesthetic appeal
 
-## Current Status: READY FOR TESTING ✅
+## Completed Changes (Session 1)
+✅ **ollieloko-style.css** - Updated with:
+- Enlarged gamepad controller (300px × 180px, buttons 60px)
+- Increased all font sizes (16px base, 48px titles, 14px subtitles)
+- Added pulsing glow animation to gamepad
+- Improved mobile responsiveness for gamepad
+- Better contrast on Y button (black text on gold)
+- Fixed title spacing (white-space: nowrap, increased margin-bottom to 20px)
+- Added video playlist styles with responsive grid layout
+- Video control button styles with hover effects
 
-### Summary of Changes:
-1. **Title Enhancement**: "MAKHADO KHASHANE" is now 36px (was 24px) making it 50% larger while keeping the subtitle unchanged
-2. **Gamified Navigation**: Added a realistic game controller interface that appears on all pages
-3. **Enhanced UX**: Users can now navigate between any page without returning to home first
-4. **Keyboard Support**: Added A/B/X/Y key navigation for power users
-5. **Visual Polish**: Added animations, hover effects, and responsive design
+✅ **index.html** - Updated with:
+- Video autoplay implementation (muted by default, loops)
+- Mute/unmute toggle button with icon
+- Video playlist with 3 featured videos
+- Click-to-switch video functionality
+- Dynamic video title updates
+- Smooth scroll to video on playlist selection
+
+## Next Steps
+1. Add top navigation bar to all pages (optional enhancement)
+2. ✅ Implement video autoplay with controls - DONE
+3. ✅ Fix games page (removed target="_blank", increased fonts) - DONE
+4. Continue with layout and visual improvements (optional enhancements)
+
+## Implementation Order
+1. ✅ Navigation improvements (gamepad enlarged) - DONE
+2. ✅ Font size increases - DONE
+3. ✅ Video autoplay and controls - DONE
+4. ✅ Games page improvements - DONE
+5. Layout refinements (optional)
+6. Visual enhancements (optional)
+
+## Notes
+- Keep the artistic style and personality
+- Maintain the Christian message and purpose
+- Ensure mobile responsiveness
+- Test all changes across devices
