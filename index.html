@@ -314,15 +314,15 @@
         <h3 class="social-heading">CONNECT WITH ME</h3>
         <div class="social-links">
             <a href="https://www.youtube.com/@Theanimatedsaint" target="_blank" rel="noopener noreferrer" class="social-link youtube" aria-label="YouTube Channel">
-                <img src="./THE COOLEST IMAGES/logos/youtube banner.png" alt="YouTube" class="social-icon-img">
+                <img src="./THE COOLEST IMAGES/logos/youtube banner.png" alt="YouTube" class="social-icon-img" style="max-width: 50px; max-height: 50px; width: 50px; height: 50px; object-fit: contain;">
                 <span class="social-name">YouTube</span>
             </a>
             <a href="https://www.instagram.com/animatedsaint" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram Profile">
-                <img src="./THE COOLEST IMAGES/logos/paint.png" alt="Instagram" class="social-icon-img">
+                <img src="./THE COOLEST IMAGES/logos/paint.png" alt="Instagram" class="social-icon-img" style="max-width: 50px; max-height: 50px; width: 50px; height: 50px; object-fit: contain;">
                 <span class="social-name">Instagram</span>
             </a>
             <a href="https://itch.io/profile/makhadokhashane" target="_blank" rel="noopener noreferrer" class="social-link itch" aria-label="Itch.io Games">
-                <img src="./THE COOLEST IMAGES/logos/controller.png" alt="Itch.io" class="social-icon-img">
+                <img src="./THE COOLEST IMAGES/logos/controller.png" alt="Itch.io" class="social-icon-img" style="max-width: 50px; max-height: 50px; width: 50px; height: 50px; object-fit: contain;">
                 <span class="social-name">Itch.io</span>
             </a>
         </div>
@@ -513,6 +513,36 @@
                 mainVideo.scrollIntoView({ behavior: 'smooth', block: 'center' });
             });
         });
+        
+        // Force resize social icons on mobile
+        function resizeSocialIcons() {
+            const socialIcons = document.querySelectorAll('.social-icon-img');
+            const isMobile = window.innerWidth <= 480;
+            const isTablet = window.innerWidth <= 768 && window.innerWidth > 480;
+            
+            socialIcons.forEach(img => {
+                if (isMobile) {
+                    img.style.width = '22px';
+                    img.style.height = '22px';
+                    img.style.maxWidth = '22px';
+                    img.style.maxHeight = '22px';
+                } else if (isTablet) {
+                    img.style.width = '40px';
+                    img.style.height = '40px';
+                    img.style.maxWidth = '40px';
+                    img.style.maxHeight = '40px';
+                } else {
+                    img.style.width = '50px';
+                    img.style.height = '50px';
+                    img.style.maxWidth = '50px';
+                    img.style.maxHeight = '50px';
+                }
+            });
+        }
+        
+        // Run on load and resize
+        window.addEventListener('load', resizeSocialIcons);
+        window.addEventListener('resize', resizeSocialIcons);
         
         // Styles are now in ollieloko-style.css - no need for inline styles
     </script>
