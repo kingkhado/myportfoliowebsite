@@ -1217,37 +1217,39 @@ html {
     }
     
     .social-links-section {
-        margin: 40px auto;
-        padding: 0 15px;
+        margin: 30px auto 40px;
+        padding: 0 10px;
     }
     
     .social-heading {
-        font-size: 16px;
-        margin-bottom: 20px;
+        font-size: 14px;
+        margin-bottom: 15px;
     }
     
     .social-links {
-        gap: 15px;
+        gap: 10px;
+        justify-content: space-around;
     }
     
     .social-link {
-        width: 80px;
-        height: 80px;
+        width: 65px;
+        height: 65px;
         border-width: 2px;
     }
     
     .social-icon {
-        font-size: 24px;
+        font-size: 20px;
     }
     
     .social-icon-img {
-        width: 32px;
-        height: 32px;
-        margin-bottom: 6px;
+        width: 26px;
+        height: 26px;
+        margin-bottom: 4px;
     }
     
     .social-name {
-        font-size: 8px;
+        font-size: 7px;
+        letter-spacing: 0.5px;
     }
 }
 
