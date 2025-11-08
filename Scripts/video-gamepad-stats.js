@@ -42,6 +42,45 @@ class VideoGamepadStats {
         
         // Listen for video changes
         this.setupVideoChangeListener();
+        
+        // Setup reset button
+        this.setupResetButton();
+    }
+    
+    setupResetButton() {
+        const resetButton = document.getElementById('resetStats');
+        if (resetButton) {
+            resetButton.addEventListener('click', () => {
+                // Hide data panel
+                const dataPanel = document.querySelector('.stats-data-panel');
+                if (dataPanel) {
+                    dataPanel.classList.add('hidden');
+                }
+                
+                // Remove active class from all buttons
+                const buttons = document.querySelectorAll('.gamepad-stat-button');
+                buttons.forEach(btn => btn.classList.remove('active'));
+                
+                // Clear active button reference
+                this.activeButton = null;
+                
+                // Reset data content to inactive message
+                const dataContent = document.querySelector('.stat-data-content');
+                if (dataContent) {
+                    dataContent.classList.remove('show');
+                    setTimeout(() => {
+                        dataContent.innerHTML = `
+                            <div class="stats-inactive-message">
+                                <span class="icon">🎮</span>
+                                <p>Select a stat button above to view data</p>
+                            </div>
+                        `;
+                    }, 300);
+                }
+                
+                console.log('Stats display reset');
+            });
+        }
     }
     
     async fetchAllVideoData() {
@@ -105,14 +144,23 @@ class VideoGamepadStats {
             const stats = video.statistics;
             const snippet = video.snippet;
             
+            const views = parseInt(stats.viewCount) || 0;
+            const likes = parseInt(stats.likeCount) || 0;
+            const comments = parseInt(stats.commentCount) || 0;
+            
+            // Calculate derived metrics
+            const impressions = views * 3; // Estimated impressions
+            const engagement = views > 0 ? ((likes + comments) / views * 100).toFixed(2) : 0;
+            const likeRatio = views > 0 ? (likes / views * 100).toFixed(2) : 0;
+            
             this.videoData[videoId] = {
                 title: snippet.title,
-                views: parseInt(stats.viewCount) || 0,
-                comments: parseInt(stats.commentCount) || 0,
-                // YouTube API doesn't provide impressions directly
-                // We'll estimate it as views * 3 (typical impression-to-view ratio)
-                impressions: (parseInt(stats.viewCount) || 0) * 3,
-                likes: parseInt(stats.likeCount) || 0,
+                views: views,
+                likes: likes,
+                comments: comments,
+                impressions: impressions,
+                engagement: parseFloat(engagement),
+                likeRatio: parseFloat(likeRatio),
                 // Additional data available
                 publishedAt: snippet.publishedAt,
                 thumbnail: snippet.thumbnails.medium.url
@@ -122,26 +170,29 @@ class VideoGamepadStats {
     
     useDemoData() {
         // Fallback demo data if API key is not set or API fails
-        this.videoData = {
-            'LEMjHJ8L5WU': {
-                title: 'God saved me from a BAD trip!',
-                views: 1247,
-                comments: 89,
-                impressions: 3741
-            },
-            'oH_Wo6JFbnE': {
-                title: 'Power in the Name of Jesus',
-                views: 892,
-                comments: 56,
-                impressions: 2676
-            },
-            't_PLrynPFWQ': {
-                title: 'Relaxing Christian Instrumentals',
-                views: 2341,
-                comments: 124,
-                impressions: 7023
-            }
+        const demoVideos = {
+            'LEMjHJ8L5WU': { views: 1247, likes: 89, comments: 45 },
+            'oH_Wo6JFbnE': { views: 892, likes: 56, comments: 28 },
+            't_PLrynPFWQ': { views: 2341, likes: 124, comments: 67 }
         };
+        
+        Object.keys(demoVideos).forEach(videoId => {
+            const data = demoVideos[videoId];
+            const engagement = ((data.likes + data.comments) / data.views * 100).toFixed(2);
+            const likeRatio = (data.likes / data.views * 100).toFixed(2);
+            
+            this.videoData[videoId] = {
+                title: videoId === 'LEMjHJ8L5WU' ? 'God saved me from a BAD trip!' :
+                       videoId === 'oH_Wo6JFbnE' ? 'Power in the Name of Jesus' :
+                       'Relaxing Christian Instrumentals',
+                views: data.views,
+                likes: data.likes,
+                comments: data.comments,
+                impressions: data.views * 3,
+                engagement: parseFloat(engagement),
+                likeRatio: parseFloat(likeRatio)
+            };
+        });
     }
     
     showLoadingState() {
@@ -260,23 +311,52 @@ class VideoGamepadStats {
                 icon: '🎮',
                 title: 'VIEWS',
                 color: '#4169e1',
-                description: 'Total video views from YouTube'
+                description: 'Total video views from YouTube',
+                suffix: ''
+            },
+            likes: {
+                icon: '👍',
+                title: 'LIKES',
+                color: '#ff1744',
+                description: 'Audience appreciation and approval',
+                suffix: ''
             },
             comments: {
                 icon: '💬',
                 title: 'COMMENTS',
                 color: '#32cd32',
-                description: 'Engagement through comments and discussions'
+                description: 'Engagement through comments and discussions',
+                suffix: ''
             },
             impressions: {
                 icon: '👁️',
                 title: 'IMPRESSIONS',
                 color: '#ffd700',
-                description: 'Estimated impressions (views × 3)'
+                description: 'Estimated impressions (views × 3)',
+                suffix: ''
+            },
+            engagement: {
+                icon: '📈',
+                title: 'ENGAGEMENT RATE',
+                color: '#ff9800',
+                description: 'Combined engagement: (Likes + Comments) / Views × 100',
+                suffix: '%'
+            },
+            likeRatio: {
+                icon: '💯',
+                title: 'LIKE RATIO',
+                color: '#9c27b0',
+                description: 'Percentage of viewers who liked: Likes / Views × 100',
+                suffix: '%'
             }
         };
         
         const config = statConfig[statType];
+        
+        // Format the value based on type
+        const formattedValue = config.suffix === '%' 
+            ? statValue.toFixed(2) + '%'
+            : this.formatNumber(statValue);
         
         // Update content
         dataContent.innerHTML = `
@@ -286,12 +366,12 @@ class VideoGamepadStats {
             </div>
             
             <div class="stat-data-value">
-                <div class="stat-number" style="color: ${config.color}">${this.formatNumber(statValue)}</div>
+                <div class="stat-number" style="color: ${config.color}">${formattedValue}</div>
                 <p class="stat-description">${config.description}</p>
             </div>
             
             <div class="stat-mini-graph">
-                ${this.generateMiniGraph(statType, statValue, config.color)}
+                ${this.generateMiniGraph(statType, statValue, config.color, config.suffix)}
             </div>
         `;
         
@@ -299,16 +379,18 @@ class VideoGamepadStats {
         this.animateNumber(statValue);
     }
     
-    generateMiniGraph(statType, currentValue, color) {
+    generateMiniGraph(statType, currentValue, color, suffix = '') {
         // Generate 5 bars showing trend
         const bars = [];
         const maxValue = currentValue * 1.2;
         
         // Generate random historical data for visualization
         for (let i = 0; i < 5; i++) {
-            const value = Math.floor(currentValue * (0.6 + Math.random() * 0.4));
+            const value = currentValue * (0.6 + Math.random() * 0.4);
             const height = (value / maxValue) * 100;
-            const displayValue = this.formatNumber(value);
+            const displayValue = suffix === '%' 
+                ? value.toFixed(1) + '%'
+                : this.formatNumber(Math.floor(value));
             
             bars.push(`
                 <div class="graph-bar" 
@@ -344,6 +426,9 @@ class VideoGamepadStats {
         const numberElement = document.querySelector('.stat-number');
         if (!numberElement) return;
         
+        // Check if it's a percentage value
+        const isPercentage = numberElement.textContent.includes('%');
+        
         const duration = 1000; // 1 second
         const steps = 30;
         const stepValue = targetValue / steps;
@@ -359,7 +444,11 @@ class VideoGamepadStats {
                 clearInterval(interval);
             }
             
-            numberElement.textContent = this.formatNumber(Math.floor(currentValue));
+            if (isPercentage) {
+                numberElement.textContent = currentValue.toFixed(2) + '%';
+            } else {
+                numberElement.textContent = this.formatNumber(Math.floor(currentValue));
+            }
         }, duration / steps);
     }
     

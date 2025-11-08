@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -95,6 +95,9 @@
     <nav class="top-nav" role="navigation" aria-label="Main navigation">
         <div class="top-nav-container">
             <a href="./index.html" class="top-nav-logo">MK</a>
+            <a href="https://www.youtube.com/@Theanimatedsaint" target="_blank" rel="noopener noreferrer" class="top-nav-youtube" aria-label="YouTube Channel">
+                <img src="./THE COOLEST IMAGES/logos/youtube banner.png" alt="YouTube" class="youtube-nav-icon">
+            </a>
             <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">MENU ☰</button>
             <ul class="top-nav-menu">
                 <li class="top-nav-item"><a href="./index.html" class="top-nav-link">HOME</a></li>
@@ -192,7 +195,29 @@
                    role="button">LINKS</a>
             </nav>
         </div>
-
+        
+        <!-- Strong CTA Buttons Section -->
+        <div class="cta-section">
+            <h2 class="cta-heading">EXPLORE MY WORK</h2>
+            <div class="cta-buttons">
+                <a href="./portfolio/portfolio.html" class="cta-button cta-portfolio">
+                    <span class="cta-icon">🎨</span>
+                    <span class="cta-text">VIEW MY PORTFOLIO</span>
+                    <span class="cta-subtitle">Digital Art & Animations</span>
+                </a>
+                <a href="./games/itchio-games.html" class="cta-button cta-games">
+                    <span class="cta-icon">🎮</span>
+                    <span class="cta-text">PLAY MY GAMES</span>
+                    <span class="cta-subtitle">Indie Game Collection</span>
+                </a>
+                <a href="https://www.youtube.com/@Theanimatedsaint" target="_blank" rel="noopener noreferrer" class="cta-button cta-youtube">
+                    <span class="cta-icon">📺</span>
+                    <span class="cta-text">WATCH ON YOUTUBE</span>
+                    <span class="cta-subtitle">Animations & Testimonies</span>
+                </a>
+            </div>
+        </div>
+        
         <!-- Latest Animation Video Section with Autoplay -->
         <div class="latest-video-section" role="region" aria-label="Featured animation videos">
             <div class="video-container">
@@ -249,10 +274,17 @@
                 </div>
                 
                 <div class="gamepad-controller">
+                    <!-- Row 1: Primary Metrics -->
                     <button class="gamepad-stat-button views" data-stat="views" aria-label="View video views statistics">
                         <span class="stat-icon">🎮</span>
                         <span class="stat-label">Views</span>
                         <span class="stat-tooltip">Total video views</span>
+                    </button>
+                    
+                    <button class="gamepad-stat-button likes" data-stat="likes" aria-label="View likes statistics">
+                        <span class="stat-icon">👍</span>
+                        <span class="stat-label">Likes</span>
+                        <span class="stat-tooltip">Audience appreciation</span>
                     </button>
                     
                     <button class="gamepad-stat-button comments" data-stat="comments" aria-label="View comments statistics">
@@ -261,10 +293,23 @@
                         <span class="stat-tooltip">User engagement</span>
                     </button>
                     
+                    <!-- Row 2: Calculated Metrics -->
                     <button class="gamepad-stat-button impressions" data-stat="impressions" aria-label="View impressions statistics">
-                        <span class="stat-icon">👁️</span>
+                        <span class="stat-icon">📊</span>
                         <span class="stat-label">Impressions</span>
-                        <span class="stat-tooltip">Feed appearances</span>
+                        <span class="stat-tooltip">Estimated reach</span>
+                    </button>
+                    
+                    <button class="gamepad-stat-button engagement" data-stat="engagement" aria-label="View engagement rate">
+                        <span class="stat-icon">📈</span>
+                        <span class="stat-label">Engagement</span>
+                        <span class="stat-tooltip">Engagement rate %</span>
+                    </button>
+                    
+                    <button class="gamepad-stat-button like-ratio" data-stat="likeRatio" aria-label="View like ratio">
+                        <span class="stat-icon">💯</span>
+                        <span class="stat-label">Like Ratio</span>
+                        <span class="stat-tooltip">Likes to views %</span>
                     </button>
                 </div>
                 
@@ -277,8 +322,33 @@
                     </div>
                 </div>
             </div>
+                <!-- Reset Button -->
+                <div class="gamepad-reset-container">
+                    <button class="gamepad-reset-button" id="resetStats" aria-label="Reset stats display">
+                        RESET
+                    </button>
+                </div>
         </div>
     </main>
+
+    <!-- Social Media Links Section - Near Footer -->
+    <div class="social-links-section">
+        <h3 class="social-heading">CONNECT WITH ME</h3>
+        <div class="social-links">
+            <a href="https://www.youtube.com/@Theanimatedsaint" target="_blank" rel="noopener noreferrer" class="social-link youtube" aria-label="YouTube Channel">
+                <img src="./THE COOLEST IMAGES/logos/youtube banner.png" alt="YouTube" class="social-icon-img">
+                <span class="social-name">YouTube</span>
+            </a>
+            <a href="https://www.instagram.com/animatedsaint" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram Profile">
+                <img src="./THE COOLEST IMAGES/logos/paint.png" alt="Instagram" class="social-icon-img">
+                <span class="social-name">Instagram</span>
+            </a>
+            <a href="https://itch.io/profile/makhadokhashane" target="_blank" rel="noopener noreferrer" class="social-link itch" aria-label="Itch.io Games">
+                <img src="./THE COOLEST IMAGES/logos/controller.png" alt="Itch.io" class="social-icon-img">
+                <span class="social-name">Itch.io</span>
+            </a>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="site-footer" role="contentinfo">
@@ -398,27 +468,48 @@
         // Add scroll listener for button visibility
         window.addEventListener('scroll', toggleScrollButton);
 
-        // Video Playlist Functionality
+        // Video Playlist Functionality with YouTube IFrame API
         let isMuted = true;
+        let player = null;
         const mainVideo = document.getElementById('mainVideo');
         const muteToggle = document.getElementById('muteToggle');
         const playlistItems = document.querySelectorAll('.playlist-item');
         const videoTitle = document.querySelector('.video-title');
         
-        // Mute/Unmute toggle
+        // Load YouTube IFrame API
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        
+        // Initialize player when API is ready
+        window.onYouTubeIframeAPIReady = function() {
+            player = new YT.Player('mainVideo', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        };
+        
+        function onPlayerReady(event) {
+            // Player is ready
+            console.log('YouTube player ready');
+        }
+        
+        // Mute/Unmute toggle - WITHOUT restarting video
         muteToggle.addEventListener('click', function() {
-            isMuted = !isMuted;
-            const currentSrc = mainVideo.src;
-            const videoId = currentSrc.match(/embed\/([^?]+)/)[1];
-            
-            if (isMuted) {
-                mainVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}`;
-                muteToggle.textContent = '🔊 Sound';
-                muteToggle.setAttribute('aria-label', 'Unmute video');
-            } else {
-                mainVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&loop=1&playlist=${videoId}`;
-                muteToggle.textContent = '🔇 Mute';
-                muteToggle.setAttribute('aria-label', 'Mute video');
+            if (player && player.isMuted !== undefined) {
+                if (isMuted) {
+                    player.unMute();
+                    muteToggle.textContent = '🔇 Mute';
+                    muteToggle.setAttribute('aria-label', 'Mute video');
+                    isMuted = false;
+                } else {
+                    player.mute();
+                    muteToggle.textContent = '🔊 Sound';
+                    muteToggle.setAttribute('aria-label', 'Unmute video');
+                    isMuted = true;
+                }
             }
         });
         

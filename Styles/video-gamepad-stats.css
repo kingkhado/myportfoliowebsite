@@ -33,12 +33,13 @@
     opacity: 0.8;
 }
 
-/* Gamepad Controller Layout */
+/* Gamepad Controller Layout - 2x3 Grid */
 .gamepad-controller {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 20px;
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     position: relative;
 }
@@ -74,10 +75,11 @@
     animation: pulseGlow 1.5s ease-in-out infinite;
 }
 
-/* Button Colors - Gamepad Style */
+/* Button Colors - Gamepad Style (2x3 Grid) */
+
+/* Row 1: Primary Metrics */
 .gamepad-stat-button.views {
     border-color: #4169e1;
-    grid-column: 1;
 }
 
 .gamepad-stat-button.views:hover,
@@ -86,9 +88,18 @@
     box-shadow: 0 0 30px rgba(65, 105, 225, 0.8);
 }
 
+.gamepad-stat-button.likes {
+    border-color: #ff1744;
+}
+
+.gamepad-stat-button.likes:hover,
+.gamepad-stat-button.likes.active {
+    background: linear-gradient(145deg, #ff1744, #c51162);
+    box-shadow: 0 0 30px rgba(255, 23, 68, 0.8);
+}
+
 .gamepad-stat-button.comments {
     border-color: #32cd32;
-    grid-column: 2;
 }
 
 .gamepad-stat-button.comments:hover,
@@ -97,15 +108,35 @@
     box-shadow: 0 0 30px rgba(50, 205, 50, 0.8);
 }
 
+/* Row 2: Calculated Metrics */
 .gamepad-stat-button.impressions {
     border-color: #ffd700;
-    grid-column: 3;
 }
 
 .gamepad-stat-button.impressions:hover,
 .gamepad-stat-button.impressions.active {
     background: linear-gradient(145deg, #ffd700, #ffb300);
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+}
+
+.gamepad-stat-button.engagement {
+    border-color: #ff9800;
+}
+
+.gamepad-stat-button.engagement:hover,
+.gamepad-stat-button.engagement.active {
+    background: linear-gradient(145deg, #ff9800, #f57c00);
+    box-shadow: 0 0 30px rgba(255, 152, 0, 0.8);
+}
+
+.gamepad-stat-button.like-ratio {
+    border-color: #9c27b0;
+}
+
+.gamepad-stat-button.like-ratio:hover,
+.gamepad-stat-button.like-ratio.active {
+    background: linear-gradient(145deg, #9c27b0, #7b1fa2);
+    box-shadow: 0 0 30px rgba(156, 39, 176, 0.8);
 }
 
 /* Button Icon */
@@ -341,8 +372,47 @@
     animation: float 3s ease-in-out infinite;
 }
 
+/* Reset Button Container */
+.gamepad-reset-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.gamepad-reset-button {
+    background: linear-gradient(145deg, #dc143c, #8b0000);
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius: 15px;
+    padding: 15px 30px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(220, 20, 60, 0.4);
+    letter-spacing: 2px;
+}
+
+.gamepad-reset-button:hover {
+    background: linear-gradient(145deg, #ff1744, #c62828);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(220, 20, 60, 0.6);
+}
+
+.gamepad-reset-button:active {
+    transform: translateY(0) scale(0.98);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+    .gamepad-reset-button {
+        padding: 12px 24px;
+        font-size: 10px;
+    }
+    
+    .reset-icon {
+        font-size: 14px;
+    }
     .video-stats-gamepad {
         padding: 20px;
         margin-top: 30px;
@@ -358,6 +428,7 @@
     
     .gamepad-controller {
         gap: 15px;
+        max-width: 500px;
     }
     
     .gamepad-stat-button {
@@ -388,20 +459,23 @@
 
 @media (max-width: 480px) {
     .gamepad-controller {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 15px;
+        max-width: 300px;
     }
     
     .gamepad-stat-button {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
+        width: 80px;
+        height: 80px;
     }
     
-    .gamepad-stat-button.views,
-    .gamepad-stat-button.comments,
-    .gamepad-stat-button.impressions {
-        grid-column: 1;
+    .stat-icon {
+        font-size: 20px;
+    }
+    
+    .stat-label {
+        font-size: 6px;
     }
     
     .stat-mini-graph {

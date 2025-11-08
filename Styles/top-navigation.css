@@ -35,6 +35,39 @@
     transform: scale(1.05);
 }
 
+/* YouTube Icon in Top Nav */
+.top-nav-youtube {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+    padding: 8px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background: rgba(255, 0, 0, 0.1);
+    border: 2px solid transparent;
+}
+
+.top-nav-youtube:hover {
+    background: rgba(255, 0, 0, 0.2);
+    border-color: #ff0000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+.youtube-nav-icon {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(1.2);
+    transition: all 0.3s ease;
+}
+
+.top-nav-youtube:hover .youtube-nav-icon {
+    filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
+    transform: scale(1.1);
+}
+
 .top-nav-menu {
     display: flex;
     gap: 30px;
@@ -192,6 +225,14 @@
         font-size: 12px;
     }
     
+    .top-nav-youtube {
+        margin-left: 15px;
+    }
+    
+    .youtube-nav-icon {
+        height: 24px;
+    }
+    
     .mobile-menu-toggle {
         display: block;
     }
@@ -234,6 +275,15 @@
 @media (max-width: 480px) {
     .top-nav-logo {
         font-size: 10px;
+    }
+    
+    .top-nav-youtube {
+        margin-left: 10px;
+        padding: 4px;
+    }
+    
+    .youtube-nav-icon {
+        height: 20px;
     }
     
     .mobile-menu-toggle {

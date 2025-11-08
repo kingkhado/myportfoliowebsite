@@ -986,6 +986,241 @@ html {
     color: #4a90e2;
 }
 
+/* CTA Section Styles */
+.cta-section {
+    margin: 60px auto;
+    text-align: center;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.cta-heading {
+    font-size: 32px;
+    color: #4a90e2;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 3px;
+}
+
+.cta-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin: 0 auto;
+}
+
+.cta-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    border: 3px solid #4a90e2;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.cta-button:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(74, 144, 226, 0.5);
+    border-color: #6ab0ff;
+}
+
+.cta-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.cta-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.cta-subtitle {
+    font-size: 12px;
+    color: #4a90e2;
+    letter-spacing: 1px;
+}
+
+/* Social Links Section */
+.social-links-section {
+    margin: 60px auto;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.social-heading {
+    font-size: 24px;
+    color: #4a90e2;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    border: 3px solid #4a90e2;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.social-link:hover {
+    transform: translateY(-8px) rotate(5deg);
+    box-shadow: 0 12px 30px rgba(74, 144, 226, 0.5);
+    border-color: #6ab0ff;
+}
+
+.social-link.youtube:hover {
+    border-color: #ff0000;
+    box-shadow: 0 12px 30px rgba(255, 0, 0, 0.4);
+}
+
+.social-link.instagram:hover {
+    border-color: #e1306c;
+    box-shadow: 0 12px 30px rgba(225, 48, 108, 0.4);
+}
+
+.social-link.itch:hover {
+    border-color: #fa5c5c;
+    box-shadow: 0 12px 30px rgba(250, 92, 92, 0.4);
+}
+
+.social-icon {
+    font-size: 36px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.social-icon-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) brightness(1.2);
+    transition: all 0.3s ease;
+}
+
+.social-link:hover .social-icon-img {
+    filter: drop-shadow(0 4px 8px rgba(74, 144, 226, 0.6)) brightness(1.5);
+    transform: scale(1.1);
+}
+
+.social-name {
+    font-size: 11px;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Responsive CTA and Social */
+@media (max-width: 768px) {
+    .cta-heading {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    
+    .cta-buttons {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .cta-button {
+        padding: 25px 15px;
+    }
+    
+    .cta-icon {
+        font-size: 40px;
+    }
+    
+    .cta-text {
+        font-size: 16px;
+    }
+    
+    .social-heading {
+        font-size: 20px;
+    }
+    
+    .social-link {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .social-icon {
+        font-size: 30px;
+    }
+    
+    .social-name {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-heading {
+        font-size: 20px;
+    }
+    
+    .cta-icon {
+        font-size: 36px;
+    }
+    
+    .cta-text {
+        font-size: 14px;
+    }
+    
+    .cta-subtitle {
+        font-size: 10px;
+    }
+    
+    .social-link {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .social-icon {
+        font-size: 28px;
+    }
+}
+
 /* Responsive Video Section */
 @media (max-width: 768px) {
     .site-title {
