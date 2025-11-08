@@ -248,14 +248,14 @@
         <p style="color: #e74c3c; font-weight: bold; margin-top: 10px;" aria-label="Christian message of love">JESUS LOVES YOU ❤️</p>
     </footer>
 
-    <!-- Gamepad Navigation -->
+    <!-- Gamepad Navigation - RECREATED FOR HOME PAGE -->
     <div class="gamepad-container show-gamepad" id="gamepad-container">
-        <button class="gamepad-minimize-btn" id="gamepad-minimize" onclick="toggleGamepad()" aria-label="Minimize gamepad">−</button>
+        <button class="gamepad-minimize-btn" id="gamepad-minimize" aria-label="Minimize gamepad">−</button>
         <div class="gamepad">
-            <button class="gamepad-button" id="gamepad-a" onclick="navigateTo('portfolio')">A<br>Portfolio</button>
-            <button class="gamepad-button" id="gamepad-b" onclick="navigateTo('about')">B<br>About</button>
-            <button class="gamepad-button" id="gamepad-x" onclick="navigateTo('games')">X<br>Games</button>
-            <button class="gamepad-button" id="gamepad-y" onclick="navigateTo('links')">Y<br>Links</button>
+            <button class="gamepad-button" id="gamepad-a">A<br>Portfolio</button>
+            <button class="gamepad-button" id="gamepad-b">B<br>About</button>
+            <button class="gamepad-button" id="gamepad-x">X<br>Games</button>
+            <button class="gamepad-button" id="gamepad-y">Y<br>Links</button>
         </div>
     </div>
 
@@ -384,31 +384,96 @@
             }
         });
 
-        // Add button press animation
-        document.querySelectorAll('.gamepad-button').forEach(button => {
-            button.addEventListener('click', function() {
-                this.classList.add('pressed');
-                setTimeout(() => {
-                    this.classList.remove('pressed');
-                }, 100);
-            });
+        // GAMEPAD BUTTON NAVIGATION - RECREATED WITH EVENT LISTENERS
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wire up gamepad buttons
+            const gamepadA = document.getElementById('gamepad-a');
+            const gamepadB = document.getElementById('gamepad-b');
+            const gamepadX = document.getElementById('gamepad-x');
+            const gamepadY = document.getElementById('gamepad-y');
+            
+            if (gamepadA) {
+                gamepadA.addEventListener('click', function() {
+                    this.classList.add('pressed');
+                    setTimeout(() => {
+                        this.classList.remove('pressed');
+                        navigateTo('portfolio');
+                    }, 100);
+                });
+            }
+            
+            if (gamepadB) {
+                gamepadB.addEventListener('click', function() {
+                    this.classList.add('pressed');
+                    setTimeout(() => {
+                        this.classList.remove('pressed');
+                        navigateTo('about');
+                    }, 100);
+                });
+            }
+            
+            if (gamepadX) {
+                gamepadX.addEventListener('click', function() {
+                    this.classList.add('pressed');
+                    setTimeout(() => {
+                        this.classList.remove('pressed');
+                        navigateTo('games');
+                    }, 100);
+                });
+            }
+            
+            if (gamepadY) {
+                gamepadY.addEventListener('click', function() {
+                    this.classList.add('pressed');
+                    setTimeout(() => {
+                        this.classList.remove('pressed');
+                        navigateTo('links');
+                    }, 100);
+                });
+            }
         });
 
-        // Gamepad minimize/maximize toggle
+        // Gamepad minimize/maximize toggle - RECREATED FOR HOME PAGE
         function toggleGamepad() {
+            console.log('toggleGamepad called'); // Debug log
             const gamepadContainer = document.getElementById('gamepad-container');
             const minimizeBtn = document.getElementById('gamepad-minimize');
             
-            if (gamepadContainer.classList.contains('minimized')) {
-                gamepadContainer.classList.remove('minimized');
-                minimizeBtn.textContent = '−';
-                minimizeBtn.setAttribute('aria-label', 'Minimize gamepad');
+            console.log('gamepadContainer:', gamepadContainer); // Debug log
+            console.log('minimizeBtn:', minimizeBtn); // Debug log
+            
+            if (gamepadContainer && minimizeBtn) {
+                if (gamepadContainer.classList.contains('minimized')) {
+                    gamepadContainer.classList.remove('minimized');
+                    minimizeBtn.textContent = '−';
+                    minimizeBtn.setAttribute('aria-label', 'Minimize gamepad');
+                    console.log('Gamepad expanded');
+                } else {
+                    gamepadContainer.classList.add('minimized');
+                    minimizeBtn.textContent = '+';
+                    minimizeBtn.setAttribute('aria-label', 'Maximize gamepad');
+                    console.log('Gamepad minimized');
+                }
             } else {
-                gamepadContainer.classList.add('minimized');
-                minimizeBtn.textContent = '+';
-                minimizeBtn.setAttribute('aria-label', 'Maximize gamepad');
+                console.error('Gamepad elements not found!');
             }
         }
+        
+        // Add direct event listener to minimize button (backup to onclick)
+        document.addEventListener('DOMContentLoaded', function() {
+            const minimizeBtn = document.getElementById('gamepad-minimize');
+            if (minimizeBtn) {
+                minimizeBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleGamepad();
+                    console.log('Minimize button clicked via event listener');
+                });
+                console.log('Event listener added to minimize button');
+            } else {
+                console.error('Minimize button not found on page load!');
+            }
+        });
 
         // Scroll to top functionality
         function scrollToTop() {
