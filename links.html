@@ -83,8 +83,15 @@
     <!-- Top navigation functionality -->
     <script src="./Scripts/top-navigation.js" defer></script>
     
-    <!-- Drag selector navigation -->
-    <script src="./Scripts/drag-selector-nav.js"></script>
+    <!-- Drag selector navigation - DISABLED ON MOBILE -->
+    <script>
+        // Only load drag selector on desktop
+        if (window.innerWidth > 768) {
+            const script = document.createElement('script');
+            script.src = './Scripts/drag-selector-nav.js';
+            document.head.appendChild(script);
+        }
+    </script>
     
     <!-- Scroll to top functionality -->
     <script src="./Scripts/scrollToTop.js"></script>
