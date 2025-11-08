@@ -554,6 +554,8 @@ html {
     pointer-events: auto !important;
     visibility: visible !important;
     opacity: 1 !important;
+    touch-action: manipulation !important; /* Enable touch on mobile */
+    -webkit-tap-highlight-color: rgba(74, 144, 226, 0.3); /* Visual feedback on tap */
 }
 
 .gamepad-minimize-btn:hover {
@@ -709,6 +711,16 @@ html {
         width: 48px; /* Increased from 28px */
         height: 48px; /* Increased from 28px */
         font-size: 10px; /* Increased from 6px */
+        touch-action: manipulation !important; /* Enable touch */
+    }
+    
+    /* LARGER minimize button on mobile for easier tapping */
+    .gamepad-minimize-btn {
+        width: 44px !important; /* Minimum touch target size */
+        height: 44px !important; /* Minimum touch target size */
+        font-size: 26px !important;
+        top: -18px !important;
+        right: -18px !important;
     }
     
     #gamepad-y {
@@ -743,6 +755,16 @@ html {
         width: 40px; /* Increased from 24px */
         height: 40px; /* Increased from 24px */
         font-size: 8px; /* Increased from 5px */
+        touch-action: manipulation !important; /* Enable touch */
+    }
+    
+    /* Even LARGER minimize button on small mobile */
+    .gamepad-minimize-btn {
+        width: 48px !important; /* Extra large for small screens */
+        height: 48px !important;
+        font-size: 28px !important;
+        top: -20px !important;
+        right: -20px !important;
     }
     
     #gamepad-y {

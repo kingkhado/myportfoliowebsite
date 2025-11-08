@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="./Styles/top-navigation.css">
     <link rel="stylesheet" href="./Styles/testimony-mode.css">
     <link rel="stylesheet" href="./Styles/loading-screen.css">
+    <link rel="stylesheet" href="./Styles/video-gamepad-stats.css">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -239,6 +240,43 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Video Stats Gamepad Display -->
+            <div class="video-stats-gamepad">
+                <div class="stats-gamepad-header">
+                    <h3>🎮 VIDEO STATS GAMEPAD</h3>
+                    <p>Press a button to view interactive data</p>
+                </div>
+                
+                <div class="gamepad-controller">
+                    <button class="gamepad-stat-button views" data-stat="views" aria-label="View video views statistics">
+                        <span class="stat-icon">🎮</span>
+                        <span class="stat-label">Views</span>
+                        <span class="stat-tooltip">Total video views</span>
+                    </button>
+                    
+                    <button class="gamepad-stat-button comments" data-stat="comments" aria-label="View comments statistics">
+                        <span class="stat-icon">💬</span>
+                        <span class="stat-label">Comments</span>
+                        <span class="stat-tooltip">User engagement</span>
+                    </button>
+                    
+                    <button class="gamepad-stat-button impressions" data-stat="impressions" aria-label="View impressions statistics">
+                        <span class="stat-icon">👁️</span>
+                        <span class="stat-label">Impressions</span>
+                        <span class="stat-tooltip">Feed appearances</span>
+                    </button>
+                </div>
+                
+                <div class="stats-data-panel hidden">
+                    <div class="stat-data-content">
+                        <div class="stats-inactive-message">
+                            <span class="icon">🎮</span>
+                            <p>Select a stat button above to view data</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -247,17 +285,6 @@
         <p>&copy; 2025 MAKHADO KHASHANE. All rights reserved.</p>
         <p style="color: #e74c3c; font-weight: bold; margin-top: 10px;" aria-label="Christian message of love">JESUS LOVES YOU ❤️</p>
     </footer>
-
-    <!-- Gamepad Navigation - RECREATED FOR HOME PAGE -->
-    <div class="gamepad-container show-gamepad" id="gamepad-container">
-        <button class="gamepad-minimize-btn" id="gamepad-minimize" aria-label="Minimize gamepad">−</button>
-        <div class="gamepad">
-            <button class="gamepad-button" id="gamepad-a">A<br>Portfolio</button>
-            <button class="gamepad-button" id="gamepad-b">B<br>About</button>
-            <button class="gamepad-button" id="gamepad-x">X<br>Games</button>
-            <button class="gamepad-button" id="gamepad-y">Y<br>Links</button>
-        </div>
-    </div>
 
     <!-- Scroll to Top Button -->
     <button class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
@@ -268,21 +295,14 @@
     <!-- Top navigation functionality -->
     <script src="./Scripts/top-navigation.js"></script>
     
-    <!-- Drag selector navigation - DISABLED ON MOBILE -->
-    <script>
-        // Only load drag selector on desktop
-        if (window.innerWidth > 768) {
-            const script = document.createElement('script');
-            script.src = './Scripts/drag-selector-nav.js';
-            document.head.appendChild(script);
-        }
-    </script>
-    
     <!-- Testimony mode functionality -->
     <script src="./Scripts/testimony-mode.js"></script>
     
     <!-- Scroll to top functionality -->
     <script src="./Scripts/scrollToTop.js"></script>
+    
+    <!-- Video gamepad stats functionality -->
+    <script src="./Scripts/video-gamepad-stats.js"></script>
     
     <!-- Updated JavaScript for new navigation -->
     <script>
@@ -355,94 +375,6 @@
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', updateScrollProgress);
         
-        // Gamepad Navigation Functions
-        function navigateTo(page) {
-            switch(page) {
-                case 'portfolio':
-                    window.location.href = './portfolio/portfolio.html';
-                    break;
-                case 'about':
-                    window.location.href = './about/about.html';
-                    break;
-                case 'games':
-                    window.location.href = './games/itchio-games.html';
-                    break;
-                case 'links':
-                    window.location.href = './links.html';
-                    break;
-            }
-        }
-
-        // Keyboard Navigation Support
-        document.addEventListener('keydown', function(e) {
-            switch(e.key.toLowerCase()) {
-                case 'a':
-                    navigateTo('portfolio');
-                    break;
-                case 'b':
-                    navigateTo('about');
-                    break;
-                case 'x':
-                    navigateTo('games');
-                    break;
-                case 'y':
-                    navigateTo('links');
-                    break;
-            }
-        });
-
-        // ===== GAMEPAD SYSTEM - COMPLETE REWRITE FOR HOME PAGE =====
-        function toggleGamepad() {
-            const gamepadContainer = document.getElementById('gamepad-container');
-            const minimizeBtn = document.getElementById('gamepad-minimize');
-            
-            if (gamepadContainer && minimizeBtn) {
-                if (gamepadContainer.classList.contains('minimized')) {
-                    gamepadContainer.classList.remove('minimized');
-                    minimizeBtn.textContent = '−';
-                    minimizeBtn.setAttribute('aria-label', 'Minimize gamepad');
-                } else {
-                    gamepadContainer.classList.add('minimized');
-                    minimizeBtn.textContent = '+';
-                    minimizeBtn.setAttribute('aria-label', 'Maximize gamepad');
-                }
-            }
-        }
-        
-        // Initialize ALL gamepad functionality in ONE place
-        document.addEventListener('DOMContentLoaded', function() {
-            // Setup minimize button
-            const minimizeBtn = document.getElementById('gamepad-minimize');
-            if (minimizeBtn) {
-                minimizeBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    toggleGamepad();
-                });
-            }
-            
-            // Setup gamepad navigation buttons
-            const gamepadButtons = {
-                'gamepad-a': 'portfolio',
-                'gamepad-b': 'about',
-                'gamepad-x': 'games',
-                'gamepad-y': 'links'
-            };
-            
-            Object.keys(gamepadButtons).forEach(buttonId => {
-                const button = document.getElementById(buttonId);
-                if (button) {
-                    button.addEventListener('click', function() {
-                        this.classList.add('pressed');
-                        setTimeout(() => {
-                            this.classList.remove('pressed');
-                            navigateTo(gamepadButtons[buttonId]);
-                        }, 100);
-                    });
-                }
-            });
-        });
-
         // Scroll to top functionality
         function scrollToTop() {
             window.scrollTo({

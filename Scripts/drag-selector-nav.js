@@ -119,9 +119,10 @@ function createSelectorBox() {
     document.body.appendChild(selectorBox);
 }
 
-// Setup nav items and disable click navigation
+// Setup nav items and disable click navigation ONLY ON DESKTOP
 function setupNavItems() {
     const navLinks = document.querySelectorAll('.top-nav-link');
+    const isMobile = window.innerWidth <= 768;
     
     navLinks.forEach((link, index) => {
         const rect = link.getBoundingClientRect();
@@ -134,16 +135,22 @@ function setupNavItems() {
             page: pages[index]
         });
         
-        // Disable click navigation
-        link.style.pointerEvents = 'none';
-        link.style.cursor = 'default';
-        
-        // Add visual indicator that clicking is disabled
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            showMessage('Drag the selector box to navigate!');
-        });
+        // ONLY disable click navigation on desktop (where drag selector is visible)
+        if (!isMobile) {
+            link.style.pointerEvents = 'none';
+            link.style.cursor = 'default';
+            
+            // Add visual indicator that clicking is disabled
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                showMessage('Drag the selector box to navigate!');
+            });
+        } else {
+            // On mobile, ensure clicks work normally
+            link.style.pointerEvents = 'auto';
+            link.style.cursor = 'pointer';
+        }
     });
 }
 
@@ -171,10 +178,28 @@ function setupEventListeners() {
     document.addEventListener('touchmove', handleTouchMove, { passive: false });
     document.addEventListener('touchend', handleTouchEnd);
     
-    // Window resize - recalculate positions
+    // Window resize - recalculate positions and re-enable/disable clicks
     window.addEventListener('resize', () => {
+        navItems = []; // Clear old items
         setupNavItems();
-        positionSelectorOnCurrentPage();
+        
+        const isMobile = window.innerWidth <= 768;
+        const navLinks = document.querySelectorAll('.top-nav-link');
+        
+        // Re-enable or disable clicks based on screen size
+        navLinks.forEach(link => {
+            if (isMobile) {
+                link.style.pointerEvents = 'auto';
+                link.style.cursor = 'pointer';
+            } else {
+                link.style.pointerEvents = 'none';
+                link.style.cursor = 'default';
+            }
+        });
+        
+        if (!isMobile) {
+            positionSelectorOnCurrentPage();
+        }
     });
 }
 
@@ -521,8 +546,21 @@ document.head.appendChild(style);
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    // Wait a bit for nav to be fully rendered
-    setTimeout(initDragSelectorNav, 500);
+    // Check if top nav exists before initializing
+    const checkNav = setInterval(() => {
+        const navLinks = document.querySelectorAll('.top-nav-link');
+        if (navLinks.length > 0) {
+            clearInterval(checkNav);
+            initDragSelectorNav();
+            console.log('Drag selector navigation initialized successfully');
+        }
+    }, 100);
+    
+    // Timeout after 5 seconds
+    setTimeout(() => {
+        clearInterval(checkNav);
+        console.warn('Drag selector navigation: Top nav not found after 5 seconds');
+    }, 5000);
 });
 
 // Export functions

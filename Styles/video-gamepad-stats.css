@@ -1,0 +1,440 @@
+/* Video Gamepad Stats Display - Interactive Data Visualization */
+
+.video-stats-gamepad {
+    margin-top: 40px;
+    padding: 30px;
+    background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+    border-radius: 20px;
+    border: 3px solid #4a90e2;
+    box-shadow: 0 8px 30px rgba(74, 144, 226, 0.3);
+    position: relative;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stats-gamepad-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.stats-gamepad-header h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 18px;
+    color: #4a90e2;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.stats-gamepad-header p {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: #93c5fd;
+    opacity: 0.8;
+}
+
+/* Gamepad Controller Layout */
+.gamepad-controller {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Gamepad Button Styles */
+.gamepad-stat-button {
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    border: 3px solid;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.gamepad-stat-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+}
+
+.gamepad-stat-button:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+.gamepad-stat-button.active {
+    animation: pulseGlow 1.5s ease-in-out infinite;
+}
+
+/* Button Colors - Gamepad Style */
+.gamepad-stat-button.views {
+    border-color: #4169e1;
+    grid-column: 1;
+}
+
+.gamepad-stat-button.views:hover,
+.gamepad-stat-button.views.active {
+    background: linear-gradient(145deg, #4169e1, #1e40af);
+    box-shadow: 0 0 30px rgba(65, 105, 225, 0.8);
+}
+
+.gamepad-stat-button.comments {
+    border-color: #32cd32;
+    grid-column: 2;
+}
+
+.gamepad-stat-button.comments:hover,
+.gamepad-stat-button.comments.active {
+    background: linear-gradient(145deg, #32cd32, #228b22);
+    box-shadow: 0 0 30px rgba(50, 205, 50, 0.8);
+}
+
+.gamepad-stat-button.impressions {
+    border-color: #ffd700;
+    grid-column: 3;
+}
+
+.gamepad-stat-button.impressions:hover,
+.gamepad-stat-button.impressions.active {
+    background: linear-gradient(145deg, #ffd700, #ffb300);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+}
+
+/* Button Icon */
+.stat-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+/* Button Label */
+.stat-label {
+    font-size: 8px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* Tooltip */
+.stat-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 100;
+    border: 2px solid;
+}
+
+.gamepad-stat-button.views .stat-tooltip {
+    border-color: #4169e1;
+}
+
+.gamepad-stat-button.comments .stat-tooltip {
+    border-color: #32cd32;
+}
+
+.gamepad-stat-button.impressions .stat-tooltip {
+    border-color: #ffd700;
+}
+
+.gamepad-stat-button:hover .stat-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* Data Display Panel */
+.stats-data-panel {
+    margin-top: 40px;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border: 2px solid #4a90e2;
+    min-height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-data-panel.hidden {
+    display: none;
+}
+
+/* Data Content */
+.stat-data-content {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.5s ease;
+}
+
+.stat-data-content.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.stat-data-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-data-icon {
+    font-size: 48px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.stat-data-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 0 #000;
+}
+
+/* Data Value Display */
+.stat-data-value {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.stat-number {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 48px;
+    color: #fff;
+    text-shadow: 3px 3px 0 #000;
+    animation: countUp 1s ease-out;
+}
+
+.stat-description {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    color: #93c5fd;
+    margin-top: 15px;
+}
+
+/* Mini Graph/Chart */
+.stat-mini-graph {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+    height: 100px;
+    margin-top: 20px;
+}
+
+.graph-bar {
+    width: 40px;
+    background: linear-gradient(to top, #4a90e2, #60a5fa);
+    border-radius: 5px 5px 0 0;
+    position: relative;
+    animation: growBar 0.8s ease-out;
+    box-shadow: 0 0 15px rgba(74, 144, 226, 0.5);
+}
+
+.graph-bar::after {
+    content: attr(data-value);
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    color: #fff;
+    white-space: nowrap;
+}
+
+/* Animations */
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px currentColor;
+    }
+    50% {
+        box-shadow: 0 0 40px currentColor;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes growBar {
+    from {
+        height: 0;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Particle Effects */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particleFloat 2s ease-out forwards;
+}
+
+@keyframes particleFloat {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(0);
+    }
+}
+
+/* Inactive State Message */
+.stats-inactive-message {
+    text-align: center;
+    padding: 40px 20px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    color: #93c5fd;
+    line-height: 1.8;
+}
+
+.stats-inactive-message .icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    display: block;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .video-stats-gamepad {
+        padding: 20px;
+        margin-top: 30px;
+    }
+    
+    .stats-gamepad-header h3 {
+        font-size: 14px;
+    }
+    
+    .stats-gamepad-header p {
+        font-size: 8px;
+    }
+    
+    .gamepad-controller {
+        gap: 15px;
+    }
+    
+    .gamepad-stat-button {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .stat-icon {
+        font-size: 24px;
+    }
+    
+    .stat-label {
+        font-size: 7px;
+    }
+    
+    .stat-data-title {
+        font-size: 16px;
+    }
+    
+    .stat-number {
+        font-size: 36px;
+    }
+    
+    .stat-description {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gamepad-controller {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .gamepad-stat-button {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+    }
+    
+    .gamepad-stat-button.views,
+    .gamepad-stat-button.comments,
+    .gamepad-stat-button.impressions {
+        grid-column: 1;
+    }
+    
+    .stat-mini-graph {
+        height: 80px;
+    }
+    
+    .graph-bar {
+        width: 30px;
+    }
+}
+
+/* Loading Animation */
+.stats-loading {
+    text-align: center;
+    padding: 40px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: #4a90e2;
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(74, 144, 226, 0.3);
+    border-top-color: #4a90e2;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

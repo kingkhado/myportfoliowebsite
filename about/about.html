@@ -103,9 +103,6 @@
     <!-- Top navigation functionality -->
     <script src="../Scripts/top-navigation.js" defer></script>
     
-    <!-- Drag selector navigation -->
-    <script src="../Scripts/drag-selector-nav.js"></script>
-    
     <!-- Scroll to top functionality -->
     <script src="../Scripts/scrollToTop.js"></script>
     
@@ -595,17 +592,6 @@
         </footer>
     </main>
 
-    <!-- Gamepad Navigation -->
-    <div class="gamepad-container show-gamepad" id="gamepad-container">
-        <button class="gamepad-minimize-btn" id="gamepad-minimize" onclick="toggleGamepad()" aria-label="Minimize gamepad">−</button>
-        <div class="gamepad">
-            <button class="gamepad-button" id="gamepad-a" onclick="navigateTo('portfolio')">A<br>Portfolio</button>
-            <button class="gamepad-button" id="gamepad-b" onclick="navigateTo('about')">B<br>About</button>
-            <button class="gamepad-button" id="gamepad-x" onclick="navigateTo('games')">X<br>Games</button>
-            <button class="gamepad-button" id="gamepad-y" onclick="navigateTo('links')">Y<br>Links</button>
-        </div>
-    </div>
-
     <!-- Scroll Progress Script -->
     <script>
         // Update scroll progress bar with ARIA attributes
@@ -624,25 +610,6 @@
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', updateScrollProgress);
         
-        // Gamepad Navigation Functions
-        function navigateTo(page) {
-            const basePath = window.location.pathname.includes('about') ? '../' : '';
-            switch(page) {
-                case 'portfolio':
-                    window.location.href = basePath + 'portfolio/portfolio.html';
-                    break;
-                case 'about':
-                    window.location.href = basePath + 'about/about.html';
-                    break;
-                case 'games':
-                    window.location.href = basePath + 'games/itchio-games.html';
-                    break;
-                case 'links':
-                    window.location.href = basePath + 'links.html';
-                    break;
-            }
-        }
-
         // Add skip-link styles
         const skipLinkStyle = document.createElement('style');
         skipLinkStyle.textContent = `
@@ -732,21 +699,6 @@
             });
         });
         
-        // Gamepad minimize/maximize toggle
-        function toggleGamepad() {
-            const gamepadContainer = document.getElementById('gamepad-container');
-            const minimizeBtn = document.getElementById('gamepad-minimize');
-            
-            if (gamepadContainer.classList.contains('minimized')) {
-                gamepadContainer.classList.remove('minimized');
-                minimizeBtn.textContent = '−';
-                minimizeBtn.setAttribute('aria-label', 'Minimize gamepad');
-            } else {
-                gamepadContainer.classList.add('minimized');
-                minimizeBtn.textContent = '+';
-                minimizeBtn.setAttribute('aria-label', 'Maximize gamepad');
-            }
-        }
     </script>
 </body>
 </html>

@@ -29,7 +29,6 @@
     <script src="../Scripts/portfolio-switcher.js" defer></script>
     <script src="../Scripts/scrollToTop.js" defer></script>
     <script src="../Scripts/content-warnings.js" defer></script>
-    <script src="../Scripts/drag-selector-nav.js" defer></script>
 </head>
 <body>
     <!-- Top Navigation Bar -->
@@ -321,67 +320,11 @@
         <p style="color: #e74c3c; font-weight: bold; margin-top: 10px;">JESUS LOVES YOU ❤️</p>
     </footer>
 
-    <!-- Gamepad Navigation -->
-    <div class="gamepad-container show-gamepad" id="gamepad-container">
-        <button class="gamepad-minimize-btn" id="gamepad-minimize" onclick="toggleGamepad()" aria-label="Minimize gamepad">−</button>
-        <div class="gamepad">
-            <button class="gamepad-button" id="gamepad-a" onclick="navigateTo('portfolio')">A<br>Portfolio</button>
-            <button class="gamepad-button" id="gamepad-b" onclick="navigateTo('about')">B<br>About</button>
-            <button class="gamepad-button" id="gamepad-x" onclick="navigateTo('games')">X<br>Games</button>
-            <button class="gamepad-button" id="gamepad-y" onclick="navigateTo('links')">Y<br>Links</button>
-        </div>
-    </div>
-
     <!-- Scroll to Top Button -->
     <button class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
 
     <!-- Scroll Progress Script -->
     <script>
-        function navigateTo(page) {
-            switch(page) {
-                case 'portfolio':
-                    window.location.href = 'portfolio.html';
-                    break;
-                case 'about':
-                    window.location.href = '../about/about.html';
-                    break;
-                case 'games':
-                    window.location.href = '../games/itchio-games.html';
-                    break;
-                case 'links':
-                    window.location.href = '../links.html';
-                    break;
-            }
-        }
-
-        // Keyboard Navigation Support
-        document.addEventListener('keydown', function(e) {
-            switch(e.key.toLowerCase()) {
-                case 'a':
-                    navigateTo('portfolio');
-                    break;
-                case 'b':
-                    navigateTo('about');
-                    break;
-                case 'x':
-                    navigateTo('games');
-                    break;
-                case 'y':
-                    navigateTo('links');
-                    break;
-            }
-        });
-
-        // Add button press animation
-        document.querySelectorAll('.gamepad-button').forEach(button => {
-            button.addEventListener('click', function() {
-                this.classList.add('pressed');
-                setTimeout(() => {
-                    this.classList.remove('pressed');
-                }, 100);
-            });
-        });
-
         // Update scroll progress bar
         function updateScrollProgress() {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -417,21 +360,6 @@
         // Add scroll listener for button visibility
         window.addEventListener('scroll', toggleScrollButton);
         
-        // Gamepad minimize/maximize toggle
-        function toggleGamepad() {
-            const gamepadContainer = document.getElementById('gamepad-container');
-            const minimizeBtn = document.getElementById('gamepad-minimize');
-            
-            if (gamepadContainer.classList.contains('minimized')) {
-                gamepadContainer.classList.remove('minimized');
-                minimizeBtn.textContent = '−';
-                minimizeBtn.setAttribute('aria-label', 'Minimize gamepad');
-            } else {
-                gamepadContainer.classList.add('minimized');
-                minimizeBtn.textContent = '+';
-                minimizeBtn.setAttribute('aria-label', 'Maximize gamepad');
-            }
-        }
     </script>
 </body>
 </html>

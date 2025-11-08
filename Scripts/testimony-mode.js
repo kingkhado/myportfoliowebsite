@@ -25,17 +25,11 @@ function toggleTestimonyMode(isActive) {
     
     const body = document.body;
     const testimonyContainer = document.getElementById('testimony-container');
-    const gamepadContainer = document.getElementById('gamepad-container');
     
     if (testimonyModeActive) {
         // Enter testimony mode
         body.classList.add('testimony-mode-active');
         testimonyContainer.classList.add('active');
-        
-        // Hide gamepad when testimony mode is active
-        if (gamepadContainer) {
-            gamepadContainer.style.display = 'none';
-        }
         
         // Smooth scroll to top
         window.scrollTo({
@@ -52,11 +46,6 @@ function toggleTestimonyMode(isActive) {
         // Exit testimony mode
         body.classList.remove('testimony-mode-active');
         testimonyContainer.classList.remove('active');
-        
-        // Show gamepad when testimony mode is exited
-        if (gamepadContainer) {
-            gamepadContainer.style.display = '';
-        }
         
         // Smooth scroll to top
         window.scrollTo({

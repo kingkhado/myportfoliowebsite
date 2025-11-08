@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -82,16 +82,6 @@
     
     <!-- Top navigation functionality -->
     <script src="./Scripts/top-navigation.js" defer></script>
-    
-    <!-- Drag selector navigation - DISABLED ON MOBILE -->
-    <script>
-        // Only load drag selector on desktop
-        if (window.innerWidth > 768) {
-            const script = document.createElement('script');
-            script.src = './Scripts/drag-selector-nav.js';
-            document.head.appendChild(script);
-        }
-    </script>
     
     <!-- Scroll to top functionality -->
     <script src="./Scripts/scrollToTop.js"></script>
@@ -251,17 +241,6 @@
         </footer>
     </main>
 
-    <!-- Gamepad Navigation -->
-    <div class="gamepad-container show-gamepad" id="gamepad-container">
-        <button class="gamepad-minimize-btn" id="gamepad-minimize" onclick="toggleGamepad()" aria-label="Minimize gamepad">−</button>
-        <div class="gamepad">
-            <button class="gamepad-button" id="gamepad-a" onclick="navigateTo('portfolio')">A<br>Portfolio</button>
-            <button class="gamepad-button" id="gamepad-b" onclick="navigateTo('about')">B<br>About</button>
-            <button class="gamepad-button" id="gamepad-x" onclick="navigateTo('games')">X<br>Games</button>
-            <button class="gamepad-button" id="gamepad-y" onclick="navigateTo('links')">Y<br>Links</button>
-        </div>
-    </div>
-
     <!-- Scroll to Top Button -->
     <button class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
 
@@ -282,50 +261,6 @@
         
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', updateScrollProgress);
-        
-        // Gamepad Navigation Functions
-        function navigateTo(page) {
-            switch(page) {
-                case 'portfolio':
-                    window.location.href = './portfolio/portfolio.html';
-                    break;
-                case 'about':
-                    window.location.href = './about/about.html';
-                    break;
-                case 'games':
-                    window.location.href = './games/itchio-games.html';
-                    break;
-                case 'links':
-                    window.location.href = './links.html';
-                    break;
-            }
-        }
-
-        // Keyboard Navigation Support
-        document.querySelectorAll('.gamepad-button').forEach(button => {
-            button.addEventListener('click', function() {
-                this.classList.add('pressed');
-                setTimeout(() => {
-                    this.classList.remove('pressed');
-                }, 100);
-            });
-        });
-        
-        // Gamepad minimize/maximize toggle
-        function toggleGamepad() {
-            const gamepadContainer = document.getElementById('gamepad-container');
-            const minimizeBtn = document.getElementById('gamepad-minimize');
-            
-            if (gamepadContainer.classList.contains('minimized')) {
-                gamepadContainer.classList.remove('minimized');
-                minimizeBtn.textContent = '−';
-                minimizeBtn.setAttribute('aria-label', 'Minimize gamepad');
-            } else {
-                gamepadContainer.classList.add('minimized');
-                minimizeBtn.textContent = '+';
-                minimizeBtn.setAttribute('aria-label', 'Maximize gamepad');
-            }
-        }
         
         // Scroll to top functionality
         function scrollToTop() {

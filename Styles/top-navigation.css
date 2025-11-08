@@ -58,20 +58,109 @@
     transition: all 0.3s ease;
     display: block;
     border: 2px solid transparent;
+    position: relative;
 }
 
-.top-nav-link:hover {
-    background: rgba(74, 144, 226, 0.2);
-    border-color: #4a90e2;
-    color: #4a90e2;
-    transform: translateY(-2px);
+/* Gamepad-Inspired Button Colors */
+.top-nav-item:nth-child(1) .top-nav-link {
+    /* HOME - Blue like PlayStation X */
+    border-color: #4169e1;
 }
 
-.top-nav-link.active {
-    background: linear-gradient(145deg, #4a90e2, #2c5aa0);
+.top-nav-item:nth-child(1) .top-nav-link:hover {
+    background: linear-gradient(145deg, #4169e1, #1e40af);
     border-color: #fff;
     color: #fff;
-    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.5);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 20px rgba(65, 105, 225, 0.6);
+}
+
+.top-nav-item:nth-child(2) .top-nav-link {
+    /* PORTFOLIO - Green like Xbox A */
+    border-color: #32cd32;
+}
+
+.top-nav-item:nth-child(2) .top-nav-link:hover {
+    background: linear-gradient(145deg, #32cd32, #228b22);
+    border-color: #fff;
+    color: #fff;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 20px rgba(50, 205, 50, 0.6);
+}
+
+.top-nav-item:nth-child(3) .top-nav-link {
+    /* ABOUT - Red like PlayStation Circle */
+    border-color: #dc143c;
+}
+
+.top-nav-item:nth-child(3) .top-nav-link:hover {
+    background: linear-gradient(145deg, #dc143c, #8b0000);
+    border-color: #fff;
+    color: #fff;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 20px rgba(220, 20, 60, 0.6);
+}
+
+.top-nav-item:nth-child(4) .top-nav-link {
+    /* GAMES - Yellow like PlayStation Triangle */
+    border-color: #ffd700;
+}
+
+.top-nav-item:nth-child(4) .top-nav-link:hover {
+    background: linear-gradient(145deg, #ffd700, #ffb300);
+    border-color: #fff;
+    color: #000;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+.top-nav-item:nth-child(5) .top-nav-link {
+    /* LINKS - Purple accent */
+    border-color: #9370db;
+}
+
+.top-nav-item:nth-child(5) .top-nav-link:hover {
+    background: linear-gradient(145deg, #9370db, #6a5acd);
+    border-color: #fff;
+    color: #fff;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 20px rgba(147, 112, 219, 0.6);
+}
+
+/* Active state with gamepad colors */
+.top-nav-item:nth-child(1) .top-nav-link.active {
+    background: linear-gradient(145deg, #4169e1, #1e40af);
+    border-color: #fff;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(65, 105, 225, 0.7);
+}
+
+.top-nav-item:nth-child(2) .top-nav-link.active {
+    background: linear-gradient(145deg, #32cd32, #228b22);
+    border-color: #fff;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(50, 205, 50, 0.7);
+}
+
+.top-nav-item:nth-child(3) .top-nav-link.active {
+    background: linear-gradient(145deg, #dc143c, #8b0000);
+    border-color: #fff;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.7);
+}
+
+.top-nav-item:nth-child(4) .top-nav-link.active {
+    background: linear-gradient(145deg, #ffd700, #ffb300);
+    border-color: #fff;
+    color: #000;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.7);
+}
+
+.top-nav-item:nth-child(5) .top-nav-link.active {
+    background: linear-gradient(145deg, #9370db, #6a5acd);
+    border-color: #fff;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(147, 112, 219, 0.7);
 }
 
 /* Mobile Menu Toggle */
