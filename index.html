@@ -268,8 +268,15 @@
     <!-- Top navigation functionality -->
     <script src="./Scripts/top-navigation.js"></script>
     
-    <!-- Drag selector navigation -->
-    <script src="./Scripts/drag-selector-nav.js"></script>
+    <!-- Drag selector navigation - DISABLED ON MOBILE -->
+    <script>
+        // Only load drag selector on desktop
+        if (window.innerWidth > 768) {
+            const script = document.createElement('script');
+            script.src = './Scripts/drag-selector-nav.js';
+            document.head.appendChild(script);
+        }
+    </script>
     
     <!-- Testimony mode functionality -->
     <script src="./Scripts/testimony-mode.js"></script>
@@ -384,95 +391,56 @@
             }
         });
 
-        // GAMEPAD BUTTON NAVIGATION - RECREATED WITH EVENT LISTENERS
-        document.addEventListener('DOMContentLoaded', function() {
-            // Wire up gamepad buttons
-            const gamepadA = document.getElementById('gamepad-a');
-            const gamepadB = document.getElementById('gamepad-b');
-            const gamepadX = document.getElementById('gamepad-x');
-            const gamepadY = document.getElementById('gamepad-y');
-            
-            if (gamepadA) {
-                gamepadA.addEventListener('click', function() {
-                    this.classList.add('pressed');
-                    setTimeout(() => {
-                        this.classList.remove('pressed');
-                        navigateTo('portfolio');
-                    }, 100);
-                });
-            }
-            
-            if (gamepadB) {
-                gamepadB.addEventListener('click', function() {
-                    this.classList.add('pressed');
-                    setTimeout(() => {
-                        this.classList.remove('pressed');
-                        navigateTo('about');
-                    }, 100);
-                });
-            }
-            
-            if (gamepadX) {
-                gamepadX.addEventListener('click', function() {
-                    this.classList.add('pressed');
-                    setTimeout(() => {
-                        this.classList.remove('pressed');
-                        navigateTo('games');
-                    }, 100);
-                });
-            }
-            
-            if (gamepadY) {
-                gamepadY.addEventListener('click', function() {
-                    this.classList.add('pressed');
-                    setTimeout(() => {
-                        this.classList.remove('pressed');
-                        navigateTo('links');
-                    }, 100);
-                });
-            }
-        });
-
-        // Gamepad minimize/maximize toggle - RECREATED FOR HOME PAGE
+        // ===== GAMEPAD SYSTEM - COMPLETE REWRITE FOR HOME PAGE =====
         function toggleGamepad() {
-            console.log('toggleGamepad called'); // Debug log
             const gamepadContainer = document.getElementById('gamepad-container');
             const minimizeBtn = document.getElementById('gamepad-minimize');
-            
-            console.log('gamepadContainer:', gamepadContainer); // Debug log
-            console.log('minimizeBtn:', minimizeBtn); // Debug log
             
             if (gamepadContainer && minimizeBtn) {
                 if (gamepadContainer.classList.contains('minimized')) {
                     gamepadContainer.classList.remove('minimized');
                     minimizeBtn.textContent = '−';
                     minimizeBtn.setAttribute('aria-label', 'Minimize gamepad');
-                    console.log('Gamepad expanded');
                 } else {
                     gamepadContainer.classList.add('minimized');
                     minimizeBtn.textContent = '+';
                     minimizeBtn.setAttribute('aria-label', 'Maximize gamepad');
-                    console.log('Gamepad minimized');
                 }
-            } else {
-                console.error('Gamepad elements not found!');
             }
         }
         
-        // Add direct event listener to minimize button (backup to onclick)
+        // Initialize ALL gamepad functionality in ONE place
         document.addEventListener('DOMContentLoaded', function() {
+            // Setup minimize button
             const minimizeBtn = document.getElementById('gamepad-minimize');
             if (minimizeBtn) {
                 minimizeBtn.addEventListener('click', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
                     toggleGamepad();
-                    console.log('Minimize button clicked via event listener');
                 });
-                console.log('Event listener added to minimize button');
-            } else {
-                console.error('Minimize button not found on page load!');
             }
+            
+            // Setup gamepad navigation buttons
+            const gamepadButtons = {
+                'gamepad-a': 'portfolio',
+                'gamepad-b': 'about',
+                'gamepad-x': 'games',
+                'gamepad-y': 'links'
+            };
+            
+            Object.keys(gamepadButtons).forEach(buttonId => {
+                const button = document.getElementById(buttonId);
+                if (button) {
+                    button.addEventListener('click', function() {
+                        this.classList.add('pressed');
+                        setTimeout(() => {
+                            this.classList.remove('pressed');
+                            navigateTo(gamepadButtons[buttonId]);
+                        }, 100);
+                    });
+                }
+            });
         });
 
         // Scroll to top functionality
