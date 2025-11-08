@@ -528,6 +528,60 @@ html {
     transform: translateY(0);
 }
 
+/* Gamepad Minimize Button */
+.gamepad-minimize-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(145deg, #4a90e2, #2c5aa0);
+    border: 3px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10005;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(74, 144, 226, 0.8);
+    transition: all 0.3s ease;
+    line-height: 1;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.gamepad-minimize-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(74, 144, 226, 0.6);
+}
+
+.gamepad-minimize-btn:active {
+    transform: scale(0.95);
+}
+
+/* Minimized Gamepad State */
+.gamepad-container.minimized .gamepad {
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
+}
+
+.gamepad-container.minimized {
+    width: 60px;
+    height: 60px;
+}
+
+.gamepad-container.minimized .gamepad-minimize-btn {
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+}
+
 @keyframes pulseGlow {
     0%, 100% {
         filter: drop-shadow(0 0 10px rgba(74, 144, 226, 0.5));
@@ -740,6 +794,7 @@ html {
     border-radius: 50%;
     box-shadow: 0 0 8px #32cd32;
     animation: powerLED 2s ease-in-out infinite;
+    z-index: 1;
 }
 
 @keyframes powerLED {

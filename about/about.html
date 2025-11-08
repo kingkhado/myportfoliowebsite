@@ -103,6 +103,9 @@
     <!-- Top navigation functionality -->
     <script src="../Scripts/top-navigation.js" defer></script>
     
+    <!-- Drag selector navigation -->
+    <script src="../Scripts/drag-selector-nav.js"></script>
+    
     <!-- Scroll to top functionality -->
     <script src="../Scripts/scrollToTop.js"></script>
     
@@ -593,7 +596,8 @@
     </main>
 
     <!-- Gamepad Navigation -->
-    <div class="gamepad-container show-gamepad">
+    <div class="gamepad-container show-gamepad" id="gamepad-container">
+        <button class="gamepad-minimize-btn" id="gamepad-minimize" onclick="toggleGamepad()" aria-label="Minimize gamepad">−</button>
         <div class="gamepad">
             <button class="gamepad-button" id="gamepad-a" onclick="navigateTo('portfolio')">A<br>Portfolio</button>
             <button class="gamepad-button" id="gamepad-b" onclick="navigateTo('about')">B<br>About</button>
@@ -727,6 +731,22 @@
                 }, 5000);
             });
         });
+        
+        // Gamepad minimize/maximize toggle
+        function toggleGamepad() {
+            const gamepadContainer = document.getElementById('gamepad-container');
+            const minimizeBtn = document.getElementById('gamepad-minimize');
+            
+            if (gamepadContainer.classList.contains('minimized')) {
+                gamepadContainer.classList.remove('minimized');
+                minimizeBtn.textContent = '−';
+                minimizeBtn.setAttribute('aria-label', 'Minimize gamepad');
+            } else {
+                gamepadContainer.classList.add('minimized');
+                minimizeBtn.textContent = '+';
+                minimizeBtn.setAttribute('aria-label', 'Maximize gamepad');
+            }
+        }
     </script>
 </body>
 </html>

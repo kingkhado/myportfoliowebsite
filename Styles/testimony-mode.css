@@ -165,17 +165,18 @@
     opacity: 1;
 }
 
-/* Mobile Responsive */
+/* Mobile Responsive - MUCH SMALLER */
 @media (max-width: 768px) {
     .testimony-toggle-container {
         flex-direction: column;
-        padding: 20px 30px;
-        margin: 25px auto 0;
-        gap: 15px;
+        padding: 12px 20px;
+        margin: 15px auto 0;
+        gap: 10px;
+        max-width: 90%;
     }
     
     .testimony-icon {
-        font-size: 36px;
+        font-size: 28px;
     }
     
     .testimony-info {
@@ -183,44 +184,8 @@
     }
     
     .testimony-text {
-        font-size: 14px;
-    }
-    
-    .testimony-subtext {
-        font-size: 8px;
-    }
-    
-    .testimony-switch {
-        width: 100px;
-        height: 45px;
-    }
-    
-    .testimony-slider:before {
-        height: 31px;
-        width: 31px;
-    }
-    
-    .testimony-switch input:checked + .testimony-slider:before {
-        transform: translateX(55px);
-    }
-    
-    .slider-text {
-        font-size: 8px;
-    }
-}
-
-@media (max-width: 480px) {
-    .testimony-toggle-container {
-        padding: 15px 25px;
-        margin: 20px auto 0;
-    }
-    
-    .testimony-icon {
-        font-size: 32px;
-    }
-    
-    .testimony-text {
-        font-size: 12px;
+        font-size: 11px;
+        letter-spacing: 1px;
     }
     
     .testimony-subtext {
@@ -228,23 +193,63 @@
     }
     
     .testimony-switch {
-        width: 90px;
-        height: 40px;
+        width: 85px;
+        height: 38px;
     }
     
     .testimony-slider:before {
         height: 28px;
         width: 28px;
-        left: 6px;
-        bottom: 3px;
     }
     
     .testimony-switch input:checked + .testimony-slider:before {
-        transform: translateX(50px);
+        transform: translateX(47px);
     }
     
     .slider-text {
         font-size: 7px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimony-toggle-container {
+        padding: 10px 15px;
+        margin: 10px auto 0;
+        gap: 8px;
+        max-width: 95%;
+    }
+    
+    .testimony-icon {
+        font-size: 24px;
+    }
+    
+    .testimony-text {
+        font-size: 9px;
+        letter-spacing: 0.5px;
+    }
+    
+    .testimony-subtext {
+        font-size: 6px;
+    }
+    
+    .testimony-switch {
+        width: 75px;
+        height: 34px;
+    }
+    
+    .testimony-slider:before {
+        height: 24px;
+        width: 24px;
+        left: 5px;
+        bottom: 3px;
+    }
+    
+    .testimony-switch input:checked + .testimony-slider:before {
+        transform: translateX(41px);
+    }
+    
+    .slider-text {
+        font-size: 6px;
     }
 }
 
@@ -459,70 +464,136 @@
     box-shadow: 0 8px 25px rgba(229, 62, 62, 0.8);
 }
 
-/* Responsive Design */
+/* Responsive Design - MUCH SMALLER */
 @media (max-width: 768px) {
+    .testimony-container {
+        padding: 100px 15px 80px;
+    }
+    
+    .testimony-header {
+        margin-bottom: 60px;
+    }
+    
     .testimony-header h1 {
-        font-size: 28px;
-    }
-    
-    .testimony-header p {
-        font-size: 12px;
-    }
-    
-    .story-item {
-        flex-direction: column !important;
-        gap: 20px;
-        margin-bottom: 100px;
-    }
-    
-    .story-icon {
-        font-size: 80px;
-        flex: 0 0 auto;
-    }
-    
-    .story-text p {
-        font-size: 14px;
-    }
-    
-    .glowing-cross {
-        font-size: 120px;
-    }
-    
-    .salvation-message {
-        font-size: 16px;
-        padding: 0 20px;
-    }
-    
-    .exit-testimony-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-        top: 80px;
-        right: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .testimony-header h1 {
-        font-size: 20px;
+        font-size: 22px;
+        line-height: 1.3;
     }
     
     .testimony-header p {
         font-size: 10px;
     }
     
+    .testimony-story {
+        padding: 20px 10px;
+    }
+    
+    .story-item {
+        flex-direction: column !important;
+        gap: 15px;
+        margin-bottom: 60px;
+    }
+    
+    .story-icon {
+        font-size: 60px;
+        flex: 0 0 auto;
+    }
+    
+    .story-text {
+        padding: 20px;
+    }
+    
     .story-text p {
-        font-size: 12px;
+        font-size: 11px;
+        line-height: 1.6;
+    }
+    
+    .salvation-finale {
+        padding: 60px 15px;
+        margin-top: 60px;
     }
     
     .glowing-cross {
         font-size: 100px;
+        margin-bottom: 30px;
     }
     
     .salvation-message {
-        font-size: 12px;
+        font-size: 13px;
         padding: 0 15px;
         line-height: 1.6;
+    }
+    
+    .exit-testimony-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+        top: 75px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimony-container {
+        padding: 90px 10px 60px;
+    }
+    
+    .testimony-header {
+        margin-bottom: 40px;
+    }
+    
+    .testimony-header h1 {
+        font-size: 16px;
+        line-height: 1.3;
+    }
+    
+    .testimony-header p {
+        font-size: 8px;
+    }
+    
+    .testimony-story {
+        padding: 15px 5px;
+    }
+    
+    .story-item {
+        gap: 12px;
+        margin-bottom: 40px;
+    }
+    
+    .story-icon {
+        font-size: 50px;
+    }
+    
+    .story-text {
+        padding: 15px;
+    }
+    
+    .story-text p {
+        font-size: 9px;
+        line-height: 1.5;
+    }
+    
+    .salvation-finale {
+        padding: 40px 10px;
+        margin-top: 40px;
+    }
+    
+    .glowing-cross {
+        font-size: 80px;
+        margin-bottom: 20px;
+    }
+    
+    .salvation-message {
+        font-size: 10px;
+        padding: 0 10px;
+        line-height: 1.5;
+    }
+    
+    .exit-testimony-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        top: 70px;
+        right: 10px;
     }
 }
 
