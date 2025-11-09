@@ -464,26 +464,44 @@
 }
 
 @media (max-width: 480px) {
+    .video-stats-gamepad {
+        padding: 15px;
+        margin-top: 20px;
+    }
+    
+    .stats-gamepad-header h3 {
+        font-size: 12px;
+    }
+    
+    .stats-gamepad-header p {
+        font-size: 7px;
+    }
+    
     .gamepad-controller {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr);
-        gap: 15px;
-        max-width: 300px;
+        gap: 12px;
+        max-width: 100%;
+        padding: 0 10px;
     }
     
     .gamepad-stat-button {
-        width: 95px;
-        height: 95px;
-        padding: 6px;
+        width: 100%;
+        max-width: 140px;
+        height: 140px;
+        padding: 8px;
+        margin: 0 auto;
     }
     
     .stat-icon {
-        font-size: 20px;
+        font-size: 28px;
+        margin-bottom: 6px;
     }
     
     .stat-label {
-        font-size: 5px;
-        letter-spacing: 0.2px;
+        font-size: 6px;
+        letter-spacing: 0.3px;
+        line-height: 1.3;
     }
     
     .stat-mini-graph {
@@ -492,6 +510,40 @@
     
     .graph-bar {
         width: 30px;
+    }
+    
+    .stat-data-title {
+        font-size: 14px;
+    }
+    
+    .stat-number {
+        font-size: 32px;
+    }
+    
+    .stat-description {
+        font-size: 9px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .gamepad-controller {
+        gap: 10px;
+        padding: 0 5px;
+    }
+    
+    .gamepad-stat-button {
+        max-width: 120px;
+        height: 120px;
+        padding: 6px;
+    }
+    
+    .stat-icon {
+        font-size: 24px;
+    }
+    
+    .stat-label {
+        font-size: 5px;
     }
 }
 

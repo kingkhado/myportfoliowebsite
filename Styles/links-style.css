@@ -215,8 +215,12 @@
     flex-shrink: 0 !important;
 }
 
-/* Responsive design */
+/* Hide decorative elements on mobile for links page only */
 @media (max-width: 768px) {
+    body .flower-decoration {
+        display: none !important;
+    }
+    
     .links-container .social-links {
         gap: 10px !important;
     }
