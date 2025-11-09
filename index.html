@@ -201,7 +201,7 @@
             <div class="video-container">
                 <iframe 
                     id="mainVideo"
-                    src="https://www.youtube.com/embed/LEMjHJ8L5WU?autoplay=1&mute=1&loop=1&playlist=LEMjHJ8L5WU" 
+                    src="https://www.youtube.com/embed/LEMjHJ8L5WU?autoplay=1&mute=1&loop=1&playlist=LEMjHJ8L5WU&enablejsapi=1" 
                     title="Latest Animation by Makhado Khashane"
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -449,7 +449,7 @@
         // Video Playlist Functionality with YouTube IFrame API
         let isMuted = true;
         let player = null;
-        const mainVideo = document.getElementById('mainVideo');
+        let playerReady = false;
         const muteToggle = document.getElementById('muteToggle');
         const playlistItems = document.querySelectorAll('.playlist-item');
         const videoTitle = document.querySelector('.video-title');
@@ -464,30 +464,56 @@
         window.onYouTubeIframeAPIReady = function() {
             player = new YT.Player('mainVideo', {
                 events: {
-                    'onReady': onPlayerReady
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
                 }
             });
         };
         
         function onPlayerReady(event) {
-            // Player is ready
-            console.log('YouTube player ready');
+            playerReady = true;
+            console.log('YouTube player ready - mute button is now functional');
+            // Enable the button
+            muteToggle.disabled = false;
+            muteToggle.style.opacity = '1';
+            muteToggle.style.cursor = 'pointer';
+        }
+        
+        function onPlayerStateChange(event) {
+            // Optional: handle player state changes
         }
         
         // Mute/Unmute toggle - WITHOUT restarting video
         muteToggle.addEventListener('click', function() {
-            if (player && player.isMuted !== undefined) {
+            if (!playerReady || !player) {
+                console.log('Player not ready yet, please wait...');
+                muteToggle.textContent = '⏳ Loading...';
+                setTimeout(() => {
+                    muteToggle.textContent = '🔊 Sound';
+                }, 1000);
+                return;
+            }
+            
+            try {
                 if (isMuted) {
                     player.unMute();
                     muteToggle.textContent = '🔇 Mute';
                     muteToggle.setAttribute('aria-label', 'Mute video');
                     isMuted = false;
+                    console.log('Video unmuted');
                 } else {
                     player.mute();
                     muteToggle.textContent = '🔊 Sound';
                     muteToggle.setAttribute('aria-label', 'Unmute video');
                     isMuted = true;
+                    console.log('Video muted');
                 }
+            } catch (error) {
+                console.error('Error toggling mute:', error);
+                muteToggle.textContent = '❌ Error';
+                setTimeout(() => {
+                    muteToggle.textContent = isMuted ? '🔊 Sound' : '🔇 Mute';
+                }, 1500);
             }
         });
         
@@ -504,13 +530,36 @@
                 const videoId = this.getAttribute('data-video-id');
                 const title = this.getAttribute('data-title');
                 
-                // Update video
-                const muteParam = isMuted ? 'mute=1' : 'mute=0';
-                mainVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&${muteParam}&loop=1&playlist=${videoId}`;
+                // Update video title
                 videoTitle.textContent = title;
                 
+                // Load new video using YouTube API if available
+                if (playerReady && player && player.loadVideoById) {
+                    try {
+                        player.loadVideoById({
+                            videoId: videoId,
+                            startSeconds: 0
+                        });
+                        // Maintain mute state
+                        if (isMuted) {
+                            player.mute();
+                        } else {
+                            player.unMute();
+                        }
+                    } catch (error) {
+                        console.error('Error loading video:', error);
+                        // Fallback to iframe src change
+                        const muteParam = isMuted ? 'mute=1' : 'mute=0';
+                        document.getElementById('mainVideo').src = `https://www.youtube.com/embed/${videoId}?autoplay=1&${muteParam}&loop=1&playlist=${videoId}&enablejsapi=1`;
+                    }
+                } else {
+                    // Fallback if API not ready
+                    const muteParam = isMuted ? 'mute=1' : 'mute=0';
+                    document.getElementById('mainVideo').src = `https://www.youtube.com/embed/${videoId}?autoplay=1&${muteParam}&loop=1&playlist=${videoId}&enablejsapi=1`;
+                }
+                
                 // Scroll to video
-                mainVideo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                document.getElementById('mainVideo').scrollIntoView({ behavior: 'smooth', block: 'center' });
             });
         });
         
