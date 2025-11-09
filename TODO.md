@@ -39,6 +39,13 @@
 - [ ] Embed games directly on the page where possible (games are Unity .exe files, not web-embeddable)
 - [ ] Add iframe embeds for itch.io games (not possible - Unity desktop games)
 - [x] Ensure all games link to itch.io properly
+- [x] **ADD ROTATE PHONE PROMPT FOR MOBILE PLAYERS** ✅ COMPLETED
+  - [x] Created Scripts/rotate-phone-prompt.js (mobile detection & orientation handling)
+  - [x] Created Styles/rotate-phone-prompt.css (full-screen overlay with animation)
+  - [x] Updated games/WEB GL GAMES/index.html
+  - [x] Updated games/WEB GL GAMES/CHUSHIN/index.html
+  - [x] Updated games/WEB GL GAMES/Thatha tribe/index.html
+  - [x] Created ROTATE_PHONE_FEATURE.md documentation
 
 ### 5. ✅ LAYOUT IMPROVEMENTS (MEDIUM PRIORITY)
 - [ ] Improve overall page layout structure
@@ -54,7 +61,9 @@
 - [ ] Create more dynamic visual elements
 - [ ] Enhance the overall aesthetic appeal
 
-## Completed Changes (Session 1)
+## Completed Changes
+
+### Session 1 - Navigation & Video Improvements
 ✅ **ollieloko-style.css** - Updated with:
 - Enlarged gamepad controller (300px × 180px, buttons 60px)
 - Increased all font sizes (16px base, 48px titles, 14px subtitles)
@@ -72,6 +81,40 @@
 - Click-to-switch video functionality
 - Dynamic video title updates
 - Smooth scroll to video on playlist selection
+
+### Session 2 - Mobile Rotate Phone Prompt
+✅ **Scripts/rotate-phone-prompt.js** - Created with:
+- Mobile device detection (iPhone, iPad, iPod, Android)
+- Portrait/landscape orientation detection
+- Multiple detection methods for maximum compatibility
+- Event listeners for orientation changes
+- Automatic show/hide of prompt overlay
+- Dynamic HTML injection for prompt
+
+✅ **Styles/rotate-phone-prompt.css** - Created with:
+- Full-screen overlay (z-index: 99999)
+- Semi-transparent black background (95% opacity)
+- Animated phone rotation icon
+- Responsive text sizing
+- Fade-in animation
+- Rotation animation (2s loop)
+- Mobile-specific media queries
+
+✅ **Game HTML Files** - Updated all 3 Unity WebGL games:
+- games/WEB GL GAMES/index.html (WSOA2024 Physics)
+- games/WEB GL GAMES/CHUSHIN/index.html (Chushin)
+- games/WEB GL GAMES/Thatha tribe/index.html (Thatha tribe)
+- Added CSS link in <head>
+- Added JS script before </body>
+
+✅ **ROTATE_PHONE_FEATURE.md** - Created comprehensive documentation:
+- Feature overview and implementation details
+- How it works (detection logic, event listeners)
+- User experience description
+- Browser compatibility notes
+- Customization options
+- Testing instructions
+- Performance and accessibility notes
 
 ## Next Steps
 1. Add top navigation bar to all pages (optional enhancement)
