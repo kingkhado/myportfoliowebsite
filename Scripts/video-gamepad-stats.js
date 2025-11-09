@@ -69,12 +69,12 @@ class VideoGamepadStats {
                 if (dataContent) {
                     dataContent.classList.remove('show');
                     setTimeout(() => {
-                        dataContent.innerHTML = `
-                            <div class="stats-inactive-message">
-                                <span class="icon">🎮</span>
-                                <p>Select a stat button above to view data</p>
-                            </div>
-                        `;
+                dataContent.innerHTML = `
+                <div class="stats-inactive-message">
+                    <span class="icon"><img src="./THE COOLEST IMAGES/logos/controller.png" alt="Controller" style="width: 60px; height: 60px; object-fit: contain;"></span>
+                    <p>Select a stat button above to view data</p>
+                </div>
+            `;
                     }, 300);
                 }
                 
@@ -294,7 +294,7 @@ class VideoGamepadStats {
             const dataContent = document.querySelector('.stat-data-content');
             dataContent.innerHTML = `
                 <div class="stats-inactive-message">
-                    <span class="icon">⚠️</span>
+                    <span class="icon"><img src="./THE COOLEST IMAGES/logos/guide.png" alt="Warning" style="width: 60px; height: 60px; object-fit: contain;"></span>
                     <p>Data not available for this video</p>
                     <p style="font-size: 8px; margin-top: 10px;">Please check your API key or try again later</p>
                 </div>
@@ -308,42 +308,42 @@ class VideoGamepadStats {
         // Define stat configurations
         const statConfig = {
             views: {
-                icon: '🎮',
+                icon: '<img src="./THE COOLEST IMAGES/logos/video.png" alt="Views" style="width: 60px; height: 60px; object-fit: contain;">',
                 title: 'VIEWS',
                 color: '#4169e1',
                 description: 'Total video views from YouTube',
                 suffix: ''
             },
             likes: {
-                icon: '👍',
+                icon: '<img src="./THE COOLEST IMAGES/logos/HEART.png" alt="Likes" style="width: 60px; height: 60px; object-fit: contain;">',
                 title: 'LIKES',
                 color: '#ff1744',
                 description: 'Audience appreciation and approval',
                 suffix: ''
             },
             comments: {
-                icon: '💬',
+                icon: '<img src="./THE COOLEST IMAGES/logos/comments.png" alt="Comments" style="width: 60px; height: 60px; object-fit: contain;">',
                 title: 'COMMENTS',
                 color: '#32cd32',
                 description: 'Engagement through comments and discussions',
                 suffix: ''
             },
             impressions: {
-                icon: '👁️',
+                icon: '<img src="./THE COOLEST IMAGES/logos/impressions.png" alt="Impressions" style="width: 60px; height: 60px; object-fit: contain;">',
                 title: 'IMPRESSIONS',
                 color: '#ffd700',
                 description: 'Estimated impressions (views × 3)',
                 suffix: ''
             },
             engagement: {
-                icon: '📈',
+                icon: '<img src="./THE COOLEST IMAGES/logos/engagement.png" alt="Engagement" style="width: 60px; height: 60px; object-fit: contain;">',
                 title: 'ENGAGEMENT RATE',
                 color: '#ff9800',
                 description: 'Combined engagement: (Likes + Comments) / Views × 100',
                 suffix: '%'
             },
             likeRatio: {
-                icon: '💯',
+                icon: '<img src="./THE COOLEST IMAGES/logos/ratio.png" alt="Like Ratio" style="width: 60px; height: 60px; object-fit: contain;">',
                 title: 'LIKE RATIO',
                 color: '#9c27b0',
                 description: 'Percentage of viewers who liked: Likes / Views × 100',

@@ -49,8 +49,8 @@
     background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
     border: 3px solid;
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,6 +60,7 @@
     position: relative;
     font-family: 'Press Start 2P', cursive;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    padding: 10px;
 }
 
 .gamepad-stat-button:hover {
@@ -148,11 +149,14 @@
 
 /* Button Label */
 .stat-label {
-    font-size: 8px;
+    font-size: 7px;
     color: #fff;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     text-align: center;
+    line-height: 1.2;
+    max-width: 100%;
+    word-wrap: break-word;
 }
 
 /* Tooltip */
@@ -432,8 +436,9 @@
     }
     
     .gamepad-stat-button {
-        width: 90px;
-        height: 90px;
+        width: 110px;
+        height: 110px;
+        padding: 8px;
     }
     
     .stat-icon {
@@ -441,7 +446,8 @@
     }
     
     .stat-label {
-        font-size: 7px;
+        font-size: 6px;
+        letter-spacing: 0.3px;
     }
     
     .stat-data-title {
@@ -466,8 +472,9 @@
     }
     
     .gamepad-stat-button {
-        width: 80px;
-        height: 80px;
+        width: 95px;
+        height: 95px;
+        padding: 6px;
     }
     
     .stat-icon {
@@ -475,7 +482,8 @@
     }
     
     .stat-label {
-        font-size: 6px;
+        font-size: 5px;
+        letter-spacing: 0.2px;
     }
     
     .stat-mini-graph {
