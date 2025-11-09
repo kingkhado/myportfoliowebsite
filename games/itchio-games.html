@@ -65,35 +65,40 @@
             <p>Indie games created IN 2023</p>
             <div class="comic-bubble">
                 <p style="color: #000; font-size: 12px;">Check out these retro games I made! They're available on itch.io 🎮</p>
-                <p style="color: #ff6600; font-size: 12px; font-weight: bold; margin-top: 5px;">⚠️ THESE GAMES ARE UNITY.EXES AND ARE ONLY AVAILABLE ON DESKTOP</p>
+                <p style="color: #000; font-size: 12px; font-weight: bold; margin-top: 5px;">ℹ️ <span style="color: #32cd32;">ALL GAMES ARE NOW WEBGL AND PLAYABLE IN YOUR BROWSER!</span> For the best experience, I recommend playing on desktop.</p>
             </div>
         </header>
 
         <!-- Games displayed immediately -->
         <div class="games-grid" id="manual-games">
-            <!-- Twin Stick Shooter - LOCAL DOWNLOAD -->
-            <div class="game-card">
+            <!-- Chushin - WEBGL (PLAYABLE ON SITE!) -->
+            <div class="game-card webgl-game">
                 <div class="game-cover">
-                    <img src="../THE COOLEST IMAGES/ITCH.IO/first person shooter game .png" alt="Twin Stick Shooter" class="pixel-border">
+                    <img src="./WEB GL GAMES/CHUSHIN/WhatsApp Image 2025-11-09 at 17.03.45_7039721e.jpg" alt="Chushin - Japanese Abstract Strategy Game" class="pixel-border">
                 </div>
                 <div class="game-info">
-                    <h3>TWIN STICK SHOOTER</h3>
-                    <p>Action-packed shooter game with intense combat and strategic gameplay</p>
-                    <a href="./TESTING_WSOA2024 - 2021 - Twin Stick Shooter Framework.exe" download class="play-button">DOWNLOAD & PLAY</a>
-                    <p style="font-size: 8px; color: #ffd700; margin-top: 8px;">⬇️ CLICK TO DOWNLOAD - WINDOWS ONLY</p>
+                    <h3>CHŪSHIN</h3>
+                    <p>A two-player abstract strategy game on a 7x7 grid. Control the board with stones and move your Token to the centre!</p>
+                    <button onclick="openChushinGame()" class="play-button">🎮 PLAY NOW (WEBGL)</button>
+                    <p style="font-size: 8px; color: #32cd32; margin-top: 8px;">✨ PLAYABLE IN BROWSER!</p>
+
+            <p>&copy; 2025 MAKHADO KHASHANE. All rights reserved.</p>
+=======
                 </div>
             </div>
 
-            <!-- Thata Tribe - LOCAL DOWNLOAD -->
-            <div class="game-card">
+            <p>&copy; 2025 MAKHADO KHASHANE. All rights reserved.</p>
+
+            <!-- Thata Tribe - WEBGL (PLAYABLE ON SITE!) -->
+            <div class="game-card webgl-game">
                 <div class="game-cover">
                     <img src="../THE COOLEST IMAGES/ITCH.IO/AFRICAN PIXEL MA.png" alt="Thata Tribe Game" class="pixel-border">
                 </div>
                 <div class="game-info">
                     <h3>THATA TRIBE</h3>
                     <p>An immersive tribal warfare game exploring ancient African cultures and strategic combat</p>
-                    <a href="./Thata tribe the secons.exe" download class="play-button">DOWNLOAD & PLAY</a>
-                    <p style="font-size: 8px; color: #ffd700; margin-top: 8px;">⬇️ CLICK TO DOWNLOAD - WINDOWS ONLY</p>
+                    <button onclick="openThathaTribeGame()" class="play-button">🎮 PLAY NOW (WEBGL)</button>
+                    <p style="font-size: 8px; color: #32cd32; margin-top: 8px;">✨ PLAYABLE IN BROWSER!</p>
                 </div>
             </div>
 
@@ -109,9 +114,11 @@
                     <p style="font-size: 8px; color: #32cd32; margin-top: 8px;">✨ PLAYABLE IN BROWSER!</p>
                 </div>
             </div>
+        </div>
 
-            <!-- Itch.io Profile -->
-            <div class="game-card featured">
+        <footer class="site-footer" role="contentinfo">
+            <!-- Itch.io Profile Card in Footer -->
+            <div class="game-card featured" style="max-width: 400px; margin: 0 auto 30px auto;">
                 <div class="game-cover">
                     <img src="../THE COOLEST IMAGES/ITCH.IO/OIP.webp" alt="Visit My Itch.io Profile" class="pixel-border">
                 </div>
@@ -121,10 +128,8 @@
                     <a href="https://kingkhado.itch.io/" class="play-button">VISIT PROFILE</a>
                 </div>
             </div>
-        </div>
 =======
 
-        <footer class="site-footer" role="contentinfo">
             <p>&copy; 2025 MAKHADO KHASHANE. All rights reserved.</p>
             <p style="color: #e74c3c; font-weight: bold; margin-top: 10px;" aria-label="Christian message of love">JESUS LOVES YOU ❤️</p>
         </footer>
@@ -162,8 +167,23 @@
             }
         }
 
-        // WebGL Game Modal
+        // WebGL Game Modal - Ice Hockey
         function openWebGLGame() {
+            createGameModal('./WEB GL GAMES/index.html', 'ICE HOCKEY PHYSICS GAME');
+        }
+        
+        // WebGL Game Modal - Thatha Tribe
+        function openThathaTribeGame() {
+            createGameModal('./WEB GL GAMES/Thatha tribe/Build/index.html', 'THATHA TRIBE');
+        }
+        
+        // WebGL Game Modal - Chushin
+        function openChushinGame() {
+            createGameModal('./WEB GL GAMES/CHUSHIN/index.html', 'CHŪSHIN');
+        }
+        
+        // Reusable function to create game modal
+        function createGameModal(gamePath, gameTitle) {
             // Create modal overlay
             const modal = document.createElement('div');
             modal.id = 'webgl-modal';
@@ -199,12 +219,21 @@
                 cursor: pointer;
                 z-index: 10001;
                 box-shadow: 0 4px 15px rgba(220, 20, 60, 0.5);
+                transition: all 0.3s ease;
             `;
+            closeBtn.onmouseover = () => {
+                closeBtn.style.background = '#ff1744';
+                closeBtn.style.transform = 'scale(1.05)';
+            };
+            closeBtn.onmouseout = () => {
+                closeBtn.style.background = '#dc143c';
+                closeBtn.style.transform = 'scale(1)';
+            };
             closeBtn.onclick = () => document.body.removeChild(modal);
             
             // Create iframe for WebGL game
             const iframe = document.createElement('iframe');
-            iframe.src = './WEB GL GAMES/index.html';
+            iframe.src = gamePath;
             iframe.style.cssText = `
                 width: 100%;
                 max-width: 1000px;
@@ -216,7 +245,7 @@
             
             // Create game title
             const title = document.createElement('h2');
-            title.textContent = 'ICE HOCKEY PHYSICS GAME';
+            title.textContent = gameTitle;
             title.style.cssText = `
                 color: #4a90e2;
                 font-family: 'Press Start 2P', cursive;
