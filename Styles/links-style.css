@@ -70,7 +70,8 @@
     overflow: visible;
 }
 
-.link-card::before {
+/* DISABLED - Blue translucent rectangle hover effect */
+/* .link-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -83,7 +84,7 @@
 
 .link-card:hover::before {
     left: 100%;
-}
+} */
 
 .link-card:hover {
     transform: translateY(-5px);
