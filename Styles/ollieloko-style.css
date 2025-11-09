@@ -50,6 +50,34 @@ html, body {
     border-radius: 50%;
 }
 
+/* Controller decorations for games page */
+body:has(.games-container) .flower-decoration,
+body:has(.itchio-games-container) .flower-decoration {
+    width: 80px;
+    height: 80px;
+    opacity: 0.7;
+    background-image: url('../THE COOLEST IMAGES/logos/controller.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    filter: drop-shadow(0 4px 8px rgba(74, 144, 226, 0.5));
+}
+
+body:has(.games-container) .flower-decoration::before,
+body:has(.games-container) .flower-decoration::after,
+body:has(.itchio-games-container) .flower-decoration::before,
+body:has(.itchio-games-container) .flower-decoration::after {
+    content: none;
+}
+
+body:has(.games-container) .flower-decoration:hover,
+body:has(.itchio-games-container) .flower-decoration:hover {
+    opacity: 1;
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 6px 12px rgba(74, 144, 226, 0.8));
+}
+
 /* Heart and Cross decorations for links page - COMPLETELY STATIC */
 body:has(.links-container) .flower-decoration {
     width: 80px;
@@ -419,6 +447,12 @@ body:has(.links-container) .flower-decoration.flower-6:hover {
 
 .flower-decoration:nth-child(even) {
     animation-delay: 2s;
+}
+
+/* Contact Me social link styling */
+.social-link.contact:hover {
+    border-color: #32cd32;
+    box-shadow: 0 12px 30px rgba(50, 205, 50, 0.4);
 }
 
 /* Scroll to top button */
