@@ -202,8 +202,24 @@
     color: #666;
 }
 
+/* Ensure social links stay in a row of 4 on links page */
+.links-container .social-links {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    gap: 15px !important;
+}
+
+.links-container .social-link {
+    flex-shrink: 0 !important;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
+    .links-container .social-links {
+        gap: 10px !important;
+    }
     .links-container {
         padding: 60px 15px 30px;
     }
@@ -236,6 +252,10 @@
 }
 
 @media (max-width: 480px) {
+    .links-container .social-links {
+        gap: 6px !important;
+    }
+    
     .back-home {
         font-size: 10px;
         padding: 8px 15px;

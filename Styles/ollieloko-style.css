@@ -88,6 +88,8 @@ body:has(.links-container) .flower-decoration {
     background-position: center;
     border: none;
     animation: none !important; /* Remove ALL animations including float */
+    z-index: 0 !important; /* Keep behind content */
+    pointer-events: none; /* Don't block clicks */
 }
 
 body:has(.links-container) .flower-decoration::before,
