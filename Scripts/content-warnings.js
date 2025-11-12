@@ -55,6 +55,20 @@ class ContentWarningManager {
                         <p class="warning-message">This content may contain material that some viewers might find inappropriate or disturbing.</p>
                     </div>
                     <div class="warning-actions">
+                        <button class="warning-btn cancel-btn" onclick="window.contentWarningManager.closeModal()">
+                            <span class="btn-text">CANCEL</span>
+                        </button>
+                        <button class="warning-btn proceed-btn" onclick="window.contentWarningManager.proceedToContent()">
+                            <span class="btn-text">PROCEED</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Insert modal into body
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+    }
 
     addWarningBadges() {
         const listItems = document.querySelectorAll('.list-item');
