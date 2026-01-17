@@ -3,7 +3,7 @@
 // Never commit real API keys to version control
 
 const CONFIG = {
-    YOUTUBE_API_KEY: 'YOUR_YOUTUBE_API_KEY_HERE', // Replace with your actual API key
+    YOUTUBE_API_KEY: 'AIzaSyCXS8p8fljdNF9kEuH-0Zv985hcrpi4r1s', // Your YouTube API key
     // Add other configuration options here as needed
 };
 
