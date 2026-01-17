@@ -10,7 +10,8 @@ class VideoGamepadStats {
         
         // YouTube Data API v3 Key
         // API key configured for fetching real YouTube statistics
-        this.apiKey = 'AIzaSyAu_qhdH6fZqkXwD-Rw-tJ3-2veTzajbD0';
+        // Load from config file for security
+        this.apiKey = (window.CONFIG && window.CONFIG.YOUTUBE_API_KEY) ? window.CONFIG.YOUTUBE_API_KEY : 'YOUR_YOUTUBE_API_KEY_HERE';
         
         // API endpoint
         this.apiEndpoint = 'https://www.googleapis.com/youtube/v3/videos';

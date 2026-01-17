@@ -211,29 +211,41 @@ function displayItem(type, src, title, description, year) {
         } else if (type === 'youtube') {
             // Show YouTube video with after-christ styling
             displayContainer.innerHTML = `
-                <div class="youtube-container after-christ-youtube" style="position: relative; width: 100%; height: 100%; border-radius: 15px; overflow: hidden; border: 2px solid #ffd700; box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);">
-                    <iframe 
-                        width="100%" 
-                        height="100%" 
-                        src="${src}?autoplay=1&mute=1&loop=1&playlist=${src.split('/').pop()}" 
-                        title="${title}" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                <div class="youtube-container after-christ-youtube" style="position: relative; width: 100%; height: 100%; border-radius: 15px; overflow: hidden; border: 2px solid #ffd700; box-shadow: 0 0 30px rgba(255, 215, 0, 0.5); opacity: 0; transition: opacity 0.5s ease;">
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        src="${src}?autoplay=1&mute=1&loop=1&playlist=${src.split('/').pop()}"
+                        title="${title}"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen
                         style="border-radius: 13px;">
                     </iframe>
                     <div class="youtube-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), transparent);"></div>
                 </div>
             `;
-        }
-        
-        // Add fade-in animation for non-PDF content
-        if (type !== 'pdf') {
-            const activeElement = type === 'video' ? newMainVideo : newMainImage;
-            activeElement.style.opacity = '0';
-            activeElement.style.transition = 'opacity 0.5s ease';
+            // Add fade-in animation for YouTube
             setTimeout(() => {
-                activeElement.style.opacity = '1';
+                const youtubeContainer = displayContainer.querySelector('.youtube-container');
+                if (youtubeContainer) {
+                    youtubeContainer.style.opacity = '1';
+                }
+            }, 100);
+        }
+
+        // Add fade-in animation for video and image content
+        if (type === 'video') {
+            newMainVideo.style.opacity = '0';
+            newMainVideo.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                newMainVideo.style.opacity = '1';
+            }, 100);
+        } else if (type === 'image') {
+            newMainImage.style.opacity = '0';
+            newMainImage.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                newMainImage.style.opacity = '1';
             }, 100);
         }
         
