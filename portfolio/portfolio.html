@@ -59,12 +59,27 @@
             <!-- Category Switcher -->
             <div class="category-switcher">
                 <button class="nav-arrow left-arrow" onclick="switchCategory(-1)">‹</button>
-                
+
                 <div class="category-buttons">
                     <button class="category-btn active" data-category="before-christ">BEFORE CHRIST</button>
                     <button class="category-btn" data-category="after-christ">AFTER CHRIST</button>
+
+                    <!-- University Dropdown -->
+                    <div class="university-dropdown">
+                        <button class="category-btn university-btn" data-category="university-work">
+                            UNIVERSITY WORK ▼
+                        </button>
+                        <div class="university-submenu">
+                            <button class="submenu-item" data-subcategory="blender-projects">BLENDER PROJECTS</button>
+                            <button class="submenu-item" data-subcategory="unity-projects">UNITY PROJECTS</button>
+                            <button class="submenu-item" data-subcategory="2d-games">2D GAMES</button>
+                            <button class="submenu-item" data-subcategory="web-development">WEB DEVELOPMENT</button>
+                            <button class="submenu-item" data-subcategory="character-design">CHARACTER DESIGN</button>
+                            <button class="submenu-item" data-subcategory="all-university">VIEW ALL</button>
+                        </div>
+                    </div>
                 </div>
-                
+
                 <button class="nav-arrow right-arrow" onclick="switchCategory(1)">›</button>
             </div>
             
@@ -78,6 +93,10 @@
         <div class="portfolio-content">
             <!-- Left Side - Main Display -->
             <div class="main-display">
+                <!-- Navigation Arrows -->
+                <button class="work-nav-arrow work-nav-left" onclick="navigateWork(-1)" aria-label="Previous work">‹</button>
+                <button class="work-nav-arrow work-nav-right" onclick="navigateWork(1)" aria-label="Next work">›</button>
+
                 <div id="selected-item-display">
                     <div id="default-display" class="default-content">
                         <h2>Select an Artwork to view</h2>
@@ -89,7 +108,7 @@
                     </video>
                     <img id="main-image" src="" alt="Selected artwork" style="width: 100%; height: 100%; object-fit: contain; border-radius: 15px; display: none;">
                 </div>
-                
+
                 <div class="item-info">
                     <h3 id="item-title">Welcome to My Portfolio</h3>
                     <p id="item-description">Select any artwork from the right panel to view it in full detail.</p>
@@ -231,7 +250,15 @@
                         <span class="item-year">(2022)</span>
                         <span class="warning-badge">18+</span>
                     </div>
-                    
+
+
+
+                    <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/University projects/RPG Video Game Mock.jpg" data-title="RPG Video Game Mock" data-desc="University project: Concept art and mockup design for an RPG video game." data-year="2023">
+                        <span class="item-name">RPG Video Game Mock</span>
+                        <span class="item-year">(2023)</span>
+                        <span class="item-badge">RPG</span>
+                    </div>
+
                     <!-- Paintings -->
                     <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/PAINTING/HALU PAINTING.avif" data-title="Halu Painting" data-desc="Collage painting of abstract figures." data-year="2021">
                         <span class="item-name">Halu Painting</span>
@@ -322,6 +349,148 @@
                     <div class="list-item" data-type="image" data-src="../THE COOLEST IMAGES/ART (BE4 CHRIST)/GRAPHIC DESIGN/coolart/Youtube profile.png" data-title="YouTube Profile" data-desc="First iteration of my youtube profile image ." data-year="2024">
                         <span class="item-name">YouTube Profile</span>
                         <span class="item-year">(2024)</span>
+                    </div>
+                </div>
+
+                <!-- UNIVERSITY WORK Category -->
+                <div id="university-work-list" class="category-list">
+                    <!-- Blender Projects -->
+                    <div class="list-item" data-type="video" data-src="../University work/3D ANIMATIONS/bOUNCING WITH pERSONALITY.mp4" data-title="Ball with Tail – Animation Preview" data-desc="3D animation project featuring a bouncing ball character with personality. Blender file with rigged animation." data-year="2022">
+                        <span class="item-name">Ball with Tail – Animation Preview</span>
+                        <span class="item-year">(2022)</span>
+                        <span class="item-badge">BLENDER ANIMATION</span>
+                        <a href="../University work/3D ANIMATIONS/3D_Animations.zip" class="download-link" download>📁 Download ZIP</a>
+                    </div>
+
+                    <div class="list-item" data-type="video" data-src="../University work/3D ANIMATIONS/Final Silly fitness lunges.mp4" data-title="Silly Fitness Lunges – Animation Preview" data-desc="Humorous 3D animation of fitness exercises with exaggerated movements. Blender project with animation cycles." data-year="2023">
+                        <span class="item-name">Silly Fitness Lunges – Animation Preview</span>
+                        <span class="item-year">(2023)</span>
+                        <span class="item-badge">BLENDER ANIMATION</span>
+                        <a href="../University work/3D ANIMATIONS/3D_Animations.zip" class="download-link" download>📁 Download ZIP</a>
+                    </div>
+
+
+                    <div class="list-item" data-type="image" data-src="../University work/3D MODELLED ASSETS/3d TREASURE cHEST.png" data-title="Treasure Chest – 3D Model Preview" data-desc="Detailed 3D model of a treasure chest with opening mechanism. Complete with textures and materials." data-year="2023">
+                        <span class="item-name">Treasure Chest – 3D Model Preview</span>
+                        <span class="item-year">(2023)</span>
+                        <span class="item-badge">BLENDER MODEL</span>
+                        <a href="../University work/3D MODELLED ASSETS/3D_Models.zip" class="download-link" download>📁 Download ZIP</a>
+                    </div>
+
+                    <div class="list-item" data-type="image" data-src="../University work/3D MODELLED ASSETS/AK 47 3D MODEL.png" data-title="AK-47 – 3D Model Preview" data-desc="Detailed 3D model of an AK-47 assault rifle. High-poly model with accurate proportions and details." data-year="2023">
+                        <span class="item-name">AK-47 – 3D Model Preview</span>
+                        <span class="item-year">(2023)</span>
+                        <span class="item-badge">BLENDER MODEL</span>
+                        <a href="../University work/3D MODELLED ASSETS/3D_Models.zip" class="download-link" download>📁 Download ZIP</a>
+                    </div>
+
+                    <div class="list-item" data-type="image" data-src="../University work/3D MODELLED ASSETS/Blambo 3D rigged model.png" data-title="Blambo Character – 3D Model Preview" data-desc="Rigged 3D character model named Blambo. Complete with skeleton rig and animation-ready setup." data-year="2023">
+                        <span class="item-name">Blambo Character – 3D Model Preview</span>
+                        <span class="item-year">(2023)</span>
+                        <span class="item-badge">BLENDER MODEL</span>
+                        <a href="../University work/3D MODELLED ASSETS/3D_Models.zip" class="download-link" download>📁 Download ZIP</a>
+                    </div>
+
+                    <div class="list-item" data-type="image" data-src="../University work/3D MODELLED ASSETS/LOOTCRATE.png" data-title="Loot Crate – 3D Model Preview" data-desc="3D loot crate model for game environments. Modular design with destructible elements." data-year="2023">
+                        <span class="item-name">Loot Crate – 3D Model Preview</span>
+                        <span class="item-year">(2023)</span>
+                        <span class="item-badge">BLENDER MODEL</span>
+                        <a href="../University work/3D MODELLED ASSETS/3D_Models.zip" class="download-link" download>📁 Download ZIP</a>
+                    </div>
+
+                    <!-- Unity Projects -->
+                    <div class="list-item" data-type="image" data-src="../University work/3D GAMES/blambo.png" data-title="Blambo 3D Game – Preview" data-desc="Complete 3D game project featuring the Blambo character. Unity project with gameplay mechanics and environments." data-year="2023">
+                        <span class="item-name">Blambo 3D Game – Preview</span>
+                        <span class="item-year">(2023)</span>
+                        <span class="item-badge">UNITY GAME</span>
+                        <a href="../University work/3D GAMES/Blambo_3D_Game.zip" class="download-link" download>📁 Download ZIP</a>
+                    </div>
+
+                    <!-- 2D Game Projects -->
+                    <div class="list-item" data-type="image" data-src="../University work/2D GAMES/chushin playing.png" data-title="Chūshin – Gameplay" data-desc="In-game screenshot showing the Chūshin board game mechanics and strategic gameplay elements." data-year="2023">
+                        <span class="item-name">Chūshin – Gameplay</span>
+                        <span class="item-year">(2023)</span>
+                        <span class="item-badge">2D GAME</span>
+                        <a href="../University work/2D GAMES/Revised-Chushin-BoardGame.zip" class="download-link" download>📁 Download ZIP</a>
+                    </div>
+
+                    <div class="list-item" data-type="image" data-src="../University work/2D GAMES/game exam final.png" data-title="Game Exam Final – Preview" data-desc="Final 2D game project for university examination. Complete game with levels, characters, and interactive elements." data-year="2023">
+                        <span class="item-name">Game Exam Final – Preview</span>
+                        <span class="item-year">(2023)</span>
+                        <span class="item-badge">2D GAME</span>
+                        <a href="../University work/2D GAMES/game exam final.zip" class="download-link" download>📁 Download ZIP</a>
+                    </div>
+
+                    <div class="list-item" data-type="iframe" data-src="../games/WEB GL GAMES/Thatha tribe/index.html" data-title="Thatha Tribe – Play Now" data-desc="2D game project featuring tribal themes and adventure gameplay mechanics. Play directly in your browser!" data-year="2023">
+                        <span class="item-name">Thatha Tribe – Play Now</span>
+                        <span class="item-year">(2023)</span>
+                        <span class="item-badge">2D GAME</span>
+                        <a href="../games/WEB GL GAMES/Thatha tribe/index.html" target="_blank" class="download-link">🎮 Play Game</a>
+                    </div>
+
+                    <!-- Character Design Projects -->
+                    <div class="list-item" data-type="image" data-src="../University work/dRAWINGS/2549471_makhadokhashane_WSOA2023_ASSIGMENT01_BEAR TURNAROUND.jpg" data-title="Bear Character – Turnaround" data-desc="Complete character turnaround for a bear character design. Shows the character from multiple angles." data-year="2023">
+                        <span class="item-name">Bear Character – Turnaround</span>
+                        <span class="item-year">(2023)</span>
+                        <span class="item-badge">CHARACTER DESIGN</span>
+                    </div>
+
+                    <div class="list-item" data-type="image" data-src="../University work/dRAWINGS/2549471_makhadokhashane_WSOA2023_ASSIGMENT01_FLYING TURNAROUND.jpg" data-title="Flying Character – Turnaround" data-desc="Dynamic character turnaround showcasing flying poses and movement. Complete 360-degree view." data-year="2023">
+                        <span class="item-name">Flying Character – Turnaround</span>
+                        <span class="item-year">(2023)</span>
+                        <span class="item-badge">CHARACTER DESIGN</span>
+                    </div>
+
+                    <div class="list-item" data-type="image" data-src="../University work/dRAWINGS/2549471_makhadokhashane_WSOA2023_ASSIGMENT01_SHOOTER TURNAROUND.jpg" data-title="Shooter Character – Turnaround" data-desc="Action-oriented character design for a shooter game. Complete turnaround with weapon poses." data-year="2023">
+                        <span class="item-name">Shooter Character – Turnaround</span>
+                        <span class="item-year">(2023)</span>
+                        <span class="item-badge">CHARACTER DESIGN</span>
+                    </div>
+
+                    <div class="list-item" data-type="image" data-src="../University work/dRAWINGS/2549471_makhadokhashane_WSOA2023_Assignment02.jpg" data-title="Character Design – Assignment 02" data-desc="Advanced character design assignment featuring detailed character concepts and illustrations." data-year="2023">
+                        <span class="item-name">Character Design – Assignment 02</span>
+                        <span class="item-year">(2023)</span>
+                        <span class="item-badge">CHARACTER DESIGN</span>
+                    </div>
+
+                    <div class="list-item" data-type="image" data-src="../University work/dRAWINGS/2549471_makhadokhashane_WSOA2023_ASSIGMENT01_FLYING SCAMPS.jpg" data-title="Flying Character – Scamps" data-desc="Character development scamps showing flying poses and movement studies." data-year="2023">
+                        <span class="item-name">Flying Character – Scamps</span>
+                        <span class="item-year">(2023)</span>
+                        <span class="item-badge">CHARACTER DESIGN</span>
+                    </div>
+
+                    <div class="list-item" data-type="image" data-src="../University work/dRAWINGS/2549471_makhadokhashane_WSOA2023_ASSIGMENT01_JUMPING SCAMPS.jpg" data-title="Jumping Character – Scamps" data-desc="Dynamic character scamps exploring jumping and action poses." data-year="2023">
+                        <span class="item-name">Jumping Character – Scamps</span>
+                        <span class="item-year">(2023)</span>
+                        <span class="item-badge">CHARACTER DESIGN</span>
+                    </div>
+
+                    <div class="list-item" data-type="image" data-src="../University work/dRAWINGS/2549471_makhadokhashane_WSOA2023_ASSIGMENT01_wALKING SCAMPS.jpg" data-title="Walking Character – Scamps" data-desc="Character movement scamps showing walking cycle and poses." data-year="2023">
+                        <span class="item-name">Walking Character – Scamps</span>
+                        <span class="item-year">(2023)</span>
+                        <span class="item-badge">CHARACTER DESIGN</span>
+                    </div>
+
+                    <!-- Web Development Projects -->
+                    <div class="list-item" data-type="iframe" data-src="https://kingkhado.github.io/Malunda/" data-title="Malunda – Creative Construction Website" data-desc="Interactive creative construction website showcasing innovative design and multimedia storytelling. Features responsive layout and engaging user experience." data-year="2024">
+                        <span class="item-name">Malunda – Creative Construction</span>
+                        <span class="item-year">(2024)</span>
+                        <span class="item-badge">WEB DEVELOPMENT</span>
+                        <a href="https://kingkhado.github.io/Malunda/" target="_blank" class="download-link">🌐 Visit Site</a>
+                    </div>
+
+                    <div class="list-item" data-type="iframe" data-src="https://www.andaglobal.co.za/" data-title="ANDA Global – Corporate Website" data-desc="Professional corporate website for ANDA Global. Modern design with business solutions showcase and client portfolio." data-year="2024">
+                        <span class="item-name">ANDA Global – Corporate Website</span>
+                        <span class="item-year">(2024)</span>
+                        <span class="item-badge">WEB DEVELOPMENT</span>
+                        <a href="https://www.andaglobal.co.za/" target="_blank" class="download-link">🌐 Visit Site</a>
+                    </div>
+
+                    <div class="list-item" data-type="iframe" data-src="https://kingkhado.github.io/WSOA3029-iNTERACTIVE-MEDIA-B--COMMERICAL-WEBSITE/index.html" data-title="Interactive Media Commercial Website" data-desc="Commercial website project showcasing interactive media design principles. Features modern web technologies and user-centered design." data-year="2024">
+                        <span class="item-name">Interactive Media Commercial Site</span>
+                        <span class="item-year">(2024)</span>
+                        <span class="item-badge">WEB DEVELOPMENT</span>
+                        <a href="https://kingkhado.github.io/WSOA3029-iNTERACTIVE-MEDIA-B--COMMERICAL-WEBSITE/index.html" target="_blank" class="download-link">🌐 Visit Site</a>
                     </div>
                 </div>
             </div>

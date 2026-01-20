@@ -1,8 +1,8 @@
 // Portfolio Game-Style Switcher JavaScript
 
 let currentCategoryIndex = 0;
-const categories = ['before-christ', 'after-christ'];
-const categoryNames = ['BEFORE CHRIST', 'AFTER CHRIST'];
+const categories = ['before-christ', 'after-christ', 'university-work'];
+const categoryNames = ['BEFORE CHRIST', 'AFTER CHRIST', 'UNIVERSITY WORK'];
 
 // Initialize the portfolio when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -24,8 +24,8 @@ function initializePortfolio() {
 }
 
 function setupEventListeners() {
-    // Category button listeners
-    const categoryBtns = document.querySelectorAll('.category-btn');
+    // Category button listeners (excluding university dropdown)
+    const categoryBtns = document.querySelectorAll('.category-btn:not(.university-btn)');
     categoryBtns.forEach((btn, index) => {
         btn.addEventListener('click', function() {
             currentCategoryIndex = index;
@@ -33,6 +33,33 @@ function setupEventListeners() {
             showCategory(category);
             updateActiveButton(this);
         });
+    });
+
+    // University dropdown button
+    const universityBtn = document.querySelector('.university-btn');
+    if (universityBtn) {
+        universityBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleUniversityDropdown();
+        });
+    }
+
+    // University submenu items
+    const submenuItems = document.querySelectorAll('.submenu-item');
+    submenuItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const subcategory = this.getAttribute('data-subcategory');
+            showUniversitySubcategory(subcategory);
+            closeUniversityDropdown();
+        });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.university-dropdown')) {
+            closeUniversityDropdown();
+        }
     });
 
     // Keyboard navigation
@@ -232,6 +259,30 @@ function displayItem(type, src, title, description, year) {
                     youtubeContainer.style.opacity = '1';
                 }
             }, 100);
+        } else if (type === 'iframe') {
+            // Show live website in iframe with proper scaling
+            displayContainer.innerHTML = `
+                <div class="website-container" style="position: relative; width: 100%; height: 100%; border-radius: 15px; overflow: hidden; border: 2px solid #4a90e2; box-shadow: 0 0 30px rgba(74, 144, 226, 0.5); opacity: 0; transition: opacity 0.5s ease;">
+                    <div style="width: 100%; height: 100%; overflow: auto; border-radius: 13px; background: #fff;">
+                        <iframe
+                            width="1400"
+                            height="900"
+                            src="${src}"
+                            title="${title}"
+                            frameborder="0"
+                            style="border: none; transform: scale(0.7); transform-origin: 0 0; width: 142.857%; height: 142.857%;">
+                        </iframe>
+                    </div>
+                    <div class="website-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; background: linear-gradient(45deg, rgba(74, 144, 226, 0.05), transparent);"></div>
+                </div>
+            `;
+            // Add fade-in animation for website iframe
+            setTimeout(() => {
+                const websiteContainer = displayContainer.querySelector('.website-container');
+                if (websiteContainer) {
+                    websiteContainer.style.opacity = '1';
+                }
+            }, 100);
         }
 
         // Add fade-in animation for video and image content
@@ -307,7 +358,121 @@ function preloadMedia() {
 // Call preload after a short delay to not block initial page load
 setTimeout(preloadMedia, 2000);
 
+// Work navigation function for arrow buttons
+function navigateWork(direction) {
+    // Get all visible list items in the current category
+    const currentCategory = document.querySelector('.category-list.active');
+    if (!currentCategory) return;
+
+    const visibleItems = Array.from(currentCategory.querySelectorAll('.list-item'));
+    if (visibleItems.length === 0) return;
+
+    // Find currently selected item
+    let currentIndex = visibleItems.findIndex(item => item.classList.contains('selected'));
+
+    // If no item is selected, start from the first item
+    if (currentIndex === -1) {
+        currentIndex = 0;
+    }
+
+    // Calculate next index
+    let nextIndex = currentIndex + direction;
+
+    // Wrap around if we go beyond bounds
+    if (nextIndex < 0) {
+        nextIndex = visibleItems.length - 1;
+    } else if (nextIndex >= visibleItems.length) {
+        nextIndex = 0;
+    }
+
+    // Select the next item
+    const nextItem = visibleItems[nextIndex];
+    if (nextItem) {
+        selectItem(nextItem);
+    }
+}
+
+// University dropdown functions
+function toggleUniversityDropdown() {
+    const submenu = document.querySelector('.university-submenu');
+    if (submenu) {
+        submenu.classList.toggle('active');
+    }
+}
+
+function closeUniversityDropdown() {
+    const submenu = document.querySelector('.university-submenu');
+    if (submenu) {
+        submenu.classList.remove('active');
+    }
+}
+
+function showUniversitySubcategory(subcategory) {
+    // Show university category
+    showCategory('university-work');
+
+    // Update active button
+    const universityBtn = document.querySelector('.university-btn');
+    if (universityBtn) {
+        updateActiveButton(universityBtn);
+    }
+
+    // Filter items based on subcategory
+    const universityList = document.getElementById('university-work-list');
+    if (!universityList) return;
+
+    const allItems = universityList.querySelectorAll('.list-item');
+
+    if (subcategory === 'all-university') {
+        // Show all items
+        allItems.forEach(item => {
+            item.style.display = 'block';
+        });
+    } else {
+        // Hide all items first
+        allItems.forEach(item => {
+            item.style.display = 'none';
+        });
+
+        // Show items matching the subcategory by checking badge text
+        allItems.forEach(item => {
+            const badgeElement = item.querySelector('.item-badge');
+            const badgeText = badgeElement ? badgeElement.textContent.trim() : '';
+
+            let shouldShow = false;
+            switch (subcategory) {
+                case 'blender-projects':
+                    shouldShow = badgeText === 'BLENDER ANIMATION' || badgeText === 'BLENDER MODEL';
+                    break;
+                case 'unity-projects':
+                    shouldShow = badgeText === 'UNITY GAME';
+                    break;
+                case '2d-games':
+                    shouldShow = badgeText === '2D GAME';
+                    break;
+                case 'web-development':
+                    shouldShow = badgeText === 'WEB DEVELOPMENT';
+                    break;
+                case 'character-design':
+                    shouldShow = badgeText === 'CHARACTER DESIGN';
+                    break;
+            }
+
+            if (shouldShow) {
+                item.style.display = 'block';
+            }
+        });
+    }
+
+    // Clear main display
+    resetMainDisplay();
+}
+
 // Export functions for global access
 window.switchCategory = switchCategory;
 window.showCategory = showCategory;
 window.selectItem = selectItem;
+window.navigateWork = navigateWork;
+window.toggleUniversityDropdown = toggleUniversityDropdown;
+window.closeUniversityDropdown = closeUniversityDropdown;
+window.showUniversitySubcategory = showUniversitySubcategory;
