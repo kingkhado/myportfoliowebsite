@@ -128,6 +128,17 @@ function updateActiveButton(activeBtn) {
 }
 
 function selectItem(itemElement) {
+    // Get item data
+    const type = itemElement.getAttribute('data-type');
+    const src = itemElement.getAttribute('data-src');
+    const title = itemElement.getAttribute('data-title');
+    
+    // Handle external links (like games) - open in new window
+    if (type === 'external-link') {
+        window.open(src, '_blank');
+        return;
+    }
+    
     // Remove selected class from all items
     const allItems = document.querySelectorAll('.list-item');
     allItems.forEach(item => item.classList.remove('selected'));
@@ -135,10 +146,7 @@ function selectItem(itemElement) {
     // Add selected class to clicked item
     itemElement.classList.add('selected');
     
-    // Get item data
-    const type = itemElement.getAttribute('data-type');
-    const src = itemElement.getAttribute('data-src');
-    const title = itemElement.getAttribute('data-title');
+    // Get remaining item data
     const description = itemElement.getAttribute('data-desc');
     const year = itemElement.getAttribute('data-year');
     

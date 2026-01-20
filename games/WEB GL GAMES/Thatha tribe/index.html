@@ -7,6 +7,11 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="stylesheet" href="../../../Styles/rotate-phone-prompt.css">
+    <!-- Preload critical WebGL resources for faster loading -->
+    <link rel="preload" href="Build/Build/Build.loader.js" as="script">
+    <link rel="preload" href="Build/Build/Build.framework.js" as="script">
+    <link rel="preload" href="Build/Build/Build.data" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="Build/Build/Build.wasm" as="fetch" crossorigin="anonymous">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -57,12 +62,12 @@
         updateBannerVisibility();
       }
 
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Thatha tribe.loader.js";
+      var buildUrl = "Build/Build";
+      var loaderUrl = buildUrl + "/Build.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Thatha tribe.data.br",
-        frameworkUrl: buildUrl + "/Thatha tribe.framework.js.br",
-        codeUrl: buildUrl + "/Thatha tribe.wasm.br",
+        dataUrl: buildUrl + "/Build.data",
+        frameworkUrl: buildUrl + "/Build.framework.js",
+        codeUrl: buildUrl + "/Build.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Thata tribe the secons",
